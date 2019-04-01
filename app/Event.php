@@ -9,4 +9,8 @@ class Event extends Model
     public function student(){
         return $this->belongsTo('App\Student');
     }
+
+    public function document(){
+        return $this->belongsTo('App\Document');
+    }
 }
