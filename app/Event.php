@@ -13,4 +13,8 @@ class Event extends Model
     public function document(){
         return $this->belongsTo('App\Document');
     }
+
+    public function companies(){
+        return $this->belongsToMany('App\Company');
+    }
 }
