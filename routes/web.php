@@ -14,3 +14,11 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/Login', function () {
+    return view('login');    
+});
+
+Route::get('/cRegister', function () {
+    return view('compReg');
+});
