@@ -7,10 +7,10 @@ use Illuminate\Http\Request;
 class PagesController extends Controller
 {
     public function landingPage(){
-        return view('pages.landingPage');
+        return view('pages.landing');
     }
 
     public function signInPage(){
-        return view('pages.signInPage');
+        return view('pages.signIn');
     }
 }
