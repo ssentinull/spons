@@ -20,7 +20,7 @@ Route::get('/Login', function () {
 });
 
 Route::get('/cRegister', function () {
-    return view('compReg');
+    return view('companyRegister');
 });
 Route::get('/', 'PagesController@landingPage');
 Route::get('/signIn', 'PagesController@signInPage');
