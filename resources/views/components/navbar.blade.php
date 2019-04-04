@@ -13,10 +13,10 @@
         <a class="nav-link" href="#">Companies</a>
       </li>
       <li class="nav-item">
-          <a href="#" class="btn btn-success my-2 my-sm-0" role="button">Sign Up</a>
+          <a href="{{ url('/register/student') }}" class="btn btn-success my-2 my-sm-0" role="button">Sign Up</a>
       </li>
       <li class="nav-item">
-          <a href="{{url('/signIn')}}" class="btn btn-outline-success my-2 my-sm-0" role="button">Sign In</a>
+          <a href="{{ url('/signIn') }}" class="btn btn-outline-success my-2 my-sm-0" role="button">Sign In</a>
       </li>
     </ul>
   </div>

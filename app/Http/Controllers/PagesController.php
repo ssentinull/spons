@@ -13,11 +13,11 @@ class PagesController extends Controller
     public function signInPage(){
         return view('pages.signIn');
     }
-
-    public function loginPage(){
-        return view('pages.login');
-    }
     
+    public function studentRegisterPage(){
+        return view('pages.studentRegister');
+    }
+
     public function companyRegisterPage(){
         return view('pages.companyRegister');
     }
