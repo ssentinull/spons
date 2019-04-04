@@ -10,7 +10,7 @@ class Document extends Model
         return $this->hasOne('App\Event');
     }
 
-    public function company_events(){
-        return $this->hasOne('App\Company_Event');
+    public function event_user(){
+        return $this->hasOne('App\Event_User');
     }
 }
