@@ -2,7 +2,7 @@
 
 @push('styles')
     <link rel="stylesheet" type="text/css" media="screen" href="main.css">
-    <link rel="stylesheet" type="text/css" href="css/login.css">
+    <link rel="stylesheet" type="text/css" href="../css/login.css">
 @endpush
 
 @section('content')

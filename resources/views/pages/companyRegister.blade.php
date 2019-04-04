@@ -2,7 +2,7 @@
 
 @push('styles')
     <link rel="stylesheet" type="text/css" media="screen" href="main.css">
-    <link rel="stylesheet" type="text/css" href="css/comreg.css">
+    <link rel="stylesheet" type="text/css" href="../css/comreg.css">
 @endpush
 
 @section('content')

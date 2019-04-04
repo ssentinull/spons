@@ -15,12 +15,7 @@ Route::get('/welcome', function () {
     return view('welcome');
 });
 
-Route::get('/Login', function () {
-    return view('login');    
-});
-
-Route::get('/cRegister', function () {
-    return view('companyRegister');
-});
 Route::get('/', 'PagesController@landingPage');
+Route::get('/login', 'PagesController@loginPage');
 Route::get('/signIn', 'PagesController@signInPage');
+Route::get('/register/company', 'PagesController@companyRegisterPage');
