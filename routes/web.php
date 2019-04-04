@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/', function () {
+Route::get('/welcome', function () {
     return view('welcome');
 });
 
@@ -22,3 +22,5 @@ Route::get('/Login', function () {
 Route::get('/cRegister', function () {
     return view('compReg');
 });
+Route::get('/', 'PagesController@landingPage');
+Route::get('/signIn', 'PagesController@signInPage');

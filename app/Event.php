@@ -6,15 +6,15 @@ use Illuminate\Database\Eloquent\Model;
 
 class Event extends Model
 {
-    public function student(){
-        return $this->belongsTo('App\Student');
+    public function user(){
+        return $this->belongsTo('App\User');
     }
 
     public function document(){
         return $this->belongsTo('App\Document');
     }
 
-    public function companies(){
-        return $this->belongsToMany('App\Company');
+    public function users(){
+        return $this->belongsToMany('App\User');
     }
 }

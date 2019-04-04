@@ -7,6 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 class Grant extends Model
 {
     public function company(){
-        return $this->belongsTo('App\Company');
+        return $this->belongsTo('App\User');
     }
 }
