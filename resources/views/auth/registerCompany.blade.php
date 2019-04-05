@@ -103,7 +103,7 @@
                             </div>
                         </div>
 
-                        <input id="role" type="hidden" name="role" value="2">
+                        <input id="role" type="hidden" name="role" value={{ Constant::ROLE_COMPANY }}>
                         <input id="dob" type="hidden" name="dob" value=>
                         <input id="major" type="hidden" name="major" value=>
                         <input id="faculty" type="hidden" name="faculty" value=>
