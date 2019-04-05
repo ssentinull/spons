@@ -26,9 +26,9 @@
                     <li class="nav-item">
                         <a class="btn btn-success my-2 my-sm-0" role="button" href="{{ route('login') }}">{{ __('Login') }}</a>
                     </li>
-                    @if (Route::has('register'))
+                    @if (Route::has('registerStudent'))
                         <li class="nav-item">
-                            <a class="btn btn-outline-success my-2 my-sm-0" role="button" href="{{ route('register') }}">{{ __('Register') }}</a>
+                            <a class="btn btn-outline-success my-2 my-sm-0" role="button" href="{{ route('registerStudent') }}">{{ __('Register') }}</a>
                         </li>
                     @endif
                 @else

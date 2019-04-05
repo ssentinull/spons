@@ -17,8 +17,8 @@ Route::get('/welcome', function () {
 
 Route::get('/', 'PagesController@landingPage');
 Route::get('/signIn', 'PagesController@signInPage');
-Route::get('/register/company', 'PagesController@companyRegisterPage');
-Route::get('/register/student', 'PagesController@studentRegisterPage');
+// Route::get('/register/company', 'PagesController@companyRegisterPage');
+// Route::get('/register/student', 'PagesController@studentRegisterPage');
 
 // Authentication Routes...
 Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
@@ -26,7 +26,8 @@ Route::post('login', 'Auth\LoginController@login');
 Route::post('logout', 'Auth\LoginController@logout')->name('logout');
 
 // Registration Routes...
-Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
+Route::get('register/company', 'Auth\RegisterController@showCompanyRegistrationForm')->name('registerCompany');
+Route::get('register', 'Auth\RegisterController@showStudentRegistrationForm')->name('registerStudent');
 Route::post('register', 'Auth\RegisterController@register');
 
 // Password Reset Routes...

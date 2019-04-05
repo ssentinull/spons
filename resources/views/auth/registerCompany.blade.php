@@ -5,10 +5,10 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Register') }}</div>
+                <div class="card-header">{{ __('Register as Company') }}</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('register') }}">
+                    <form method="POST" action="{{ route('registerStudent') }}">
                         @csrf
 
                         <div class="form-group row">
@@ -65,7 +65,7 @@
                             <label for="city" class="col-md-4 col-form-label text-md-right">{{ __('City') }}</label>
 
                             <div class="col-md-6">
-                                <input id="city" type="text" name="city" required>
+                                <input id="city" type="text" class="form-control" name="city" required>
 
                                 @if ($errors->has('city'))
                                     <span class="invalid-feedback" role="alert">
@@ -76,10 +76,24 @@
                         </div>
 
                         <div class="form-group row">
+                            <label for="address" class="col-md-4 col-form-label text-md-right">{{ __('Address') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="address" type="text" class="form-control" name="address" required>
+
+                                @if ($errors->has('address'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('address') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
                             <label for="description" class="col-md-4 col-form-label text-md-right">{{ __('Description') }}</label>
 
                             <div class="col-md-6">
-                                <input id="description" type="text" name="description" required>
+                                <textarea id="description" type="text" class="form-control" name="description" required></textarea>
 
                                 @if ($errors->has('description'))
                                     <span class="invalid-feedback" role="alert">
@@ -89,72 +103,20 @@
                             </div>
                         </div>
 
-                        <div class="form-group row">
-                            <label for="dob" class="col-md-4 col-form-label text-md-right">{{ __('Date of Birth') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="dob" type="date" name="dob" required>
-
-                                @if ($errors->has('description'))
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('description') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="major" class="col-md-4 col-form-label text-md-right">{{ __('Major') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="major" type="text" name="major" required>
-
-                                @if ($errors->has('major'))
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('major') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="faculty" class="col-md-4 col-form-label text-md-right">{{ __('Faculty') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="faculty" type="text" name="faculty" required>
-
-                                @if ($errors->has('faculty'))
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('faculty') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="university" class="col-md-4 col-form-label text-md-right">{{ __('University') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="university" type="text" name="university" required>
-
-                                @if ($errors->has('university'))
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('university') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <input id="role" type="hidden" name="role" value="1">
+                        <input id="role" type="hidden" name="role" value="2">
+                        <input id="dob" type="hidden" name="dob" value=>
+                        <input id="major" type="hidden" name="major" value=>
+                        <input id="faculty" type="hidden" name="faculty" value=>
+                        <input id="university" type="hidden" name="university" value=>
 
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
                                     {{ __('Register') }}
                                 </button>
+                                <a class="btn btn-outline-success my-2 my-sm-0" role="button" href="{{ route('registerStudent') }}">{{ __('Register as Student') }}</a>
                             </div>
                         </div>
-
                     </form>
                 </div>
             </div>
