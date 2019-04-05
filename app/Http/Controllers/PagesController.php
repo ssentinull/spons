@@ -13,7 +13,7 @@ class PagesController extends Controller
     public function signInPage(){
         return view('pages.signIn');
     }
-    
+
     public function studentRegisterPage(){
         return view('pages.studentRegister');
     }
