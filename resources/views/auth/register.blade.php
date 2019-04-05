@@ -147,8 +147,6 @@
 
                         <input id="role" type="hidden" name="role" value="1">
 
-                        <input id="address" type="hidden" name="address" value="">
-
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
@@ -156,6 +154,7 @@
                                 </button>
                             </div>
                         </div>
+
                     </form>
                 </div>
             </div>

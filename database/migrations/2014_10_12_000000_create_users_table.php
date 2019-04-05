@@ -25,13 +25,13 @@ class CreateUsersTable extends Migration
             $table->integer('role');
 
             // Student role fields
-            $table->date('dob');
-            $table->string('major');
-            $table->string('faculty');
-            $table->string('university');
+            $table->date('dob')->nullable();
+            $table->string('major')->nullable();
+            $table->string('faculty')->nullable();
+            $table->string('university')->nullable();
 
             // Company role fields
-            $table->string('address');
+            $table->string('address')->nullable();
 
             $table->rememberToken();
             $table->timestamps();

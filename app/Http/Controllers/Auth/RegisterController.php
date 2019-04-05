@@ -73,8 +73,7 @@ class RegisterController extends Controller
             'dob' => $data['dob'],
             'major' => $data['major'],
             'faculty' => $data['faculty'],
-            'university' => $data['university'],
-            'address' => $data['address'],
+            'university' => $data['university']
         ]);
     }
 }
