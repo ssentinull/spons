@@ -21,4 +21,8 @@ class PagesController extends Controller
     public function companyRegisterPage(){
         return view('pages.companyRegister');
     }
+
+    public function createEventPage(){
+        return view('pages.createEvent');
+    }
 }

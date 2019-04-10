@@ -17,6 +17,9 @@ Route::get('/welcome', function () {
 
 Route::get('/', 'PagesController@landingPage');
 Route::get('/signIn', 'PagesController@signInPage');
+
+Route::get('createEvent', 'PagesController@createEventPage')->name('createEvent');
+
 // Route::get('/register/company', 'PagesController@companyRegisterPage');
 // Route::get('/register/student', 'PagesController@studentRegisterPage');
 
