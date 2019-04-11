@@ -18,7 +18,7 @@ class VerifyStudentRole
      */
     public function handle($request, Closure $next)
     {
-        if(Auth::user()->role !== Constant::ROLE_STUDENT){
+        if(!Auth::user() || Auth::user()->role !== Constant::ROLE_STUDENT){
             return redirect('/');
         }
 
