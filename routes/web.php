@@ -15,11 +15,14 @@ Route::get('/welcome', function () {
     return view('welcome');
 });
 
-Route::get('/', 'PagesController@landingPage');
+Route::get('/', 'PagesController@landingPage')->name('landingPage');
 Route::get('/signIn', 'PagesController@signInPage');
 
+Route::get('error', 'PagesController@errorPage')->name('errorPage');
+
 Route::group(['middleware' => ['verifyStudent']], function(){
-    Route::get('createEvent', 'PagesController@createEventPage')->name('createEvent');
+    Route::get('createEvent', 'PagesController@createEventPage')->name('createEventPage');
+    Route::post('createEvent', 'EventsController@create')->name('createEvent');
 });
 
 // Deprecated routes for registering users
