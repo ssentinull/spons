@@ -15,12 +15,33 @@ use Faker\Generator as Faker;
 |
 */
 
-$factory->define(User::class, function (Faker $faker) {
+$factory->defineAs(User::class, 'student', function (Faker $faker) {
     return [
-        'name' => $faker->name,
         'email' => $faker->unique()->safeEmail,
         'email_verified_at' => now(),
-        'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
+        'password' => '12345678',
+        'name' => $faker->name,
+        'city' => $faker->city,
+        'description' => $faker->text,
+        'role' => Constant::ROLE_STUDENT,
+        'dob' => $faker->date,
+        'major' => 'Informatics',
+        'faculty' => 'Department of Computer Science',
+        'university' => 'Padjadjaran University',
+        'remember_token' => Str::random(10),
+    ];
+});
+
+$factory->defineAs(User::class, 'company', function (Faker $faker) {
+    return [
+        'email' => $faker->unique()->safeEmail,
+        'email_verified_at' => now(),
+        'password' => '12345678',
+        'name' => $faker->company,
+        'city' => $faker->city,
+        'description' => $faker->text,
+        'role' => Constant::ROLE_COMPANY,
+        'address' => $faker->address,
         'remember_token' => Str::random(10),
     ];
 });
