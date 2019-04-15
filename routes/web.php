@@ -15,19 +15,16 @@ Route::get('/welcome', function () {
     return view('welcome');
 });
 
+// General Routes
 Route::get('/', 'PagesController@landingPage')->name('landingPage');
-Route::get('/signIn', 'PagesController@signInPage');
-
+Route::get('events', 'PagesController@eventsPage')->name('eventsPage');
 Route::get('error', 'PagesController@errorPage')->name('errorPage');
 
+// Student role only Routes
 Route::group(['middleware' => ['verifyStudent']], function(){
     Route::get('createEvent', 'PagesController@createEventPage')->name('createEventPage');
     Route::post('createEvent', 'EventsController@create')->name('createEvent');
 });
-
-// Deprecated routes for registering users
-// Route::get('/register/company', 'PagesController@companyRegisterPage');
-// Route::get('/register/student', 'PagesController@studentRegisterPage');
 
 // Authentication Routes...
 Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
@@ -46,3 +43,8 @@ Route::get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm
 Route::post('password/reset', 'Auth\ResetPasswordController@reset');
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+// Deprecated routes
+// Route::get('/signIn', 'PagesController@signInPage');
+// Route::get('/register/company', 'PagesController@companyRegisterPage');
+// Route::get('/register/student', 'PagesController@studentRegisterPage');

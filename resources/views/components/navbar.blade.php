@@ -16,7 +16,7 @@
             <!-- Right Side Of Navbar -->
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="#">Events</a>
+                    <a class="nav-link" href="{{ route('eventsPage') }}">Events</a>
                 </li>
                 <li class="nav-item active">
                     <a class="nav-link" href="#">Companies</a>

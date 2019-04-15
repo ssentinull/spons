@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Event;
 
 class PagesController extends Controller
 {
@@ -24,5 +25,11 @@ class PagesController extends Controller
 
     public function createEventPage(){
         return view('pages.createEvent');
+    }
+
+    public function eventsPage(){
+        $events = Event::orderBy('created_at', 'desc')->paginate(6);
+
+        return view('pages.events')->with('events', $events);
     }
 }
