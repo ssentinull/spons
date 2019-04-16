@@ -17,7 +17,7 @@ class UsersTableSeeder extends Seeder
         DB::table('users')->insert([
             'email' => 'ibnu.muhari@gmail.com',
             'email_verified_at' => now(),
-            'password' => '12345678',
+            'password' => Hash::make('12345678'),
             'name' => 'Ibnu Ahsani',
             'city' => 'Jakarta',
             'description' => 'Student of Informatics, Padjadjaran University',
@@ -32,7 +32,7 @@ class UsersTableSeeder extends Seeder
         DB::table('users')->insert([
             'email' => 'hello.world@gmail.com',
             'email_verified_at' => now(),
-            'password' => '12345678',
+            'password' => Hash::make('12345678'),
             'name' => 'Hello World',
             'city' => 'Bandung',
             'description' => 'Company that\'s located in Bandung',

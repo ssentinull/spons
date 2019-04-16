@@ -19,7 +19,7 @@ $factory->defineAs(User::class, 'student', function (Faker $faker) {
     return [
         'email' => $faker->unique()->safeEmail,
         'email_verified_at' => now(),
-        'password' => '12345678',
+        'password' => Hash::make('12345678'),
         'name' => $faker->name,
         'city' => $faker->city,
         'description' => $faker->text,
@@ -36,7 +36,7 @@ $factory->defineAs(User::class, 'company', function (Faker $faker) {
     return [
         'email' => $faker->unique()->safeEmail,
         'email_verified_at' => now(),
-        'password' => '12345678',
+        'password' => Hash::make('12345678'),
         'name' => $faker->company,
         'city' => $faker->city,
         'description' => $faker->text,
