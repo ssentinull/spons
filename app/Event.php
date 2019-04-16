@@ -26,4 +26,8 @@ class Event extends Model
     public function users(){
         return $this->belongsToMany('App\User');
     }
+
+    public function eventType(){
+        return $this->belongsTo('App\Event_Type');
+    }
 }
