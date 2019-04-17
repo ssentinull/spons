@@ -18,12 +18,14 @@ class CreateEventsTable extends Migration
             $table->string('name');
             $table->date('date');
             $table->string('location');
+            $table->longText('description')->nullable();
 
             // Ex; Seminar, Conference, Concert, etc.
             $table->integer('type');
 
             // Ex; Technology, Environment, Social
             $table->integer('category');
+
             $table->integer('user_id')->unsigned();
             $table->integer('document_id')->unsigned()->nullable();
             $table->timestamps();

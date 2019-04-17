@@ -37,34 +37,6 @@
                                 </div>
 
                                 <div class="form-group row">
-                                    <label for="date" class="col-md-4 col-form-label text-md-right">{{ __('Date') }}</label>
-
-                                    <div class="col-md-6">
-                                        <input id="date" type="date" class="form-control{{ $errors->has('date') ? ' is-invalid' : '' }}" name="date" value="{{ old('date') }}" required>
-
-                                        @if ($errors->has('date'))
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $errors->first('date') }}</strong>
-                                            </span>
-                                        @endif
-                                    </div>
-                                </div>
-
-                                <div class="form-group row">
-                                    <label for="location" class="col-md-4 col-form-label text-md-right">{{ __('Location') }}</label>
-
-                                    <div class="col-md-6">
-                                        <input id="location" type="text" class="form-control{{ $errors->has('location') ? ' is-invalid' : '' }}" name="location" required>
-
-                                        @if ($errors->has('location'))
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $errors->first('location') }}</strong>
-                                            </span>
-                                        @endif
-                                    </div>
-                                </div>
-
-                                <div class="form-group row">
                                     <label for="type" class="col-md-4 col-form-label text-md-right">{{ __('Type') }}</label>
 
                                     <div class="col-md-6">
@@ -95,6 +67,48 @@
                                         @if ($errors->has('category'))
                                             <span class="help-block">
                                                 <strong>{{ $errors->first('category') }}</strong>
+                                            </span>
+                                        @endif
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label for="date" class="col-md-4 col-form-label text-md-right">{{ __('Date') }}</label>
+
+                                    <div class="col-md-6">
+                                        <input id="date" type="date" class="form-control{{ $errors->has('date') ? ' is-invalid' : '' }}" name="date" value="{{ old('date') }}" required>
+
+                                        @if ($errors->has('date'))
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $errors->first('date') }}</strong>
+                                            </span>
+                                        @endif
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label for="location" class="col-md-4 col-form-label text-md-right">{{ __('Location') }}</label>
+
+                                    <div class="col-md-6">
+                                        <input id="location" type="text" class="form-control{{ $errors->has('location') ? ' is-invalid' : '' }}" name="location" required>
+
+                                        @if ($errors->has('location'))
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $errors->first('location') }}</strong>
+                                            </span>
+                                        @endif
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label for="description" class="col-md-4 col-form-label text-md-right">{{ __('Description') }}</label>
+
+                                    <div class="col-md-6">
+                                        <textarea id="description" type="text" class="form-control" name="description" required></textarea>
+
+                                        @if ($errors->has('description'))
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $errors->first('description') }}</strong>
                                             </span>
                                         @endif
                                     </div>
