@@ -10,16 +10,26 @@
                 @for ($i = 0; $i < $events->count(); $i+=2)
                     <tr>
                         <td>
-                            <div class="card">
-                                <div class="card-header">{{$events[$i]->name}}</div>
-                                <div class="card-body">{{$events[$i]->location}}</div>
+                            <div class="card flex-column flex-wrap">
+                                <div class="card-header p-4" align="center">
+                                    <img src="//placehold.it/440x200?text=Spons" alt="">
+                                </div>
+                                <div class="card-block p-4" align="center">
+                                    <h4 class="card-title">{{$events[$i + 1]->name}}</h4>
+                                    <p class="card-text">{{$events[$i + 1]->description}}</p>
+                                </div>
                             </div>
                         </td>
                         @if ($events[$i + 1] != null)
                             <td>
-                                <div class="card">
-                                    <div class="card-header">{{$events[$i + 1]->name}}</div>
-                                    <div class="card-body">{{$events[$i + 1]->location}}</div>
+                                <div class="card flex-column flex-wrap">
+                                    <div class="card-header p-4" align="center">
+                                        <img src="//placehold.it/440x200?text=Spons" alt="">
+                                    </div>
+                                    <div class="card-block p-4" align="center">
+                                        <h4 class="card-title">{{$events[$i + 1]->name}}</h4>
+                                        <p class="card-text">{{$events[$i + 1]->description}}</p>
+                                    </div>
                                 </div>
                             </td>
                         @endif
@@ -28,15 +38,22 @@
             @else
                 <tr>
                     <td>
-                        <div class="card">
-                            <div class="card-header">{{$events[0]->name}}</div>
-                            <div class="card-body">{{$events[0]->location}}</div>
+                        <div class="card flex-column flex-wrap">
+                            <div class="card-header p-4" align="center">
+                                <img src="//placehold.it/440x200?text=Spons" alt="">
+                            </div>
+                            <div class="card-block p-4" align="center">
+                                <h4 class="card-title">{{$events[$i + 1]->name}}</h4>
+                                <p class="card-text">{{$events[$i + 1]->description}}</p>
+                            </div>
                         </div>
                     </td>
                 </tr>
             @endif
        </tbody>
     </table>
-    {{ $events->links() }}
+    <div class="row justify-content-center">
+        {{ $events->links() }}
+    </div>
  </div>
 @endsection
