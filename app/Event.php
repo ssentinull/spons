@@ -28,6 +28,10 @@ class Event extends Model
     }
 
     public function eventType(){
-        return $this->belongsTo('App\Event_Type');
+        return $this->belongsTo('App\EventType');
+    }
+
+    public function eventCategory(){
+        return $this->belongsTo('App\EventCategory');
     }
 }
