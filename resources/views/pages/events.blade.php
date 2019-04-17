@@ -15,21 +15,25 @@
                                 <div class="card-body">{{$events[$i]->location}}</div>
                             </div>
                         </td>
-                        <td>
-                            <div class="card">
-                                <div class="card-header">{{$events[$i + 1]->name}}</div>
-                                <div class="card-body">{{$events[$i + 1]->location}}</div>
-                            </div>
-                        </td>
+                        @if ($events[$i + 1] != null)
+                            <td>
+                                <div class="card">
+                                    <div class="card-header">{{$events[$i + 1]->name}}</div>
+                                    <div class="card-body">{{$events[$i + 1]->location}}</div>
+                                </div>
+                            </td>
+                        @endif
                     </tr>
                 @endfor
             @else
-                <td>
-                    <div class="card">
-                        <div class="card-header">{{$events[0]->name}}</div>
-                        <div class="card-body">{{$events[0]->location}}</div>
-                    </div>
-                </td>
+                <tr>
+                    <td>
+                        <div class="card">
+                            <div class="card-header">{{$events[0]->name}}</div>
+                            <div class="card-body">{{$events[0]->location}}</div>
+                        </div>
+                    </td>
+                </tr>
             @endif
        </tbody>
     </table>
