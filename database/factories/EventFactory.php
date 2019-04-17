@@ -5,10 +5,11 @@ use Faker\Generator as Faker;
 $factory->define(App\Event::class, function (Faker $faker) {
     return [
         'name' => $faker->sentence($nbWords = 5),
+        'type' => $faker->randomElement([1, 2, 3, 4]),
+        'category' => $faker->randomElement([1, 2, 3, 4, 5]),
+        'description' => $faker->paragraph($nbSentences = 5, $variableNbSentences = true),
         'date' => $faker->date,
         'location' => $faker->address,
-        'type' => $faker->randomElement([1, 2, 3]),
-        'category' => $faker->randomElement([1, 2, 3]),
-        'user_id' => $faker->randomElement([1, 2])
+        'user_id' => $faker->randomElement([1, 3, 4])
     ];
 });
