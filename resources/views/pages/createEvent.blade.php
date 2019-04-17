@@ -68,10 +68,14 @@
                                     <label for="type" class="col-md-4 col-form-label text-md-right">{{ __('Type') }}</label>
 
                                     <div class="col-md-6">
-                                        <input id="type" type="number" class="form-control" name="type" required>
-
+                                        <select id="type" type="number" class="form-control" name="type" required>
+                                            <option value="" disabled selected>Select an Event Type</option>
+                                            @foreach ($eventTypes as $eventType)
+                                                <option value="{{ $eventType->id }}">{{ $eventType->name }}</option>
+                                            @endforeach
+                                        </select>
                                         @if ($errors->has('type'))
-                                            <span class="invalid-feedback" role="alert">
+                                            <span class="help-block">
                                                 <strong>{{ $errors->first('type') }}</strong>
                                             </span>
                                         @endif
