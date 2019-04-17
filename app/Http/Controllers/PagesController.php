@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Event;
 use App\EventType;
+use App\EventCategory;
 
 class PagesController extends Controller
 {
@@ -26,8 +27,9 @@ class PagesController extends Controller
 
     public function createEventPage(){
         $eventTypes = EventType::all();
+        $eventCategories = EventCategory::all();
 
-        return view('pages.createEvent')->with('eventTypes', $eventTypes);
+        return view('pages.createEvent')->with(compact('eventTypes', 'eventCategories'));
     }
 
     public function eventsPage(){

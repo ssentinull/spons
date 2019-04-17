@@ -86,10 +86,14 @@
                                     <label for="category" class="col-md-4 col-form-label text-md-right">{{ __('Category') }}</label>
 
                                     <div class="col-md-6">
-                                        <input id="category" type="number" class="form-control" name="category" required>
-
+                                        <select id="category" type="number" class="form-control" name="category" required>
+                                            <option value="" disabled selected>Select an Event Category</option>
+                                            @foreach ($eventCategories as $eventCategory)
+                                                <option value="{{ $eventCategory->id }}">{{ $eventCategory->name }}</option>
+                                            @endforeach
+                                        </select>
                                         @if ($errors->has('category'))
-                                            <span class="invalid-feedback" role="alert">
+                                            <span class="help-block">
                                                 <strong>{{ $errors->first('category') }}</strong>
                                             </span>
                                         @endif
