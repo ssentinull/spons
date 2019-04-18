@@ -10,27 +10,11 @@
                 @for ($i = 0; $i < $events->count(); $i+=2)
                     <tr>
                         <td>
-                            <div class="card flex-column flex-wrap">
-                                <div class="card-header p-4" align="center">
-                                    <img src="//placehold.it/440x200?text=Spons" alt="">
-                                </div>
-                                <div class="card-block p-4" align="center">
-                                    <h4 class="card-title">{{$events[$i + 1]->name}}</h4>
-                                    <p class="card-text">{{$events[$i + 1]->description}}</p>
-                                </div>
-                            </div>
+                            @include('components.card', ['i' => $i])
                         </td>
                         @if ($events[$i + 1] != null)
                             <td>
-                                <div class="card flex-column flex-wrap">
-                                    <div class="card-header p-4" align="center">
-                                        <img src="//placehold.it/440x200?text=Spons" alt="">
-                                    </div>
-                                    <div class="card-block p-4" align="center">
-                                        <h4 class="card-title">{{$events[$i + 1]->name}}</h4>
-                                        <p class="card-text">{{$events[$i + 1]->description}}</p>
-                                    </div>
-                                </div>
+                                @include('components.card', ['i' => $i + 1])
                             </td>
                         @endif
                     </tr>
@@ -38,15 +22,7 @@
             @else
                 <tr>
                     <td>
-                        <div class="card flex-column flex-wrap">
-                            <div class="card-header p-4" align="center">
-                                <img src="//placehold.it/440x200?text=Spons" alt="">
-                            </div>
-                            <div class="card-block p-4" align="center">
-                                <h4 class="card-title">{{$events[$i + 1]->name}}</h4>
-                                <p class="card-text">{{$events[$i + 1]->description}}</p>
-                            </div>
-                        </div>
+                        @include('components.card', ['i' => 0])
                     </td>
                 </tr>
             @endif
