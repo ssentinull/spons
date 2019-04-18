@@ -131,7 +131,7 @@
                             </div>
                         </div>
 
-                        <input id="role" type="hidden" name="role" value={{ Constant::ROLE_STUDENT }}>
+                        <input id="role" type="hidden" name="role" value={{ Constant::ROLE_STUDENT_INDIVIDUAL }}>
 
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">

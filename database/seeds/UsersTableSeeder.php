@@ -21,7 +21,7 @@ class UsersTableSeeder extends Seeder
             'name' => 'Ibnu Ahsani',
             'city' => 'Jakarta',
             'description' => 'Student of Informatics, Padjadjaran University',
-            'role' => Constant::ROLE_STUDENT,
+            'role' => Constant::ROLE_STUDENT_INDIVIDUAL,
             'dob' => $faker->date,
             'major' => 'Informatics',
             'faculty' => 'Department of Computer Science',

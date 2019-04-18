@@ -23,7 +23,7 @@ $factory->defineAs(User::class, 'student', function (Faker $faker) {
         'name' => $faker->name,
         'city' => $faker->city,
         'description' => $faker->text,
-        'role' => Constant::ROLE_STUDENT,
+        'role' => Constant::ROLE_STUDENT_INDIVIDUAL,
         'dob' => $faker->date,
         'major' => 'Informatics',
         'faculty' => 'Department of Computer Science',

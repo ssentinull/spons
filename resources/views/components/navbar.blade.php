@@ -38,7 +38,7 @@
                         </a>
 
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                            @if (Auth::user()->role === Constant::ROLE_STUDENT)
+                            @if (Auth::user()->role === Constant::ROLE_STUDENT_INDIVIDUAL)
                                 <a class="dropdown-item" href="{{ route('createEventPage') }}">
                                     {{ __('Create Event') }}
                                 </a>
