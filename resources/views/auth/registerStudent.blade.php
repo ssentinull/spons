@@ -76,20 +76,6 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="description" class="col-md-4 col-form-label text-md-right">{{ __('Description') }}</label>
-
-                            <div class="col-md-6">
-                                <textarea id="description" type="text" class="form-control" name="description" required></textarea>
-
-                                @if ($errors->has('description'))
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('description') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
                             <label for="dob" class="col-md-4 col-form-label text-md-right">{{ __('Date of Birth') }}</label>
 
                             <div class="col-md-6">
@@ -146,7 +132,6 @@
                         </div>
 
                         <input id="role" type="hidden" name="role" value={{ Constant::ROLE_STUDENT }}>
-                        <input id="address" type="hidden" name="address" value=>
 
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
