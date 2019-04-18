@@ -19,12 +19,14 @@
                         @endif
                     </tr>
                 @endfor
-            @else
+            @elseif ($events->count() == 1)
                 <tr>
                     <td>
                         @include('components.card', ['i' => 0])
                     </td>
                 </tr>
+            @else
+                <tr>There are no events</tr>
             @endif
        </tbody>
     </table>
