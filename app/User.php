@@ -16,8 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'password', 'name', 'city', 'description',
-        'role', 'dob', 'major', 'faculty', 'university', 'address',
+        'email', 'password', 'name', 'role',
     ];
 
     /**
@@ -50,5 +49,9 @@ class User extends Authenticatable
 
     public function companyFundedEvents(){
         return $this->belongsToMany('App\Event');
+    }
+
+    public function studentIndividual(){
+        return $this->hasOne('App\StudentIndividual');
     }
 }
