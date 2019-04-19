@@ -16,10 +16,9 @@ class CreateStudentOrganizationsTable extends Migration
         Schema::create('student_organizations', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->date('established_in');
+            $table->string('address');
             $table->string('major');
             $table->string('university');
-            $table->string('address');
-            $table->string('city');
             $table->longText('description');
             $table->integer('user_id')->unsigned();
             $table->timestamps();
