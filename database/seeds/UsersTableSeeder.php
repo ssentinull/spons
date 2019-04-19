@@ -19,29 +19,37 @@ class UsersTableSeeder extends Seeder
             'email_verified_at' => now(),
             'password' => Hash::make('12345678'),
             'name' => 'Ibnu Ahsani',
-            'city' => 'Jakarta',
-            'description' => 'Student of Informatics, Padjadjaran University',
             'role' => Constant::ROLE_STUDENT_INDIVIDUAL,
-            'dob' => $faker->date,
-            'major' => 'Informatics',
-            'faculty' => 'Department of Computer Science',
-            'university' => 'Padjadjaran University',
             'remember_token' => Str::random(10),
+        ]);
+
+        factory(App\StudentIndividual::class)->create([
+            'user_id' => 1,
         ]);
 
         DB::table('users')->insert([
-            'email' => 'hello.world@gmail.com',
+            'email' => 'Himatif@unpad.mail.ac.id',
             'email_verified_at' => now(),
             'password' => Hash::make('12345678'),
-            'name' => 'Hello World',
-            'city' => 'Bandung',
-            'description' => 'Company that\'s located in Bandung',
-            'role' => Constant::ROLE_COMPANY,
-            'address' => $faker->address,
+            'name' => 'Himatif FMIPA Unpad',
+            'role' => Constant::ROLE_STUDENT_ORGANIZATION,
             'remember_token' => Str::random(10),
         ]);
 
-        factory(App\User::class, 'student', 2)->create();
-        factory(App\User::class, 'company', 5)->create();
+        factory(App\StudentOrganization::class)->create([
+            'user_id' => 2,
+        ]);
+
+        factory(App\User::class, 'studentIndividual', 2)->create()->each(function($user){
+            factory(App\StudentIndividual::class)->create(['user_id' => $user->id]);
+        });
+
+        factory(App\User::class, 'studentOrganization', 2)->create()->each(function($user){
+            factory(App\StudentOrganization::class)->create(['user_id' => $user->id]);
+        });
+
+        factory(App\User::class, 'company', 10)->create()->each(function($user){
+            factory(App\Company::class)->create(['user_id' => $user->id]);
+        });
     }
 }

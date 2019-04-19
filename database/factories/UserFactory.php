@@ -15,19 +15,24 @@ use Faker\Generator as Faker;
 |
 */
 
-$factory->defineAs(User::class, 'student', function (Faker $faker) {
+$factory->defineAs(User::class, 'studentIndividual', function (Faker $faker) {
     return [
         'email' => $faker->unique()->safeEmail,
         'email_verified_at' => now(),
         'password' => Hash::make('12345678'),
         'name' => $faker->name,
-        'city' => $faker->city,
-        'description' => $faker->text,
         'role' => Constant::ROLE_STUDENT_INDIVIDUAL,
-        'dob' => $faker->date,
-        'major' => 'Informatics',
-        'faculty' => 'Department of Computer Science',
-        'university' => 'Padjadjaran University',
+        'remember_token' => Str::random(10),
+    ];
+});
+
+$factory->defineAs(User::class, 'studentOrganization', function (Faker $faker) {
+    return [
+        'email' => $faker->unique()->safeEmail,
+        'email_verified_at' => now(),
+        'password' => Hash::make('12345678'),
+        'name' => $faker->streetName,
+        'role' => Constant::ROLE_STUDENT_ORGANIZATION,
         'remember_token' => Str::random(10),
     ];
 });
@@ -38,10 +43,7 @@ $factory->defineAs(User::class, 'company', function (Faker $faker) {
         'email_verified_at' => now(),
         'password' => Hash::make('12345678'),
         'name' => $faker->company,
-        'city' => $faker->city,
-        'description' => $faker->text,
         'role' => Constant::ROLE_COMPANY,
-        'address' => $faker->address,
         'remember_token' => Str::random(10),
     ];
 });
