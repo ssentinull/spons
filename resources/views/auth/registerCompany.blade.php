@@ -62,14 +62,14 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="city" class="col-md-4 col-form-label text-md-right">{{ __('City') }}</label>
+                            <label for="established_in" class="col-md-4 col-form-label text-md-right">{{ __('Established In') }}</label>
 
                             <div class="col-md-6">
-                                <input id="city" type="text" class="form-control" name="city" required>
+                                <input id="established_in" type="date" class="form-control" name="established_in" required>
 
-                                @if ($errors->has('city'))
+                                @if ($errors->has('established_in'))
                                     <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('city') }}</strong>
+                                        <strong>{{ $errors->first('established_in') }}</strong>
                                     </span>
                                 @endif
                             </div>
@@ -104,10 +104,6 @@
                         </div>
 
                         <input id="role" type="hidden" name="role" value={{ Constant::ROLE_COMPANY }}>
-                        <input id="dob" type="hidden" name="dob" value=>
-                        <input id="major" type="hidden" name="major" value=>
-                        <input id="faculty" type="hidden" name="faculty" value=>
-                        <input id="university" type="hidden" name="university" value=>
 
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
