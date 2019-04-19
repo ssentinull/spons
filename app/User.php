@@ -58,4 +58,8 @@ class User extends Authenticatable
     public function studentOrganization(){
         return $this->hasOne('App\StudentOrganization');
     }
+
+    public function company(){
+        return $this->hasOne('App\Company');
+    }
 }
