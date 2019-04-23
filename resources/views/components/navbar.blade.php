@@ -29,7 +29,7 @@
             <!-- Right Side Of Navbar -->
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="#" style="color:#0E8C7F;font-size:1.3em;"><b>Events</b></a>
+                    <a class="nav-link" href="{{ url('/events') }}" style="color:#0E8C7F;font-size:1.3em;"><b>Events</b></a>
                 </li>
                 <li class="nav-item active">
                     <a class="nav-link" href="#" style="color:#0E8C7F;font-size:1.3em;"><b>Companies</b></a>
