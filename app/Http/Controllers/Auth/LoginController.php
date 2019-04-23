@@ -25,13 +25,17 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/';
+    protected $redirectTo = '/home';
+    // protected $redirectTo = if (User[$data] == company[$data]){
+   //     return view ('company_home');
+   // } else{
+   //     return view ('students_home');
+   // };
 
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
+   public function showLoginForm()
+   {
+       return view ('pages.signIn');
+   }
     public function __construct()
     {
         $this->middleware('guest')->except('logout');

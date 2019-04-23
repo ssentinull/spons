@@ -33,8 +33,10 @@ Route::post('logout', 'Auth\LoginController@logout')->name('logout');
 
 // Registration Routes...
 Route::get('register/company', 'Auth\RegisterController@showCompanyRegistrationForm')->name('registerCompany');
-Route::get('register', 'Auth\RegisterController@showStudentRegistrationForm')->name('registerStudent');
-Route::post('register', 'Auth\RegisterController@register');
+Route::get('register', 'Auth\RegisterController@showStudentRegistrationForm');
+Route::post('registerStudent', 'Auth\RegisterController@register')->name('registerStudent');
+Route::post('registerStudent2', 'Auth\RegisterController@register2')->name('registerStudent2');
+
 
 // Password Reset Routes...
 Route::get('password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm');

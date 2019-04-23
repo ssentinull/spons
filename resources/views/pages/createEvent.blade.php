@@ -40,7 +40,7 @@
                                     <label for="type" class="col-md-4 col-form-label text-md-right">{{ __('Type') }}</label>
 
                                     <div class="col-md-6">
-                                        <select id="type" type="number" class="form-control" name="type" required>
+                                        <select id="type" type="number" class="form-control" name="type" >
                                             <option value="" disabled selected>Select an Event Type</option>
                                             @foreach ($eventTypes as $eventType)
                                                 <option value="{{ $eventType->id }}">{{ $eventType->name }}</option>
@@ -58,7 +58,7 @@
                                     <label for="category" class="col-md-4 col-form-label text-md-right">{{ __('Category') }}</label>
 
                                     <div class="col-md-6">
-                                        <select id="category" type="number" class="form-control" name="category" required>
+                                        <select id="category" type="number" class="form-control" name="category" >
                                             <option value="" disabled selected>Select an Event Category</option>
                                             @foreach ($eventCategories as $eventCategory)
                                                 <option value="{{ $eventCategory->id }}">{{ $eventCategory->name }}</option>
@@ -91,6 +91,20 @@
 
                                     <div class="col-md-6">
                                         <input id="location" type="text" class="form-control{{ $errors->has('location') ? ' is-invalid' : '' }}" name="location" required>
+
+                                        @if ($errors->has('location'))
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $errors->first('location') }}</strong>
+                                            </span>
+                                        @endif
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label for="file" class="col-md-4 col-form-label text-md-right">{{ __('File') }}</label>
+
+                                    <div class="col-md-6">
+                                        <input id="file" type="file" class="form-control{{ $errors->has('location') ? ' is-invalid' : '' }}" name="file" required>
 
                                         @if ($errors->has('location'))
                                             <span class="invalid-feedback" role="alert">
