@@ -1,14 +1,13 @@
 @extends('components.navbar')
+
 @section('content')
 <center><div><h1 style="margin-left:5px; color: #0E8C7F;">   Event and Activities posted by Students</h1></div></center>
 <div class="row justify-content-center" style="z-index:999999;">
-        {{ $events->links() }}
-    </div>
 <p style="margin-left:15px; color: #0E8C7F;">   showing 4 out of XXX</p>
 
 <div class="product">
 <div class="prodictrow">
-    
+
 @foreach($events as $event)
   <div class="productexample-1 productcard" >
     <div class="productwrapper" >
@@ -81,7 +80,7 @@ h1 {
   height: 300px;
   }
 }
- 
+
 
 
 .productcard .menu-content {
@@ -259,3 +258,35 @@ h1 {
 
 
 </style>
+
+{{-- <div class="container">
+    <table class="table table-borderless">
+       <tbody>
+           @if ($events->count() > 1)
+                @for ($i = 0; $i < $events->count(); $i+=2)
+                    <tr>
+                        <td>
+                            @include('components.eventsCard', ['i' => $i])
+                        </td>
+                        @if ($events[$i + 1] != null)
+                            <td>
+                                @include('components.eventsCard', ['i' => $i + 1])
+                            </td>
+                        @endif
+                    </tr>
+                @endfor
+            @elseif ($events->count() == 1)
+                <tr>
+                    <td>
+                        @include('components.eventsCard', ['i' => 0])
+                    </td>
+                </tr>
+            @else
+                <tr>There are no events</tr>
+            @endif
+       </tbody>
+    </table>
+    <div class="row justify-content-center">
+        {{ $events->links() }}
+    </div>
+</div> --}}
