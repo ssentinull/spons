@@ -21,14 +21,14 @@
 
   </div>
   
-  <div class="col-md-5"><img src="images/1.jpg" class="img-responsive"></div>
+  <div class="col-md-5" ><img src="../img/images/1.jpg" class="img-responsive" style="height:300px; width:300px;"></div>
   <div class="col-md-1"></div>
 </div>
 
 <div class="row">
     <br><br><br>
   <div class="col-md-1"></div>
-  <div class="col-md-5"><img src="images/2.jpg" class="img-responsive"></div>
+  <div class="col-md-5"><img src="../img/images/2.jpg" class="img-responsive" style="height:300px; width:300px;"></div>
   <div class="col-md-4"><center>
     <br><h1>Looking for Companies <br>to be your sponsor?</h1>
   <br>

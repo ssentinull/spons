@@ -6,6 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <!-- <title>Document</title> -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/style.css">
+    <!-- <link rel="stylesheet" href="../css/global.css"> -->
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
 </head>
@@ -36,12 +38,12 @@
                 </li>
                 <!-- Authentication Links -->
                 @guest
-                    <li class="nav-item">
-                        <a class="btn btn-success my-2 my-sm-0" role="button" href="{{ url('/login') }}">Login</a>
+                    <li class="nav-item" >
+                        <a class="btn btn-success my-2 my-sm-0" style="background-color: #0E8C7F !important; border-radius: 20px !important;" role="button" href="{{ url('/login') }}">Login</a>
                     </li>
                     @if (Route::has('registerStudent'))
-                        <li class="nav-item">
-                            <a class="btn btn-outline-success my-2 my-sm-0" role="button" href="{{ route('register') }}">{{ __('Register') }}</a>
+                        <li class="nav-item" >
+                            <a class="btn btn-outline-success my-2 my-sm-0" role="button"  style="border-radius: 20px !important;" href="{{ url('/register') }}" >{{ __('Register') }}</a>
                         </li>
                     @endif
                 @else
