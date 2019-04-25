@@ -40,6 +40,15 @@ class UsersTableSeeder extends Seeder
             'user_id' => 2,
         ]);
 
+        DB::table('users')->insert([
+            'email' => 'hello.world@gmail.com',
+            'email_verified_at' => now(),
+            'password' => Hash::make('12345678'),
+            'name' => 'Astra Jaya',
+            'role' => Constant::ROLE_COMPANY,
+            'remember_token' => Str::random(10),
+        ]);
+
         factory(App\User::class, 'studentIndividual', 2)->create()->each(function($user){
             factory(App\StudentIndividual::class)->create(['user_id' => $user->id]);
         });
