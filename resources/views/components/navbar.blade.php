@@ -12,11 +12,11 @@
 
 </head>
 <body>
-    
+
 <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
     <div class="container">
        <a class="navbar-brand" href="{{ url('/home') }}" style="color:#0E8C7F; font-size:2em;">
-       <b>  Spons </b> 
+       <b>  Spons </b>
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
             <span class="navbar-toggler-icon"></span>
@@ -53,13 +53,17 @@
                         </a>
 
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown" style="z-index:19999; display:inline !important;">
-                            @if (Auth::user()->role === Constant::ROLE_STUDENT_INDIVIDUAL)
+                            @if(Auth::user()->role === Constant::ROLE_STUDENT_INDIVIDUAL || Auth::user()->role === Constant::ROLE_STUDENT_ORGANIZATION)
                                 <a class="dropdown-item" href="{{ route('createEventPage') }}">
                                     {{ __('Create Event') }}
                                 </a>
                             @endif
 
-                            <a style="z-index:19999;" class="dropdown-item" href="{{ route('logout') }}"
+                            <a style="z-index:19999;" class="dropdown-item" href="{{ route('profilePage') }}">
+                                {{ __('Profile') }}
+                            </a>
+
+                            <a class="dropdown-item" href="{{ route('logout') }}"
                                onclick="event.preventDefault();
                                             document.getElementById('logout-form').submit();">
                                 {{ __('Logout') }}

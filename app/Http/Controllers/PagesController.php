@@ -30,6 +30,26 @@ class PagesController extends Controller
         return view('pages.companyRegister');
     }
 
+    public function profilePage(){
+        $user = Auth::user();
+
+        if($user->role == Constant::ROLE_STUDENT_INDIVIDUAL || $user->role == Constant::ROLE_STUDENT_ORGANIZATION){
+
+            if($user->role == Constant::ROLE_STUDENT_INDIVIDUAL){
+                $userData = StudentIndividual::find($user->id);
+            } else if($user->role == Constant::ROLE_STUDENT_ORGANIZATION){
+                $userData = StudentOrganization::find($user->id);
+            }
+
+            $events = Event::where('user_id', $user->id)->paginate(6);
+
+            return view('pages.profile')->with(compact('userData','events'));
+        } else if($user->role == Constant::ROLE_COMPANY){
+            $userData = Company::find($user->id);
+            return view('pages.profile')->with('userData', $userData);
+        }
+    }
+
     public function createEventPage(){
         $eventTypes = EventType::all();
         $eventCategories = EventCategory::all();
