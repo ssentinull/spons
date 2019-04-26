@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
     <div class="container">
-        <a class="navbar-brand" href="{{ url('/home') }}" style="color:#0E8C7F; font-size:2em;">
+        <a class="navbar-brand" href="{{ route('landingPage') }}" style="color:#0E8C7F; font-size:2em;">
             <b>Spons</b>
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
