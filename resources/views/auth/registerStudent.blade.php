@@ -14,11 +14,11 @@
 <div class="cardawal">
 <div class="awal">
 <h2>Spons</h2>
-<a href="{{ url('/home') }}">
+<a href="{{ route('landingPage') }}">
         <button>
             Go back to landing page
         </button></a>
-                
+
         <div>
         <p>
             Welcome to the party!
@@ -49,10 +49,10 @@
         <input style="margin-left:120px;" type="text" placeholder="Faculty" name="faculty" required><br> <br>
         <label for="email">Email</label>
         <label for="university" style=" margin-left:370px;">University<br></label> <br>
-        <input type="text" placeholder="Email" name="email" required> 
+        <input type="text" placeholder="Email" name="email" required>
         <input style="margin-left:117px;" type="text" placeholder="University" name="university" required> <br> <br>
 
-        <label for="password" >Password</label> 
+        <label for="password" >Password</label>
         <label style=" margin-left:340px;"  for="major">Majority<br></label><br>
         <input type="password" placeholder="Password" name="password" required>
         <input style="margin-left:113px;" type="text" placeholder="Majority" name="major" required><br><br>
@@ -94,22 +94,22 @@
         <input style="margin-left:120px;" type="text" placeholder="Faculty" name="faculty" required><br> <br>
         <label for="email">Email</label>
         <label for="university" style=" margin-left:370px;">University<br></label> <br>
-        <input type="text" placeholder="Email" name="email" required> 
+        <input type="text" placeholder="Email" name="email" required>
         <input style="margin-left:117px;" type="text" placeholder="University" name="university" required> <br> <br>
 
-        <label for="password" >Password</label> 
+        <label for="password" >Password</label>
         <label style=" margin-left:340px;"  for="major">Majority<br></label><br>
         <input type="password" placeholder="Password" name="password" required>
         <input style="margin-left:113px;" type="text" placeholder="Majority" name="major" required><br><br>
         <input type="hidden"  name="role" value=1>
-        <label for="password" >Confirm Password</label> 
+        <label for="password" >Confirm Password</label>
         <label for="description" style=" margin-left:283px;" >Description</label><br>
         <input type="password"  placeholder="Confirm Password" name="password_confirmation" required>
         <br><br>
         <label for="dob">Established in</label>
         <label for="city" style="margin-left:60px;">Address</label> <br>
         <input style="width: 130px;" type="date" placeholder="Established in" name="dob" required>
-        <input style="width: 130px;" type="text" placeholder="Address" name="Address" required> 
+        <input style="width: 130px;" type="text" placeholder="Address" name="Address" required>
         <textarea type="text" style=" margin-left:140px; margin-top:-80px;" placeholder="Description" name="desc" required></textarea>  </div>
 
         <div class="data2">

@@ -25,12 +25,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
-    // protected $redirectTo = if (User[$data] == company[$data]){
-   //     return view ('company_home');
-   // } else{
-   //     return view ('students_home');
-   // };
+    protected $redirectTo = '/';
 
    public function showLoginForm()
    {

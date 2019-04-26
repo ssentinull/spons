@@ -14,12 +14,12 @@
 
     <div class="cardawal">
         <h2>Spons
-<a href="/home">            <button >Go back to landing page</button></a>
-        </h2>        
+<a href={{route('landingPage')}}>            <button >Go back to landing page</button></a>
+        </h2>
         <p>Welcome Back!<br>We miss you :)</p>
         <form  role="form" method="POST" action="{{ url('/login') }}">
         @csrf
-      
+
         <div class="login">
             <input type="text" placeholder="Email" name="email" required><br> <br> <br>
             <input type="password" placeholder="Password" name="password" required>
