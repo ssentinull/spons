@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @push('styles')
-    <link rel="stylesheet" href="{{asset('css/studentNavbar.css')}}">
+    <link rel="stylesheet" href="{{asset('css/sidebar.css')}}">
 @endpush
 
 @section('navbar')
@@ -9,7 +9,7 @@
 @endsection
 
 @section('content')
-    @include('components.studentSidebar')
+    @include('components.sidebar')
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
