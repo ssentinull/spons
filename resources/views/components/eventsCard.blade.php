@@ -7,8 +7,18 @@
         </center>
         <div class="productdata">
             <div class="prodictcontent"  style="background-color: #0E8C7F;">
-                <h1 class="producttitle"><a href="/eventdetail">{{$event->name}}</a></h1>
-                <p class="producttext" style="color: white;">{{$event->description}}</p>
+                @isset($event)
+                    <h1 class="producttitle">
+                        <a href="/eventdetail">{{$event->name}}</a>
+                    </h1>
+                    <p class="producttext" style="color: white;">{{$event->description}}</p>
+                @endisset
+                @isset($company)
+                    <h1 class="producttitle">
+                        <a href="/eventdetail">{{$company->name}}</a>
+                    </h1>
+                    <p class="producttext" style="color: white;">{{$company->company['description']}}</p>
+                @endisset
             </div>
         </div>
     </div>
