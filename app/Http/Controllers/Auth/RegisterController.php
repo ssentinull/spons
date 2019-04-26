@@ -34,9 +34,8 @@ class Registercontroller extends Controller
         return view ('auth.registerStudent');
     }
 
-    public function register(Request $request)
+    public function registerStudentIndividual(Request $request)
     {
-        // dd($request->all());
         $this->validator($request->all())->validate();
         $users = new User;
         $users->name =  $request->name;
@@ -44,15 +43,14 @@ class Registercontroller extends Controller
         $users->role =  $request->role;
         $users->password = Hash::make($request->password);
         $users->save();
-        // dd($users);
-        event(new Registered($user = $this->create($request->all(), $users->id)));
+
+        event(new Registered($user = $this->createStudentIndividual($request->all(), $users->id)));
         return $this->registered($request, $user)
                         ?: redirect($this->redirectPath);
     }
 
-    public function register2(Request $request)
+    public function registerStudentOrganization(Request $request)
     {
-        // dd($request->all());
         $this->validator($request->all())->validate();
         $users = new User;
         $users->name =  $request->name;
@@ -60,8 +58,8 @@ class Registercontroller extends Controller
         $users->role =  $request->role;
         $users->password = Hash::make($request->password);
         $users->save();
-        // dd($users);
-        event(new Registered($user = $this->create2($request->all(), $users->id)));
+
+        event(new Registered($user = $this->createStudentOrganization($request->all(), $users->id)));
         return $this->registered($request, $user)
                         ?: redirect($this->redirectPath);
     }
@@ -105,41 +103,33 @@ class Registercontroller extends Controller
      * @param  array  $data
      * @return \App\User
      */
-    protected function create(array $data, $id)
+    protected function createStudentIndividual(array $data, $id)
     {
-        //  dd($data);
         return StudentIndividual::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
-            // 'description' => $data['desc'],
-            // 'role' => $data['role'],
-             'dob' => $data['dob'],
-             'city' => $data['city'],
-             'major' => $data['major'],
-             'faculty' => $data['faculty'],
-             'university' => $data['university'],
-             'user_id' => $id,
-            // 'address' => $data['address']
+            'dob' => $data['dob'],
+            'city' => $data['city'],
+            'major' => $data['major'],
+            'faculty' => $data['faculty'],
+            'university' => $data['university'],
+            'user_id' => $id,
         ]);
     }
 
-    protected function create2(array $data, $id)
+    protected function createStudentOrganization(array $data, $id)
     {
-        //  dd($data);
         return StudentOrganization::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
             'description' => $data['desc'],
-            // 'role' => $data['role'],
-             'established_in' => $data['dob'],
-             'address' => $data['Address'],
-             'major' => $data['major'],
-             'faculty' => $data['faculty'],
-             'university' => $data['university'],
-             'user_id' => $id,
-            // 'address' => $data['address']
+            'established_in' => $data['dob'],
+            'address' => $data['Address'],
+            'major' => $data['major'],
+            'university' => $data['university'],
+            'user_id' => $id,
         ]);
     }
 

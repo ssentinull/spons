@@ -24,11 +24,9 @@
                     <li class="nav-item" >
                         <a class="btn btn-success my-2 my-sm-0" style="background-color: #0E8C7F !important; border-radius: 20px !important;" role="button" href="{{ route('loginPage') }}">Login</a>
                     </li>
-                    @if (Route::has('registerStudent'))
-                        <li class="nav-item" >
-                            <a class="btn btn-outline-success my-2 my-sm-0" role="button"  style="border-radius: 20px !important;" href="{{ route('registerStudentPage') }}" >{{ __('Register') }}</a>
-                        </li>
-                    @endif
+                    <li class="nav-item" >
+                        <a class="btn btn-outline-success my-2 my-sm-0" role="button"  style="border-radius: 20px !important;" href="{{ route('registerStudentPage') }}" >{{ __('Register') }}</a>
+                    </li>
                 @else
                     <li class="nav-item dropdown">
                         <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" style="color:#0E8C7F;font-size:1.3em;" aria-expanded="false" v-pre>

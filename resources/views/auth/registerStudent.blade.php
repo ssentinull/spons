@@ -34,7 +34,7 @@
                             </center>
                             <div class="tab-content pt-5 pb-5">
                                 <div class="tab-pane active" id="studentIndividual">
-                                    <form id="studentIndividual" class="tabcontent" method="POST" action="{{ route('registerStudent') }}">
+                                    <form id="studentIndividual" class="tabcontent" method="POST" action="{{ route('registerStudentIndividual') }}">
                                         @csrf
                                         <div class="regisc">
                                             <label for="name">Name </label>
@@ -77,14 +77,11 @@
                                     </div>
                                 </div>
                                 <div class="tab-pane" id="studentOrganization">
-                                    <form id="studentOrganization" class="tabcontent" method="POST" action="{{ route('registerStudent2') }}">
+                                    <form id="studentOrganization" class="tabcontent" method="POST" action="{{ route('registerStudentOrganization') }}">
                                         @csrf
                                         <div class="regisc">
                                             <label for="name">Name </label>
-                                            <label style=" margin-left:370px;" for="desc">Faculty<br></label><br>
-
                                             <input type="text" placeholder="Name" name="name" required>
-                                            <input style="margin-left:120px;" type="text" placeholder="Faculty" name="faculty" required><br> <br>
 
                                             <label for="email">Email</label>
                                             <label for="university" style=" margin-left:370px;">University<br></label> <br>
@@ -112,7 +109,7 @@
                                             <input style="width: 130px;" type="text" placeholder="Address" name="Address" required>
                                             <textarea type="text" style=" margin-left:140px; margin-top:-80px;" placeholder="Description" name="desc" required></textarea>
 
-                                            <input type="hidden"  name="role" value={{ Constant:ROLE_STUDENT_ORGANIZATION}}>
+                                            <input type="hidden"  name="role" value={{ Constant::ROLE_STUDENT_ORGANIZATION }}>
                                         </div>
                                         <div class="data2">
                                             <button style="background-color:#0E8C7F;color:#fff; margin-top:-2px;" type="submit">Sign Up</button>
