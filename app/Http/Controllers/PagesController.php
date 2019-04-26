@@ -68,7 +68,8 @@ class PagesController extends Controller
 
     public function eventsPage(){
         $events = Event::orderBy('created_at', 'desc')->paginate(6);
+        $firstEventIndex = $events->firstItem();
 
-        return view('pages.events')->with('events', $events);
+        return view('pages.events')->with(compact('events', 'firstEventIndex'));
     }
 }
