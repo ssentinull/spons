@@ -22,11 +22,11 @@
                 <!-- Authentication Links -->
                 @guest
                     <li class="nav-item" >
-                        <a class="btn btn-success my-2 my-sm-0" style="background-color: #0E8C7F !important; border-radius: 20px !important;" role="button" href="{{ url('/login') }}">Login</a>
+                        <a class="btn btn-success my-2 my-sm-0" style="background-color: #0E8C7F !important; border-radius: 20px !important;" role="button" href="{{ route('loginPage') }}">Login</a>
                     </li>
                     @if (Route::has('registerStudent'))
                         <li class="nav-item" >
-                            <a class="btn btn-outline-success my-2 my-sm-0" role="button"  style="border-radius: 20px !important;" href="{{ url('/register') }}" >{{ __('Register') }}</a>
+                            <a class="btn btn-outline-success my-2 my-sm-0" role="button"  style="border-radius: 20px !important;" href="{{ route('registerStudentPage') }}" >{{ __('Register') }}</a>
                         </li>
                     @endif
                 @else

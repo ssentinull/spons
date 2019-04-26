@@ -28,13 +28,13 @@ Route::group(['middleware' => ['verifyStudent']], function(){
 });
 
 // Authentication Routes...
-Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
+Route::get('login', 'Auth\LoginController@showLoginForm')->name('loginPage');
 Route::post('login', 'Auth\LoginController@login');
 Route::post('logout', 'Auth\LoginController@logout')->name('logout');
 
 // Registration Routes...
 Route::get('register/company', 'Auth\RegisterController@showCompanyRegistrationForm')->name('registerCompany');
-Route::get('register', 'Auth\RegisterController@showStudentRegistrationForm');
+Route::get('register', 'Auth\RegisterController@showStudentRegistrationForm')->name('registerStudentPage');
 Route::post('registerStudent', 'Auth\RegisterController@register')->name('registerStudent');
 Route::post('registerStudent2', 'Auth\RegisterController@register2')->name('registerStudent2');
 

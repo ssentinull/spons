@@ -31,7 +31,7 @@ class Registercontroller extends Controller
 
     public function showStudentRegistrationForm()
     {
-        return view ('Auth/registerStudent');
+        return view ('auth.registerStudent');
     }
 
     public function register(Request $request)
@@ -71,7 +71,7 @@ class Registercontroller extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/';
 
     /**
      * Create a new controller instance.
