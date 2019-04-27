@@ -38,6 +38,10 @@
                                 <a class="dropdown-item" href="{{ route('createEventPage') }}">{{ __('Create Event') }}</a>
                             @endif
 
+                            @if(Auth::user()->role === Constant::ROLE_COMPANY)
+                                <a class="dropdown-item" href="{{ route('createGrant') }}">{{ __('Create Grant') }}</a>
+                            @endif
+
                             <a class="dropdown-item" href="{{ route('profilePage') }}">{{ __('Profile') }}</a>
 
                             <a class="dropdown-item" href="{{ route('logout') }}"

@@ -28,6 +28,11 @@ Route::group(['middleware' => ['verifyStudent']], function(){
     Route::post('createEvent', 'EventsController@create')->name('createEvent');
 });
 
+Route::group(['middleware' => ['verifyCompany']], function(){
+    Route::get('createGrant', 'PagesController@createGrantPage')->name('createGrantPage');
+    Route::post('createGrant', 'GrantsController@create')->name('createGrant');
+});
+
 // Authentication Routes...
 Route::get('login', 'Auth\LoginController@showLoginForm')->name('loginPage');
 Route::post('login', 'Auth\LoginController@login');

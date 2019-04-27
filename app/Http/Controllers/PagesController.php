@@ -9,6 +9,7 @@ use App\Constant;
 use App\Event;
 use App\EventType;
 use App\EventCategory;
+use App\GrantType;
 use App\StudentIndividual;
 use App\StudentOrganization;
 use App\User;
@@ -74,10 +75,16 @@ class PagesController extends Controller
             $userData = StudentIndividual::find($userId);
         } else if(Auth::user()->role == Constant::ROLE_STUDENT_ORGANIZATION){
             $userData = StudentOrganization::find($userId);
-        } else if(Auth::user()->role == Constant::ROLE_COMPANY){
-            $userData = Company::find($userId);
         }
 
         return view('pages.createEvent')->with(compact('userData', 'eventTypes', 'eventCategories'));
+    }
+
+    public function createGrantPage(){
+        $grantTypes = GrantType::all();
+        $userId = Auth::user()->id;
+        $userData = Company::find($userId);
+
+        return view('pages.createGrant')->with(compact('userData', 'grantTypes'));
     }
 }
