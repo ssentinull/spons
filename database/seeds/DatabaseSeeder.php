@@ -16,6 +16,7 @@ class DatabaseSeeder extends Seeder
             EventsTableSeeder::class,
             EventTypesTableSeeder::class,
             EventCategoriesTableSeeder::class,
+            GrantTypesTableSeeder::class,
         ]);
     }
 }
