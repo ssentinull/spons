@@ -18,7 +18,7 @@ class CreateGrantsTable extends Migration
             $table->string('type');
             $table->integer('nominal_amount');
             $table->longText('descriptive_amount');
-            $table->integer('user_id')->unsigned();
+            $table->integer('grant_types_id')->unsigned();
             $table->timestamps();
         });
     }
