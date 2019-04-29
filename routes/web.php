@@ -43,6 +43,7 @@ Route::get('register/company', 'Auth\RegisterController@showCompanyRegistrationF
 Route::get('register', 'Auth\RegisterController@showStudentRegistrationForm')->name('registerStudentPage');
 Route::post('registerStudent', 'Auth\RegisterController@registerStudentIndividual')->name('registerStudentIndividual');
 Route::post('registerStudentOrganization', 'Auth\RegisterController@registerStudentOrganization')->name('registerStudentOrganization');
+Route::post('registerCompany', 'Auth\RegisterController@registerCompany')->name('registerCompany');
 
 // Password Reset Routes...
 Route::get('password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm');

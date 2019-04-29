@@ -8,7 +8,7 @@
                 <div class="card-header">{{ __('Register as Company') }}</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('registerStudent') }}">
+                    <form method="POST" action="{{ route('registerCompany') }}">
                         @csrf
 
                         <div class="form-group row">
@@ -76,28 +76,28 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="address" class="col-md-4 col-form-label text-md-right">{{ __('Address') }}</label>
+                            <label for="Address" class="col-md-4 col-form-label text-md-right">{{ __('Address') }}</label>
 
                             <div class="col-md-6">
-                                <input id="address" type="text" class="form-control" name="address" required>
+                                <input id="Address" type="text" class="form-control" name="Address" required>
 
-                                @if ($errors->has('address'))
+                                @if ($errors->has('Address'))
                                     <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('address') }}</strong>
+                                        <strong>{{ $errors->first('Address') }}</strong>
                                     </span>
                                 @endif
                             </div>
                         </div>
 
                         <div class="form-group row">
-                            <label for="description" class="col-md-4 col-form-label text-md-right">{{ __('Description') }}</label>
+                            <label for="desc" class="col-md-4 col-form-label text-md-right">{{ __('Description') }}</label>
 
                             <div class="col-md-6">
-                                <textarea id="description" type="text" class="form-control" name="description" required></textarea>
+                                <textarea id="desc" type="text" class="form-control" name="desc" required></textarea>
 
-                                @if ($errors->has('description'))
+                                @if ($errors->has('desc'))
                                     <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('description') }}</strong>
+                                        <strong>{{ $errors->first('desc') }}</strong>
                                     </span>
                                 @endif
                             </div>
@@ -110,7 +110,7 @@
                                 <button type="submit" class="btn btn-primary">
                                     {{ __('Register') }}
                                 </button>
-                                <a class="btn btn-outline-success my-2 my-sm-0" role="button" href="{{ route('registerStudent') }}">{{ __('Register as Student') }}</a>
+                                <a class="btn btn-outline-success my-2 my-sm-0" role="button" href="{{ route('registerStudentPage') }}">{{ __('Register as Student') }}</a>
                             </div>
                         </div>
                     </form>
