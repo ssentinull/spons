@@ -7,7 +7,7 @@
 
 @push('styles')
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"/>
-    <link rel="stylesheet" type="text/css" href="../css/login.css">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/register.css') }}">
 @endpush
 
 @section('content')
