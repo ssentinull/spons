@@ -13,9 +13,9 @@
     <div class="row mt-5 vertical-align">
         <div class="col-md-6">
             <center>
-                <h1> Need funds for your <br> Event or Activities?</h1>
+                <h1> Need funds for your <br> <span style="color: #3f3d56">Event</span> or <span style="color: #3f3d56">Activities</span>?</h1>
                 <br>
-                <h4>Join the hundreds of event organizers who <br>have posted their events in our platform</h4>
+                <h4>Join the hundreds of <span style="color: #3f3d56">event</span> organizers who <br>have posted their <span style="color: #3f3d56">events</span> in our platform</h4>
                 <br>
                 <a href="{{ route('eventsPage') }}" class="purple-button">Look at events</a>
             </center>
@@ -26,9 +26,9 @@
         <div class="col-md-6"><img src="../img/images/interview.svg" class="img-responsive" style="height:500px; width:500px;"></div>
         <div class="col-md-6">
             <center>
-                <br><h1>Looking for Companies <br>to be your sponsor?</h1>
+                <br><h1>Looking for <span style="color: #0e8c7f">Companies</span> <br>to be your sponsor?</h1>
                 <br>
-                <h4>Enroll your company to show that <br>you are intersted in becoming a sponsor</h4>
+                <h4>Enroll your <span style="color: #0e8c7f">company</span> to show that <br>you are intersted in becoming a sponsor</h4>
                 <br>
                 <a href="{{ route('companiesPage') }}" class="green-button">Look at <br>Companies</a>
             </center>
