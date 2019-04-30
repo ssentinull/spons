@@ -20,7 +20,7 @@
       <div class="productdata">
         <div class="prodictcontent"  style="background-color: #0E8C7F;">
         <!-- foreach ($events as $event) -->
-          <h1 class="producttitle"><a href="/eventdetail">{{$event->name}}</a></h1>
+          <h1 class="producttitle"><a href="/detail">{{$event->name}}</a></h1>
           <p class="producttext" style="color: white;">Desc</p>
         </div>
         <input type="checkbox" id="show-menu" />
