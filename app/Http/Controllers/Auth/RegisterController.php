@@ -147,8 +147,8 @@ class Registercontroller extends Controller
     {
         return Company::create([
             'established_in' => $data['established_in'],
-            'address' => $data['Address'],
-            'description' => $data['desc'],
+            'address' => $data['address'],
+            'description' => $data['description'],
             'user_id' => $id,
         ]);
     }
