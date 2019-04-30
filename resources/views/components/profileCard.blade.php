@@ -3,7 +3,7 @@
         <img src="//placehold.it/440x200?text=Spons" alt="">
     </div>
     <div class="card-block p-4" align="center">
-        <h4 class="card-title">{{$events[$i]->name}}</h4>
-        <p class="card-text">{{$events[$i]->description}}</p>
+        <h4 class="card-title">{{$event->name}}</h4>
+        <p class="card-text">{{$event->description}}</p>
     </div>
 </div>

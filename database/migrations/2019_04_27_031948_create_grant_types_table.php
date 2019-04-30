@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateGrantsTable extends Migration
+class CreateGrantTypesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,10 @@ class CreateGrantsTable extends Migration
      */
     public function up()
     {
-        Schema::create('grants', function (Blueprint $table) {
+        Schema::create('grant_types', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('nominal_amount')->nullable();
-            $table->longText('descriptive_amount')->nullable();
-            $table->integer('grant_types_id')->unsigned();
-            $table->integer('user_id')->unsigned();
+            $table->string('name');
+            $table->longText('description');
             $table->timestamps();
         });
     }
@@ -30,6 +28,6 @@ class CreateGrantsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('grants');
+        Schema::dropIfExists('grant_types');
     }
 }

@@ -7,7 +7,7 @@ use Auth;
 
 use App\Constant;
 
-class VerifyStudentRole
+class VerifyCompanyRole
 {
     /**
      * Handle an incoming request.
@@ -20,8 +20,8 @@ class VerifyStudentRole
     {
         $user = Auth::user();
 
-        if(!$user || ($user->role !== Constant::ROLE_STUDENT_INDIVIDUAL && $user->role !== Constant::ROLE_STUDENT_ORGANIZATION)){
-            return redirect('/');
+        if(!$user || ($user->role !== Constant::ROLE_COMPANY)){
+            return redirect()->route('landingPage');
         }
 
         return $next($request);

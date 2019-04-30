@@ -31,7 +31,7 @@ display: block;
 /* Non-disabled menu links */
 .sidenav a.non-disabled{
 color: #3f3d56;
-font-size: 20px;
+font-size: 16px;
 }
 
 /* Disabled menu links */
@@ -44,7 +44,7 @@ cursor: default;
 
 /* When you mouse over the navigation links, change their color */
 .sidenav a:hover {
-color: #f1f1f1;
+color: #9997b5;
 }
 
 /* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */

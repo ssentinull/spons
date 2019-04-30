@@ -10,6 +10,6 @@ $factory->define(App\Event::class, function (Faker $faker) {
         'description' => $faker->paragraph($nbSentences = 5, $variableNbSentences = true),
         'date' => $faker->date,
         'location' => $faker->address,
-        'user_id' => $faker->randomElement([1, 3, 4])
+        'user_id' => $faker->randomElement([1, 2, 4, 5, 6, 7])
     ];
 });

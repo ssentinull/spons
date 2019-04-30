@@ -18,6 +18,8 @@ Route::get('/welcome', function () {
 // General Routes
 Route::get('/', 'PagesController@landingPage')->name('landingPage');
 Route::get('events', 'PagesController@eventsPage')->name('eventsPage');
+Route::get('companies', 'PagesController@companiesPage')->name('companiesPage');
+Route::get('profile', ['middleware' => 'auth', 'uses' => 'PagesController@profilePage'])->name('profilePage');
 Route::get('error', 'PagesController@errorPage')->name('errorPage');
 
 // Student role only Routes
@@ -26,29 +28,28 @@ Route::group(['middleware' => ['verifyStudent']], function(){
     Route::post('createEvent', 'EventsController@create')->name('createEvent');
 });
 
+Route::group(['middleware' => ['verifyCompany']], function(){
+    Route::get('createGrant', 'PagesController@createGrantPage')->name('createGrantPage');
+    Route::post('createGrant', 'GrantsController@create')->name('createGrant');
+});
+
 // Authentication Routes...
-Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
+Route::get('login', 'Auth\LoginController@showLoginForm')->name('loginPage');
 Route::post('login', 'Auth\LoginController@login');
 Route::post('logout', 'Auth\LoginController@logout')->name('logout');
 
 // Registration Routes...
-Route::get('register/company', 'Auth\RegisterController@showCompanyRegistrationForm')->name('registerCompany');
-Route::get('register', 'Auth\RegisterController@showStudentRegistrationForm');
-Route::post('registerStudent', 'Auth\RegisterController@register')->name('registerStudent');
-Route::post('registerStudent2', 'Auth\RegisterController@register2')->name('registerStudent2');
-
+Route::get('register/company', 'Auth\RegisterController@showCompanyRegistrationForm')->name('registerCompanyPage');
+Route::get('register', 'Auth\RegisterController@showStudentRegistrationForm')->name('registerStudentPage');
+Route::post('registerStudent', 'Auth\RegisterController@registerStudentIndividual')->name('registerStudentIndividual');
+Route::post('registerStudentOrganization', 'Auth\RegisterController@registerStudentOrganization')->name('registerStudentOrganization');
+Route::post('registerCompany', 'Auth\RegisterController@registerCompany')->name('registerCompany');
 
 // Password Reset Routes...
 Route::get('password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm');
 Route::post('password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail');
 Route::get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm');
 Route::post('password/reset', 'Auth\ResetPasswordController@reset');
-
-Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/detail', function () {
-    return view('detail');
-    
-});
 
 // Deprecated routes
 // Route::get('/signIn', 'PagesController@signInPage');

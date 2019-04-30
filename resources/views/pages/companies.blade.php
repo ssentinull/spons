@@ -12,23 +12,23 @@
 <div class="container">
     <div>
         <center>
-            <h1 style="margin-left:5px; color: #0E8C7F;">Event and Activities posted by Students</h1>
+            <h1 style="margin-left:5px; color: #0E8C7F;">Companies that are listed in our platform</h1>
         </center>
     </div>
     <div class="row justify-content-center">
         <div class="row">
-            <p style="color: #0E8C7F;">Showing {{$firstEventIndex + 5}} out of {{$events->total()}}</p>
+            <p style="color: #0E8C7F;">Showing {{$firstCompanyIndex + 5}} out of {{$companies->total()}}</p>
         </div>
         <div class="row">
             <div class="prodictrow">
-                @foreach($events as $event)
+                @foreach($companies as $company)
                     @include('components.eventsCard')
                 @endforeach
             </div>
         </div>
     </div>
     <div class="row justify-content-center">
-        {{ $events->links() }}
+        {{ $companies->links() }}
     </div>
 </div>
 @endsection

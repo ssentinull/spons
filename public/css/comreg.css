@@ -6,7 +6,7 @@ body{
 
 .cardawal{
     width:890px;
-    height: 450px;
+    height: 600px;
     border-radius: 2%;
     background-color:#fff;
     margin-top:50px;
@@ -18,11 +18,13 @@ body{
 }
 
 .cardawal h2{
+    margin-top:0px;
     color: #0E8C7F;
     font-size: 1.7em;
 }
 
 .cardawal button{
+    font-size: 10px;
     background-color: black;
     color: #fff;
     margin-left: 600px;
@@ -34,7 +36,7 @@ body{
 .cardawal p{
     font-size: 1.5em;
     margin-left: 30px;
-    margin-top: 50px;
+    margin-top: 20px;
 }
 
 .regisc label{
@@ -56,6 +58,7 @@ body{
 }
 
 .data{
+    font-size: 20px;
     margin-left: -100px;
     margin-top: -60px;
     display: inline-flex;

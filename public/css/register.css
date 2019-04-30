@@ -1,0 +1,76 @@
+.cardawal{
+width:957px;
+height: 750px;
+border-radius: 2%;
+background-color:#fff;
+margin-top:50px;
+margin-left: 150px;
+margin-right: 150px;
+margin-bottom: 50px;
+box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
+padding: 20px 20px 20px 50px;
+}
+
+.cardawal awal{
+color: #0E8C7F;
+font-size: 1.7em;
+}
+
+.cardawal button{
+background-color: black;
+color: #fff;
+margin-left: 690px;
+margin-top:-55px;
+width:100px;
+height: 50px;
+border-radius: 50px;
+}
+
+.cardawal p{
+font-size: 1.5em;
+margin-left: 30px;
+margin-top: 5px;
+}
+
+.regisc label{
+font-size: 1em;
+margin-left: 5px;
+color: #0E8C7F;
+}
+
+.regisc input {
+font-size: 1em;
+margin-left: 5px;
+height: 40px;
+width: 300px;
+border-radius: 7px;
+border-color:  #0E8C7F;
+padding-left: 25px;
+color: #0E8C7F;
+}
+
+.regisc textarea {
+font-size: 1em;
+margin-left: 5px;
+height: 100px;
+width: 300px;
+border-radius: 7px;
+border-color:  #0E8C7F;
+padding-left: 25px;
+color: #0E8C7F;
+}
+
+.data{
+margin-left: -260px;
+margin-top: -125px;
+}
+
+.data1{
+margin-left: 520px;
+margin-top: -29px;
+}
+
+.data2{
+margin-left: -260px;
+margin-top: 15px;
+}

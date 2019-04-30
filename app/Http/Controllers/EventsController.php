@@ -14,7 +14,7 @@ class EventsController extends Controller
         //  dd($data);
 
         if(!Auth::user()){
-            return redirect('/home');
+            return redirect('/');
         }
 
         $request['user_id'] = Auth::user()->id;

@@ -1,35 +1,61 @@
-
 @extends('layouts.app')
 
 @push('styles')
-    <link rel="stylesheet" type="text/css" media="screen" href="main.css">
-    <link rel="stylesheet" type="text/css" href="../css/login.css">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/signIn.css') }}">
 @endpush
 
 @section('content')
-@foreach ($errors->all() as $error)
-    <li>{{$error}}</li>
-
+    @foreach ($errors->all() as $error)
+        <li>{{$error}}</li>
     @endforeach
+    <div class="vertical-center">
+        <div class="container login-card">
+            <div class="row">
+                <!-- Left side of the card -->
+                <div class="col-md-6 p-4">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h2>Spons</h2>
+                        </div>
+                        <div class="col-md-6">
+                            <a class="btn btn-dark" href={{ route('landingPage') }}>Go back to landing page</a>
+                        </div>
+                    </div>
+                    <div class="row top-buffer pl-4">
+                        <p>Welcome Back!<br>We miss you :)</p>
+                    </div>
+                    <form  role="form" method="POST" action="{{ url('/login') }}">
+                        <div class="form-group top-buffer">
+                            @csrf
+                            <div class="row o">
+                                <div class="col-md-8">
+                                    <input class="form-control" type="text" placeholder="Email" name="email">
+                                </div>
+                            </div>
+                            <div class="row top-buffer">
+                                <div class="col-md-8">
+                                    <input class="form-control" type="password" placeholder="Password" name="password">
+                                </div>
+                            </div>
+                            <div class="row justify-content-around top-buffer">
+                                <div class="col-md-2">
+                                    <button class="btn btn-success" type="submit">Login</button>
+                                </div>
+                                <div class="col-md-2">
+                                    <a class="btn btn-outline-success" href="{{ route('registerStudentPage') }}">
+                                        Register
+                                    </a>
+                                </div>
+                            </div>
 
-    <div class="cardawal">
-        <h2>Spons
-<a href="/home">            <button >Go back to landing page</button></a>
-        </h2>        
-        <p>Welcome Back!<br>We miss you :)</p>
-        <form  role="form" method="POST" action="{{ url('/login') }}">
-        @csrf
-      
-        <div class="login">
-            <input type="text" placeholder="Email" name="email" required><br> <br> <br>
-            <input type="password" placeholder="Password" name="password" required>
+                        </div>
+                    </form>
+                </div>
+                <!-- Right side of the card -->
+                <div class="col-md-6 col-centered" style="background-color: #f6f6f7">
+                    <img src="../img/images/login.svg" class="img-responsive" style="height:400px; width:400px;">
+                </div>
+            </div>
         </div>
-        <div class="data">
-            <button style="background-color:#0E8C7F;color:#fff;" type="submit">Login</button>
-            <button style="background-color:#fff;color:#0E8C7F;border-color: #0E8C7F; margin-left:90px;">
-                Register
-            </button>
-        </div>
-        </form>
     </div>
 @endsection
