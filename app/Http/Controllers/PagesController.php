@@ -21,6 +21,18 @@ class PagesController extends Controller
         return view('pages.landing');
     }
 
+    public function signInPage(){
+        return view('pages.signIn');
+    }
+
+    public function studentRegisterPage(){
+        return view('pages.studentRegister');
+    }
+
+    public function companyRegisterPage(){
+        return view('pages.companyRegister');
+    }
+
     public function eventsPage(){
         $events = Event::orderBy('created_at', 'desc')->paginate(6);
         $firstEventIndex = $events->firstItem();
@@ -35,34 +47,22 @@ class PagesController extends Controller
         return view('pages.companies')->with(compact('companies', 'firstCompanyIndex'));
     }
 
-    public function signInPage(){
-        return view('pages.signIn');
-    }
-
-    public function studentRegisterPage(){
-        return view('pages.studentRegister');
-    }
-
-    public function companyRegisterPage(){
-        return view('pages.companyRegister');
-    }
-
     public function profilePage(){
         $user = Auth::user();
 
         if($user->role == Constant::ROLE_STUDENT_INDIVIDUAL || $user->role == Constant::ROLE_STUDENT_ORGANIZATION){
 
             if($user->role == Constant::ROLE_STUDENT_INDIVIDUAL){
-                $userData = StudentIndividual::find($user->id);
+                $userData = Auth::user()->studentIndividual;
             } else if($user->role == Constant::ROLE_STUDENT_ORGANIZATION){
-                $userData = StudentOrganization::find($user->id);
+                $userData = Auth::user()->studentOrganization;
             }
 
             $events = Event::where('user_id', $user->id)->paginate(6);
 
             return view('pages.profile')->with(compact('userData','events'));
         } else if($user->role == Constant::ROLE_COMPANY){
-            $userData = Company::find($user->id);
+            $userData = Auth::user()->company;
             return view('pages.profile')->with('userData', $userData);
         }
     }
