@@ -17,7 +17,7 @@
                 <br>
                 <h4>Join the hundreds of event organizers who <br>have posted their events in our platform</h4>
                 <br>
-                <a href="#" class="myButton1">Look at events</a>
+                <a href="{{ route('eventsPage') }}" class="purple-button">Look at events</a>
             </center>
         </div>
         <div class="col-md-6" ><img src="../img/images/activities.svg" class="img-responsive" style="height:450px; width:450px;"></div>
@@ -31,7 +31,7 @@
                 <br>
                 <h4>Enroll your company to show that <br>you are intersted in becoming a sponsor</h4>
                 <br>
-                <a href="#" class="myButton2">Look at <br>Companies</a>
+                <a href="{{ route('companiesPage') }}" class="green-button">Look at <br>Companies</a>
             </center>
         </div>
         <div class="col-md-1"></div>
