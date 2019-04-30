@@ -87,4 +87,14 @@ class PagesController extends Controller
 
         return view('pages.createGrant')->with(compact('userData', 'grantTypes'));
     }
+
+    public function showDetailEvent ()
+    {
+        return view('pages.detail');
+    }
+
+    public function showDetailCompany()
+    {
+        return view('pages.detailCompany');
+    }
 }

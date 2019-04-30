@@ -20,7 +20,8 @@
             <p style="color: #0E8C7F;">Showing {{$firstEventIndex + 5}} out of {{$events->total()}}</p>
         </div>
         <div class="row">
-            <div class="prodictrow">
+            
+            <div class="prodictrow" >
                 @foreach($events as $event)
                     @include('components.eventsCard')
                 @endforeach
