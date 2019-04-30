@@ -20,12 +20,11 @@
                 <a href="{{ route('eventsPage') }}" class="purple-button">Look at events</a>
             </center>
         </div>
-        <div class="col-md-6" ><img src="../img/images/activities.svg" class="img-responsive" style="height:450px; width:450px;"></div>
+        <div class="col-md-6" ><img src="../img/images/activities.svg" class="img-responsive" style="height:500px; width:500px;"></div>
     </div>
     <div class="row mt-5 vertical-align">
-        <div class="col-md-1"></div>
-        <div class="col-md-5"><img src="../img/images/interview.svg" class="img-responsive" style="height:450px; width:450px;"></div>
-        <div class="col-md-5">
+        <div class="col-md-6"><img src="../img/images/interview.svg" class="img-responsive" style="height:500px; width:500px;"></div>
+        <div class="col-md-6">
             <center>
                 <br><h1>Looking for Companies <br>to be your sponsor?</h1>
                 <br>
@@ -34,7 +33,6 @@
                 <a href="{{ route('companiesPage') }}" class="green-button">Look at <br>Companies</a>
             </center>
         </div>
-        <div class="col-md-1"></div>
     </div>
     <div class="row mt-5"></div>
 </div>
