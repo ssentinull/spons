@@ -49,6 +49,10 @@ class UsersTableSeeder extends Seeder
             'remember_token' => Str::random(10),
         ]);
 
+        factory(App\Company::class)->create([
+            'user_id' => 3,
+        ]);
+
         factory(App\User::class, 'studentIndividual', 2)->create()->each(function($user){
             factory(App\StudentIndividual::class)->create(['user_id' => $user->id]);
         });
