@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use Auth;
+
+use Illuminate\Http\Request;
 use App\Company;
 use App\Constant;
 use App\Event;
@@ -69,21 +70,18 @@ class PagesController extends Controller
     public function createEventPage(){
         $eventTypes = EventType::all();
         $eventCategories = EventCategory::all();
-        $userId = Auth::user()->id;
 
         if(Auth::user()->role == Constant::ROLE_STUDENT_INDIVIDUAL){
-            $userData = StudentIndividual::find($userId);
+            $userData = Auth::user()->studentIndividual;
         } else if(Auth::user()->role == Constant::ROLE_STUDENT_ORGANIZATION){
-            $userData = StudentOrganization::find($userId);
+            $userData = Auth::user()->studentOrganization;
         }
-
         return view('pages.createEvent')->with(compact('userData', 'eventTypes', 'eventCategories'));
     }
 
     public function createGrantPage(){
         $grantTypes = GrantType::all();
-        $userId = Auth::user()->id;
-        $userData = Company::find($userId);
+        $userData = Auth::user()->company;
 
         return view('pages.createGrant')->with(compact('userData', 'grantTypes'));
     }
