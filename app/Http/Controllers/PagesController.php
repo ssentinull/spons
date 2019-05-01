@@ -41,7 +41,7 @@ class PagesController extends Controller
     }
 
     public function eventDetailPage(){
-        return view('pages.detail');
+        return view('pages.eventDetail');
     }
 
     public function companiesPage(){
@@ -52,7 +52,7 @@ class PagesController extends Controller
     }
 
     public function companyDetailPage(){
-        return view('pages.detailCompany');
+        return view('pages.companyDetail');
     }
 
     public function profilePage(){
