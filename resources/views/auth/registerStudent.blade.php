@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
 @push('scripts')
-    <script type="text/javascript" src="{{ asset('js/registerStudent.js') }}"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script type="text/javascript" src="{{ asset('js/registerStudent.js') }}"></script>
 @endpush
 
 @push('styles')
@@ -82,7 +82,7 @@
                                         <div class="regisc">
                                             <label for="name">Name </label>
                                             <label for="university" style=" margin-left:365px;">University<br></label> <br>
-                                            
+
                                             <input type="text" placeholder="Name" name="name" required>
                                             <input style="margin-left:117px;" type="text" placeholder="University" name="university" required> <br> <br>
 
@@ -96,8 +96,6 @@
                                             <label for="description" style=" margin-left:335px;" >Description</label><br><br>
 
                                             <input type="password" placeholder="Password" name="password" required>
-
-
 
                                             <br><br><label for="password" >Confirm Password</label><br>
                                             <input type="password"  placeholder="Confirm Password" name="password_confirmation" required>
