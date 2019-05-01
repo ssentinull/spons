@@ -61,29 +61,29 @@ class PagesController extends Controller
         if($user->role == Constant::ROLE_STUDENT_INDIVIDUAL || $user->role == Constant::ROLE_STUDENT_ORGANIZATION){
 
             if($user->role == Constant::ROLE_STUDENT_INDIVIDUAL){
-                $userData = StudentIndividual::find($user->email);
+                $userData = $user->studentIndividual;
             } else if($user->role == Constant::ROLE_STUDENT_ORGANIZATION){
-                $userData = StudentOrganization::find($user->email);
+                $userData = $user->studentOrganization;
             }
 
-            $events = Event::where('user_id', $user->id)->paginate(6);
-            dd($user->email);
+            $events = $user->studentEvents()->paginate(6);
             return view('pages.profile')->with(compact('userData','events'));
         } else if($user->role == Constant::ROLE_COMPANY){
-            $userData = Company::find($user->id);
+
+            $userData = $user->company;
             return view('pages.profile')->with('userData', $userData);
         }
     }
 
     public function createEventPage(){
-        $eventTypes = EventType::all();
         $eventCategories = EventCategory::all();
-        $userId = Auth::user()->id;
+        $eventTypes = EventType::all();
+        $user = Auth::user();
 
         if(Auth::user()->role == Constant::ROLE_STUDENT_INDIVIDUAL){
-            $userData = StudentIndividual::find($userId);
+            $userData = $user->studentIndividual;
         } else if(Auth::user()->role == Constant::ROLE_STUDENT_ORGANIZATION){
-            $userData = StudentOrganization::find($userId);
+            $userData = $user->studentOrganization;
         }
 
         return view('pages.createEvent')->with(compact('userData', 'eventTypes', 'eventCategories'));
@@ -91,8 +91,7 @@ class PagesController extends Controller
 
     public function createGrantPage(){
         $grantTypes = GrantType::all();
-        $userId = Auth::user()->id;
-        $userData = Company::find($userId);
+        $userData = Auth::user()->company;
 
         return view('pages.createGrant')->with(compact('userData', 'grantTypes'));
     }

@@ -28,7 +28,7 @@ class UsersTableSeeder extends Seeder
         ]);
 
         DB::table('users')->insert([
-            'email' => 'Himatif@unpad.mail.ac.id',
+            'email' => 'himatif@unpad.mail.ac.id',
             'email_verified_at' => now(),
             'password' => Hash::make('12345678'),
             'name' => 'Himatif FMIPA Unpad',
@@ -47,6 +47,10 @@ class UsersTableSeeder extends Seeder
             'name' => 'Astra Jaya',
             'role' => Constant::ROLE_COMPANY,
             'remember_token' => Str::random(10),
+        ]);
+
+        factory(App\Company::class)->create([
+            'user_id' => 3,
         ]);
 
         factory(App\User::class, 'studentIndividual', 2)->create()->each(function($user){
