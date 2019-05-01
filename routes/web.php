@@ -18,12 +18,13 @@ Route::get('/welcome', function () {
 // General Routes
 Route::get('/', 'PagesController@landingPage')->name('landingPage');
 Route::get('events', 'PagesController@eventsPage')->name('eventsPage');
+Route::get('eventDetail', 'PagesController@eventDetailPage')->name('eventDetailPage');
 Route::get('companies', 'PagesController@companiesPage')->name('companiesPage');
+Route::get('companyDetail', 'PagesController@companyDetailPage')->name('companyDetailPage');
 Route::get('profile', ['middleware' => 'auth', 'uses' => 'PagesController@profilePage'])->name('profilePage');
 Route::get('error', 'PagesController@errorPage')->name('errorPage');
 
 // Student role only Routes
-Route::get('detailCompany', 'PagesController@showDetailCompany')->name('detailCompany');
 Route::group(['middleware' => ['verifyStudent']], function(){
     Route::get('createEvent', 'PagesController@createEventPage')->name('createEventPage');
     Route::post('createEvent', 'EventsController@create')->name('createEvent');
@@ -51,9 +52,6 @@ Route::get('password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm'
 Route::post('password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail');
 Route::get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm');
 Route::post('password/reset', 'Auth\ResetPasswordController@reset');
-
-// Company rights
-Route::get('detail', 'PagesController@showDetailEvent')->name('detail');
 
 // Deprecated routes
 // Route::get('/signIn', 'PagesController@signInPage');

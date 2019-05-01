@@ -2,36 +2,23 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use Auth;
+
 use App\Company;
 use App\Constant;
 use App\Event;
-use App\EventType;
 use App\EventCategory;
+use App\EventType;
 use App\GrantType;
 use App\StudentIndividual;
 use App\StudentOrganization;
 use App\User;
+use Illuminate\Http\Request;
 
 class PagesController extends Controller
 {
     public function landingPage(){
         return view('pages.landing');
-    }
-
-    public function eventsPage(){
-        $events = Event::orderBy('created_at', 'desc')->paginate(6);
-        $firstEventIndex = $events->firstItem();
-
-        return view('pages.events')->with(compact('events', 'firstEventIndex'));
-    }
-
-    public function companiesPage(){
-        $companies = User::where('role', Constant::ROLE_COMPANY)->with(['company'])->paginate(6);
-        $firstCompanyIndex = $companies->firstItem();
-
-        return view('pages.companies')->with(compact('companies', 'firstCompanyIndex'));
     }
 
     public function signInPage(){
@@ -46,9 +33,31 @@ class PagesController extends Controller
         return view('pages.companyRegister');
     }
 
+    public function eventsPage(){
+        $events = Event::orderBy('created_at', 'desc')->paginate(6);
+        $firstEventIndex = $events->firstItem();
+
+        return view('pages.events')->with(compact('events', 'firstEventIndex'));
+    }
+
+    public function eventDetailPage(){
+        return view('pages.detail');
+    }
+
+    public function companiesPage(){
+        $companies = User::where('role', Constant::ROLE_COMPANY)->with(['company'])->paginate(6);
+        $firstCompanyIndex = $companies->firstItem();
+
+        return view('pages.companies')->with(compact('companies', 'firstCompanyIndex'));
+    }
+
+    public function companyDetailPage(){
+        return view('pages.detailCompany');
+    }
+
     public function profilePage(){
         $user = Auth::user();
-        
+
         if($user->role == Constant::ROLE_STUDENT_INDIVIDUAL || $user->role == Constant::ROLE_STUDENT_ORGANIZATION){
 
             if($user->role == Constant::ROLE_STUDENT_INDIVIDUAL){
@@ -86,15 +95,5 @@ class PagesController extends Controller
         $userData = Company::find($userId);
 
         return view('pages.createGrant')->with(compact('userData', 'grantTypes'));
-    }
-
-    public function showDetailEvent ()
-    {
-        return view('pages.detail');
-    }
-
-    public function showDetailCompany()
-    {
-        return view('pages.detailCompany');
     }
 }
