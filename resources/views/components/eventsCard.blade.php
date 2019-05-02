@@ -6,7 +6,7 @@
             </div>
         </center>
         <div class="productdata">
-            <div class="prodictcontent"  style="background-color: #0E8C7F;">
+            <div class="prodictcontent"  style="background-color: #3f3d56;">
                 @isset($event)
                     <h1 class="producttitle">
                         <a href="{{ route('eventDetailPage') }}">{{$event->name}}</a>
