@@ -9,7 +9,7 @@
             <div class="prodictcontent"  style="background-color: #3f3d56;">
                 @isset($event)
                     <h1 class="producttitle">
-                        <a href="{{ route('eventDetailPage') }}">{{$event->name}}</a>
+                        <a href="{{ route('eventDetailPage', $event->id) }}">{{$event->name}}</a>
                     </h1>
                     <p class="producttext" style="color: white;">{{$event->description}}</p>
                 @endisset

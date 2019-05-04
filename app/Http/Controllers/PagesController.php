@@ -40,8 +40,11 @@ class PagesController extends Controller
         return view('pages.events')->with(compact('events', 'firstEventIndex'));
     }
 
-    public function eventDetailPage(){
-        return view('pages.eventDetail');
+    public function eventDetailPage($eventId){
+        $event = Event::find($eventId);
+        $userDataEmail = $event->user->email;
+
+        return view('pages.eventDetail')->with(compact('event', 'userDataEmail'));
     }
 
     public function companiesPage(){

@@ -18,7 +18,7 @@ Route::get('/welcome', function () {
 // General Routes
 Route::get('/', 'PagesController@landingPage')->name('landingPage');
 Route::get('events', 'PagesController@eventsPage')->name('eventsPage');
-Route::get('eventDetail', 'PagesController@eventDetailPage')->name('eventDetailPage');
+Route::get('eventDetail/{eventId}', 'PagesController@eventDetailPage')->name('eventDetailPage');
 Route::get('companies', 'PagesController@companiesPage')->name('companiesPage');
 Route::get('companyDetail', 'PagesController@companyDetailPage')->name('companyDetailPage');
 Route::get('profile', ['middleware' => 'auth', 'uses' => 'PagesController@profilePage'])->name('profilePage');
