@@ -20,18 +20,18 @@
                 </div>
             </div>
             <div class="row card top-buffer p-3">
-                <div class="row justify-content-center top-buffer bottom-buffer">
+                <div class="row justify-content-center top-buffer-extra bottom-buffer-extra">
                     <div class="col-md-12">
                         <h2>{{ $event->name }}</h2>
                     </div>
                 </div>
                 <hr style="height:2px; color:#0e8c7f; background-color:#0e8c7f; width:90%; text-align:center; margin: 0 auto;">
-                <div class="row justify-content-center mt-4 pl-5 pr-5">
+                <div class="row justify-content-center pl-5 pr-5 top-buffer-extra">
                     <div class="col-md-12">
                         <h5>{{ $event->description }}</h5>
                     </div>
                 </div>
-                <div class="row ml-5 top-buffer">
+                <div class="row ml-5 top-buffer-extra">
                     <h5>Contact: {{ $userDataEmail }}</h5>
                 </div>
                 <div class="row justify-content-between top-buffer">

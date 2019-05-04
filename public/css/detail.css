@@ -9,7 +9,11 @@ h1{
 
 .top-buffer { margin-top:20px; }
 
+.top-buffer-extra { margin-top:40px; }
+
 .bottom-buffer { margin-bottom:20px; }
+
+.bottom-buffer-extra { margin-bottom:40px; }
 
 .card{
     background-color:#fff;
