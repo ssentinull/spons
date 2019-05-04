@@ -20,7 +20,7 @@ Route::get('/', 'PagesController@landingPage')->name('landingPage');
 Route::get('events', 'PagesController@eventsPage')->name('eventsPage');
 Route::get('eventDetail/{eventId}', 'PagesController@eventDetailPage')->name('eventDetailPage');
 Route::get('companies', 'PagesController@companiesPage')->name('companiesPage');
-Route::get('companyDetail', 'PagesController@companyDetailPage')->name('companyDetailPage');
+Route::get('companiesDetail/{companyId}', 'PagesController@companyDetailPage')->name('companyDetailPage');
 Route::get('profile', ['middleware' => 'auth', 'uses' => 'PagesController@profilePage'])->name('profilePage');
 Route::get('error', 'PagesController@errorPage')->name('errorPage');
 

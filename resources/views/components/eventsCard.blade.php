@@ -15,7 +15,7 @@
                 @endisset
                 @isset($company)
                     <h1 class="producttitle">
-                        <a href="{{ route('companyDetailPage') }}">{{$company->name}}</a>
+                        <a href="{{ route('companyDetailPage', $company->id) }}">{{$company->name}}</a>
                     </h1>
                     <p class="producttext" style="color: white;">{{$company->company['description']}}</p>
                 @endisset

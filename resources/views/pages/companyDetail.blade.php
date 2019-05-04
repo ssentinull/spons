@@ -9,34 +9,40 @@
 @endsection
 
 @section('content')
-    <br><br><br><br>
-
-    <div class="col-md-2"></div>
-    <div class="col-md-10">
-        <h1>Company Details</h1>
-    </div>
-    <br><br><br>
-
-    <div class="card">
-        <br><br>
-        <center>
-            <h2>Company Name</h2>
-            <h2>___________________________________</h2>
-            <br><br>
-            <p>
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laboriosam, voluptatum! Dolor quo, perspiciatis
-                voluptas totam<br>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laboriosam, voluptatum! Dolor quo, perspiciatis
-                voluptas totamLorem<br> ipsum dolor sit amet consectetur, adipisicing elit. Laboriosam, voluptatum! Dolor quo, perspiciatis
-                voluptas totam<br>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laboriosam, voluptatum! Dolor quo, perspiciatis
-                voluptas totamLorem<br> ipsum dolor sit amet consectetur, adipisicing elit. Laboriosam, voluptatum! Dolor quo, perspiciatis
-                voluptas totam<br>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laboriosam, voluptatum! Dolor quo, perspiciatis
-                voluptas totamLorem <br>ipsum dolor sit amet consectetur, adipisicing elit. Laboriosam, voluptatum! Dolor quo, perspiciatis
-                voluptas totam<br>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laboriosam, voluptatum! Dolor quo, perspiciatis
-                voluptas totam
-            </p>
-        </center>
-        <h4>Contact: 081274937283</h4><br>
-        <h4>blabla@gmail.com</h4><br>
+    @foreach ($errors->all() as $error)
+        <li>{{$error}}</li>
+    @endforeach
+    <div class="vertical-center">
+        <div class="container">
+            <div class="row top-buffer">
+                <div class="col-md-3">
+                    <h2 style="color: #3f3d56">Company Details</h2>
+                </div>
+            </div>
+            <div class="row card top-buffer p-3">
+                <div class="row justify-content-center top-buffer-extra bottom-buffer-extra">
+                    <div class="col-md-12">
+                        <h2>{{ $user->name }}</h2>
+                    </div>
+                </div>
+                <hr style="height:2px; color:#0e8c7f; background-color:#0e8c7f; width:90%; text-align:center; margin: 0 auto;">
+                <div class="row justify-content-center pl-5 pr-5 top-buffer-extra">
+                    <div class="col-md-12">
+                        <h5>{{ $userData->description }}</h5>
+                    </div>
+                </div>
+                <div class="row ml-5 top-buffer-extra">
+                    <h5>Contact: {{ $user->email }}</h5>
+                </div>
+                <div class="row justify-content-between top-buffer bottom-buffer">
+                    <div class="col-4">
+                        <a class="green-button-invert">Available</a>
+                    </div>
+                    <div class="col-4">
+                        <a href="#" class="green-button">Apply</a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 @endsection
-

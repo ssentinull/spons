@@ -54,8 +54,11 @@ class PagesController extends Controller
         return view('pages.companies')->with(compact('companies', 'firstCompanyIndex'));
     }
 
-    public function companyDetailPage(){
-        return view('pages.companyDetail');
+    public function companyDetailPage($companyId){
+        $user = User::find($companyId);
+        $userData = $user->company;
+
+        return view('pages.companyDetail')->with(compact('user', 'userData'));
     }
 
     public function profilePage(){
