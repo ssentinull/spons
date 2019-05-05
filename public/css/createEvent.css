@@ -3,3 +3,70 @@
 margin-left: 160px; /* Same as the width of the sidebar */
 padding: 0px 10px;
 }
+
+body{
+    /* background:url('/img/bg.png') no-repeat; */
+    width: 100%;
+    height: 100%; 
+}
+
+.cardawal{
+    width:550px;
+    height: 700px;
+    border-radius: 2%;
+    background-color:#fff;
+    margin-top:50px;
+    margin-left: 400px;
+    margin-right: 150px;
+    margin-bottom: 50px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
+    padding: 20px 20px 20px 50px;            
+}
+
+.cardawal h2{
+    margin-top:0px;
+    color: #0E8C7F;
+    font-size: 1.7em;
+}
+
+.cardawal p{
+    font-size: 1.5em;
+    margin-left: 30px;
+    margin-top: 20px;
+}
+
+.regisc label{
+    color: #0E8C7F;
+    font-weight: 200;
+    font-size: 1.3em;
+}
+
+.regisc input{
+    font-size: 1em;
+    height: 40px;
+    width: 100%;
+    border-radius: 7px;
+    border-color:  #0E8C7F;
+    padding-left: 25px;
+}
+.regisc select{
+    font-size: 1em;
+    height: 40px;
+    width: 100%;
+    border-radius: 7px;
+    border-color:  #0E8C7F;
+    padding-left: 25px;
+}
+
+
+.data button{
+    font-size: 10px;
+    background-color:#0E8C7F;
+    color: #fff;
+    width:100px;
+    height: 50px;
+    border-radius: 50px;
+    font-size: 1em;
+    margin-top: 20px;
+    margin-left: 350px;
+}

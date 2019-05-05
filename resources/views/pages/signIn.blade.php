@@ -8,7 +8,7 @@
     @foreach ($errors->all() as $error)
         <li>{{$error}}</li>
     @endforeach
-    <div class="vertical-center" style="background-color: black; ">
+    <div class="vertical-center" style="background-image: url(../img/bg.png);">
         <div class="container login-card">
             <div class="row">
                 <!-- Left side of the card -->

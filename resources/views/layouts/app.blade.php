@@ -24,9 +24,10 @@
 <body>
     <div id="app">
         @yield('navbar')
-        <main class="py-4">
+        <main class="py-4" style="padding:0px;">
             @yield('content')
-        </main>
+        </main> <br>
+        @extends('components.footer')
     </div>
 </body>
 </html>
