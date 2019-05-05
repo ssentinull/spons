@@ -36,10 +36,18 @@
                 </div>
                 <div class="row justify-content-between top-buffer bottom-buffer">
                     <div class="col-4">
-                        <a class="green-button-invert">Available</a>
+                        @if ($userData->status == Constant::COMPANY_STATUS_AVAILABLE)
+                            <div class="available-status">Available</div>
+                        @else
+                            <div class="unavailable-status">Unvailable</div>
+                        @endif
                     </div>
                     <div class="col-4">
-                        <a href="#" class="green-button">Apply</a>
+                        @if ($userData->status == Constant::COMPANY_STATUS_AVAILABLE)
+                            <a href="#" class="green-button">Apply</a>
+                        @else
+                            <a class="green-button-invert" disabled>Apply</a>
+                        @endif
                     </div>
                 </div>
             </div>

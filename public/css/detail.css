@@ -40,11 +40,33 @@ h1{
 .green-button-invert {
     -moz-border-radius:20px;
     -webkit-border-radius:20px;
-    border:1px solid #0E8C7F;
-    color:#0E8C7F;
-    cursor:pointer;
+    background-color:white;
+    border:1px solid #3f3d56;
+    color:#3f3d56;
     display:inline-block;
     font-size:16px;
     padding:10px 31px;
     text-decoration:none;
+}
+
+.available-status {
+    -moz-border-radius:20px;
+    -webkit-border-radius:20px;
+    background-color:#3CB371;
+    border:1px solid #3CB371;
+    color:white;
+    display:inline-block;
+    font-size:16px;
+    padding:10px 31px;
+}
+
+.unavailable-status {
+    -moz-border-radius:20px;
+    -webkit-border-radius:20px;
+    background-color:#B22222;
+    border:1px solid #B22222;
+    color:white;
+    display:inline-block;
+    font-size:16px;
+    padding:10px 31px;
 }
