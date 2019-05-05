@@ -55,10 +55,17 @@ class PagesController extends Controller
     }
 
     public function companyDetailPage($companyId){
-        $user = User::find($companyId);
-        $userData = $user->company;
+        $companyUser = User::find($companyId);
+        $companyData = $companyUser->company;
+        $user = Auth::user();
 
-        return view('pages.companyDetail')->with(compact('user', 'userData'));
+        if($user !== null && ($user->role == Constant::ROLE_STUDENT_INDIVIDUAL || $user->role == Constant::ROLE_STUDENT_ORGANIZATION)){
+            $events = $user->studentEvents;
+
+            return view('pages.companyDetail')->with(compact('companyUser', 'companyData', 'events'));
+        }
+
+        return view('pages.companyDetail')->with(compact('companyUser', 'companyData'));
     }
 
     public function profilePage(){

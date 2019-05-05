@@ -3,14 +3,17 @@
 namespace App\Http\Controllers;
 
 use Auth;
+
+use App\Constant;
 use App\Event;
+use App\Event_User;
 use Illuminate\Http\Request;
 
 class EventsController extends Controller
 {
     protected $table='events';
-    protected function create(Request $request)
-    {
+
+    protected function create(Request $request){
         //  dd($data);
 
         if(!Auth::user()){
@@ -33,5 +36,19 @@ class EventsController extends Controller
              'user_id' => $request->user_id,
             // 'address' => $data['address']
         ]);
+    }
+
+    public function studentRequestsSponsorship(Request $request){
+
+        foreach($request->events_picked_ids as $events_picked_id){
+            Event_User::create([
+                'student_confirmation_status' => Constant::SPONSORSHIP_REQUEST_ACCEPTED,
+                'company_confirmation_status' => Constant::SPONSORSHIP_REQUEST_PENDING,
+                'user_id' => $request->company_id,
+                'event_id' => $events_picked_id
+            ]);
+        }
+
+        return redirect()->route('profilePage');
     }
 }

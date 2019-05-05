@@ -28,6 +28,7 @@ Route::get('error', 'PagesController@errorPage')->name('errorPage');
 Route::group(['middleware' => ['verifyStudent']], function(){
     Route::get('createEvent', 'PagesController@createEventPage')->name('createEventPage');
     Route::post('createEvent', 'EventsController@create')->name('createEvent');
+    Route::post('studentRequestsSponsorship', 'EventsController@studentRequestsSponsorship')->name('studentRequestsSponsorship');
 });
 
 Route::group(['middleware' => ['verifyCompany']], function(){
