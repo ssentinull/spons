@@ -19,7 +19,7 @@
                     <h2 style="color: #3f3d56">Event Details</h2>
                 </div>
             </div>
-            <div class="row card top-buffer p-3">
+            <div class="row card p-3 top-buffer bottom-buffer-extra">
                 <div class="row justify-content-center top-buffer-extra bottom-buffer-extra">
                     <div class="col-md-12">
                         <h2>{{ $event->name }}</h2>
