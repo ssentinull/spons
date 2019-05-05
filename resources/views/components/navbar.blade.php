@@ -21,11 +21,11 @@
 
                 <!-- Authentication Links -->
                 @guest
+                    <li class="nav-item">
+                        <a class="btn btn-success my-2 my-sm-0"   onmouseover="this.style.backgroundColor='#fff', this.style.color='#0E8C7F'" onmouseout="this.style.backgroundColor='#0E8C7F' , this.style.color='#fff'" style="background-color: #0E8C7F !important; border-radius: 20px !important;" role="button" href="{{ route('loginPage') }}">Login</a>
+                    </li> &nbsp; &nbsp; 
                     <li class="nav-item" >
-                        <a class="btn btn-success my-2 my-sm-0" style="background-color: #0E8C7F !important; border-radius: 20px !important;" role="button" href="{{ route('loginPage') }}">Login</a>
-                    </li>
-                    <li class="nav-item" >
-                        <a class="btn btn-outline-success my-2 my-sm-0" role="button"  style="border-radius: 20px !important;" href="{{ route('registerStudentPage') }}" >{{ __('Register') }}</a>
+                        <a class="btn btn-outline-success my-2 my-sm-0" role="button"  style="border-radius: 20px !important; color:#0E8C7F;" href="{{ route('registerStudentPage') }}" >{{ __('Register') }}</a>
                     </li>
                 @else
                     <li class="nav-item dropdown">
