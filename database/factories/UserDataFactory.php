@@ -32,6 +32,7 @@ $factory->define(Company::class, function (Faker $faker) {
         'established_in' => $faker->date,
         'address' => $faker->address,
         'description' => $faker->paragraph($nbSentences = 5, $variableNbSentences = true),
+        'status' => $faker->randomElement($array = array(0, 1)),
         'user_id' => factory(User::class),
     ];
 });
