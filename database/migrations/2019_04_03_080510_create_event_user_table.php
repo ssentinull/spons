@@ -19,7 +19,7 @@ class CreateEventUserTable extends Migration
             $table->boolean('company_confirmation_status');
             $table->integer('user_id')->unsigned();
             $table->integer('event_id')->unsigned();
-            $table->integer('document_id')->unsigned();
+            $table->integer('document_id')->unsigned()->nullable();
             $table->timestamps();
         });
     }
