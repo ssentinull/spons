@@ -22,7 +22,7 @@
     @endif
     <hr>
     <a class="non-disabled" href="#">Events</a>
-    <a class="non-disabled" href="#">Sponsorship Requests</a>
+    <a class="non-disabled" href="{{url('/request')}}">Sponsorship Requests</a>
     <a class="non-disabled" href="#">Transactions</a>
     <hr>
 </div>

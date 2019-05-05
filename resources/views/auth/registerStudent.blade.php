@@ -11,6 +11,7 @@
 @endpush
 
 @section('content')
+<div >
 <div class="cardawal">
     <div class="awal">
         <h2>Spons</h2>
@@ -116,7 +117,7 @@
                                     </form>
                                     <div class="data1">
                                         <a href="{{route('registerCompanyPage')}}">
-                                            <button  style="background-color:#fff;color:#0E8C7F;border-color: #0E8C7F; margin-left:90px;  font-size:0.7em">Register as Company</button>
+                                            <button  style="background-color:#fff; color:#0E8C7F; border-color: #0E8C7F; margin-left:90px;  font-size:0.7em">Register as Company</button>
                                         </a>
                                     </div>
                                 </div>
@@ -127,5 +128,6 @@
             </div>
         </div>
     </div>
+</div>
 </div>
 @endsection

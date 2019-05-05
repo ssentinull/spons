@@ -6,6 +6,7 @@
 @endpush
 
 @section('content')
+<div>
     <div class="cardawal">
         <h2>Spons
             <a href="{{ route('landingPage') }}">
@@ -47,12 +48,12 @@
                 <input type="hidden"  name="role" value={{ Constant::ROLE_STUDENT_ORGANIZATION }}>
             </div>
             <div class="data">
-            <button style="background-color:#0E8C7F;color:#fff; margin-top:-2px; font-size: 20px;" type="submit">Sign Up</button>
+            <button style="background-color:#0E8C7F;color:#fff; margin-top:-2px; font-size: 0.7em;" type="submit">Sign Up</button>
+            </data>
         </form>
-        <button style="background-color:#fff;color:#0E8C7F;border-color: #0E8C7F; margin-left:90px;  font-size:0.7em">
             <a href="{{ route('registerStudentPage') }}">
-                Register as Student
-            </a>
-        </button>
+            <button  style="background-color:#fff; color:#0E8C7F; border-color: #0E8C7F; margin-left:90px;  font-size:0.7em">Register as Student</button>
+            </a>       
     </div>
+</div>
 @endsection

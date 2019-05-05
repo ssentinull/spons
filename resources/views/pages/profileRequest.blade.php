@@ -9,6 +9,7 @@
 @endsection
 
 @section('content')
+<!-- @include('components.sidebar') -->
 <div class="container">
     <h2>Sponsorship Request</h2>
     <br>
