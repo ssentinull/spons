@@ -18,6 +18,7 @@ class CreateCompaniesTable extends Migration
             $table->date('established_in');
             $table->string('address');
             $table->longText('description');
+            $table->boolean('status');
             $table->integer('user_id')->unsigned();
             $table->timestamps();
         });
