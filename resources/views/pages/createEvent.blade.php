@@ -77,4 +77,5 @@
                  <button type="submit" >{{ __('Create Event') }}</button>
         </form>
     </div>
+    
 @endsection

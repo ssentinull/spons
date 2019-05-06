@@ -49,6 +49,10 @@
         <p> &nbsp; &nbsp; &nbsp; &nbsp; Intan Pratiwi &nbsp; &nbsp; Hilya Tsaniya &nbsp; &nbsp; Ibnu Ahsani</p>
     </div>
 
+    <div class="png">
+    <img src="../img/tria.png">
+    </div>
+
 </footer>
 
 @endsection

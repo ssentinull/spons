@@ -1,7 +1,18 @@
+<script>
+function openForm() {
+  document.getElementById("myForm").style.display = "block";
+}
+
+function closeForm() {
+  document.getElementById("myForm").style.display = "none";
+}
+</script>
+
 @extends('layouts.app')
 
 @push('styles')
     <link rel="stylesheet" href="{{asset('css/sidebar.css')}}">
+    <script src="{{ asset('js/editProfile.js') }}" ></script>
 @endpush
 
 @section('navbar')
