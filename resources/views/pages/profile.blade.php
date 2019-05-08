@@ -1,13 +1,3 @@
-<script>
-function openForm() {
-  document.getElementById("myForm").style.display = "block";
-}
-
-function closeForm() {
-  document.getElementById("myForm").style.display = "none";
-}
-</script>
-
 @extends('layouts.app')
 
 @push('styles')
@@ -20,6 +10,16 @@ function closeForm() {
 @endsection
 
 @section('content')
+    <script>
+        function openForm() {
+            document.getElementById("myForm").style.display = "block";
+        }
+
+        function closeForm() {
+            document.getElementById("myForm").style.display = "none";
+        }
+    </script>
+
     @include('components.sidebar')
     <div class="container">
         <div class="row justify-content-center">
