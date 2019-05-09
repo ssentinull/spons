@@ -70,6 +70,19 @@ height: 100%;
 width: auto;
 }
 
+.green-button {
+    -moz-border-radius:20px;
+    -webkit-border-radius:20px;
+    background-color:#0E8C7F;
+    border:1px solid #0E8C7F;
+    color:#ffffff;
+    cursor:pointer;
+    display:inline-block;
+    font-size:16px;
+    padding:10px 31px;
+    text-decoration:none;
+}
+
 .editp button{
     font-size: 10px;
     background-color:#0E8C7F;
@@ -92,7 +105,7 @@ width: auto;
     margin-right: 500px;
     border-radius: 5px;
   }
-  
+
 .form-container {
     max-width: 300px;
     /* padding: 10px; */
@@ -102,7 +115,7 @@ width: auto;
 .form-container label{
     margin-left: 0;
 }
-  
+
 .form-container input[type=text], .form-container input[type=password], .form-container textarea {
     border-color: #0E8C7F;
     border-width: 1px;
@@ -112,12 +125,12 @@ width: auto;
     margin: 5px;
     background: #f1f1f1;
 }
-  
+
 .form-container input[type=text]:focus, .form-container input[type=password]:focus {
     background-color: #ddd;
     outline: none;
 }
-  
+
 .form-container .btn {
     background-color: #0E8C7F;
     color: white;
@@ -128,11 +141,11 @@ width: auto;
     /* margin-bottom:10px; */
     opacity: 0.8;
 }
-  
+
 .form-container .cancel {
     background-color: #0E8C7F;
 }
-  
+
   /* Add some hover effects to buttons */
   .form-container .btn:hover, .open-button:hover {
     opacity: 1;
