@@ -44,6 +44,7 @@ class EventsController extends Controller
             Event_User::create([
                 'student_confirmation_status' => Constant::SPONSORSHIP_REQUEST_ACCEPTED,
                 'company_confirmation_status' => Constant::SPONSORSHIP_REQUEST_PENDING,
+                'student_id' => $request->student_id,
                 'user_id' => $request->company_id,
                 'event_id' => $events_picked_id
             ]);

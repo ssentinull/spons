@@ -17,6 +17,7 @@ class CreateEventUserTable extends Migration
             $table->bigIncrements('id');
             $table->boolean('student_confirmation_status');
             $table->boolean('company_confirmation_status');
+            $table->integer('student_id')->unsigned();
             $table->integer('user_id')->unsigned();
             $table->integer('event_id')->unsigned();
             $table->integer('document_id')->unsigned()->nullable();

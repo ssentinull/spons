@@ -39,6 +39,7 @@
                                             <td>
                                                 <input type="checkbox" name="events_picked_ids[]" value="{{ $event->id }}">
                                             </td>
+                                            <input type="hidden"  name="student_id" value={{ Auth::user()->id }}>
                                             <input type="hidden"  name="company_id" value={{ $companyUser->id }}>
                                         </tr>
                                     @endforeach
