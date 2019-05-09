@@ -36,7 +36,7 @@
                 </div>
                 <div class="row justify-content-between top-buffer">
                     <div class="col-6">
-                        <a href="#" class="green-button-invert">Get Proposal</a>
+                        <a href="#" class="purple-button-invert">Get Proposal</a>
                     </div>
                     <div class="col-6">
                         <a href="#" class="green-button">Become a Sponsor</a>

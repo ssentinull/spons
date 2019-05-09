@@ -41,6 +41,19 @@ h1{
     -moz-border-radius:20px;
     -webkit-border-radius:20px;
     background-color:white;
+    border:1px solid #0E8C7F;
+    color:#0E8C7F;
+    cursor:pointer;
+    display:inline-block;
+    font-size:16px;
+    padding:10px 31px;
+    text-decoration:none;
+}
+
+.purple-button-invert {
+    -moz-border-radius:20px;
+    -webkit-border-radius:20px;
+    background-color:white;
     border:1px solid #3f3d56;
     color:#3f3d56;
     display:inline-block;
