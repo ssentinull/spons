@@ -23,32 +23,40 @@
                     @csrf
                     <div class="modal-body">
                         @isset($events)
-                            <table class="table">
-                                <thead>
-                                    <tr>
-                                        <th scope="col">Name</th>
-                                        <th scope="col">Date</th>
-                                        <th scope="col">Pick</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach ($events as $event)
+                            @if (count($events) > 0)
+                                <table class="table">
+                                    <thead>
                                         <tr>
-                                            <td>{{ $event->name }}</td>
-                                            <td>{{ $event->date }}</td>
-                                            <td>
-                                                <input type="checkbox" name="events_picked_ids[]" value="{{ $event->id }}">
-                                            </td>
-                                            <input type="hidden"  name="student_id" value={{ Auth::user()->id }}>
-                                            <input type="hidden"  name="company_id" value={{ $companyUser->id }}>
+                                            <th scope="col">Name</th>
+                                            <th scope="col">Date</th>
+                                            <th scope="col">Pick</th>
                                         </tr>
-                                    @endforeach
-                                </tbody>
-                            </table>
+                                    </thead>
+                                    <tbody>
+                                        @foreach ($events as $event)
+                                            <tr>
+                                                <td>{{ $event->name }}</td>
+                                                <td>{{ $event->date }}</td>
+                                                <td>
+                                                    <input type="checkbox" name="events_picked_ids[]" value="{{ $event->id }}">
+                                                </td>
+                                                <input type="hidden"  name="student_id" value={{ Auth::user()->id }}>
+                                                <input type="hidden"  name="company_id" value={{ $companyUser->id }}>
+                                            </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
+                            @else
+                                <h2>All of your events have been submitted to this company</h2>
+                            @endif
                         @endisset
                     </div>
                     <div class="modal-footer">
-                        <button type="submit" class="green-button">Apply for Sponsorship</button>
+                        @if (count($events) > 0)
+                            <button type="submit" class="green-button">Apply for Sponsorship</button>
+                        @else
+                            <button type="submit" class="green-button-invert" disabled>Apply for Sponsorship</button>
+                        @endif
                     </div>
                 </form>
             </div>
