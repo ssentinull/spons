@@ -9,6 +9,7 @@ use App\Constant;
 use App\Event;
 use App\EventCategory;
 use App\EventType;
+use App\Event_User;
 use App\GrantType;
 use App\StudentIndividual;
 use App\StudentOrganization;
@@ -61,6 +62,18 @@ class PagesController extends Controller
 
         if($user !== null && ($user->role == Constant::ROLE_STUDENT_INDIVIDUAL || $user->role == Constant::ROLE_STUDENT_ORGANIZATION)){
             $events = $user->studentEvents;
+            $submittedEvents = Event_User::where([
+                ['student_id', '=', $user->id],
+                ['user_id', '=', $companyId],
+            ])->get();
+
+            foreach($events as $i => $event){
+                foreach($submittedEvents as $submittedEvent){
+                    if($event->id == $submittedEvent->event_id){
+                        unset($events[$i]);
+                    }
+                }
+            }
 
             return view('pages.companyDetail')->with(compact('companyUser', 'companyData', 'events'));
         }
