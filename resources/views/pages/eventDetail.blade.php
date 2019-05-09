@@ -39,7 +39,15 @@
                         <a href="#" class="purple-button-invert">Get Proposal</a>
                     </div>
                     <div class="col-6">
-                        <a href="#" class="green-button">Become a Sponsor</a>
+                        @if (!Auth::user())
+                            <a href="{{ route('loginPage') }}" class="green-button">Become a Sponsor</a>
+                        @else
+                            @if (Auth::user()->role == Constant::ROLE_STUDENT_INDIVIDUAL || Auth::user()->role == Constant::ROLE_STUDENT_ORGANIZATION)
+                                <button class="green-button-invert" disabled>Become a Sponsor</button>
+                            @else
+                                <a href="#" class="green-button" disabled>Become a Sponsor</a>
+                            @endif
+                        @endif
                     </div>
                 </div>
             </div>
