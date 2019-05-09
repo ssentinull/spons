@@ -52,11 +52,13 @@
                         @endisset
                     </div>
                     <div class="modal-footer">
-                        @if (count($events) > 0)
-                            <button type="submit" class="green-button">Apply for Sponsorship</button>
-                        @else
-                            <button type="submit" class="green-button-invert" disabled>Apply for Sponsorship</button>
-                        @endif
+                        @isset($events)
+                            @if (count($events) > 0)
+                                <button type="submit" class="green-button">Apply for Sponsorship</button>
+                            @else
+                                <button type="submit" class="green-button-invert" disabled>Apply for Sponsorship</button>
+                            @endif
+                        @endisset
                     </div>
                 </form>
             </div>
