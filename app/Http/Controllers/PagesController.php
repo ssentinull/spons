@@ -173,13 +173,29 @@ class PagesController extends Controller
     public function sponsorshipRequestsPage(){
         $user = Auth::user();
 
-        if($user->role == Constant::ROLE_COMPANY){
-            $userData = $user->company;
+        if($user){
+            if($user->role == Constant::ROLE_STUDENT_INDIVIDUAL || $user->role == Constant::ROLE_STUDENT_ORGANIZATION){
 
-            $sponsorshipRequests = Event_User::where([
-                ['company_confirmation_status', '=', Constant::SPONSORSHIP_REQUEST_PENDING],
-                ['user_id', '=', $user->id],
-            ])->paginate(6);
+                if($user->role == Constant::ROLE_STUDENT_INDIVIDUAL){
+                    $userData = $user->studentIndividual;
+                } else if($user->role == Constant::ROLE_STUDENT_ORGANIZATION){
+                    $userData = $user->studentOrganization;
+                }
+
+                $sponsorshipRequests = Event_User::where([
+                    ['student_confirmation_status', '=', Constant::SPONSORSHIP_REQUEST_PENDING],
+                    ['student_id', '=', $user->id],
+                ])->paginate(6);
+            }
+
+            if($user->role == Constant::ROLE_COMPANY){
+                $userData = $user->company;
+
+                $sponsorshipRequests = Event_User::where([
+                    ['company_confirmation_status', '=', Constant::SPONSORSHIP_REQUEST_PENDING],
+                    ['user_id', '=', $user->id],
+                ])->paginate(6);
+            }
 
             $events = [];
 

@@ -74,6 +74,17 @@ class EventsController extends Controller
         $eventUser = Event_User::find($event_userId);
         $event = Event::find($eventUser->event_id);
 
+        if($user->role == Constant::ROLE_STUDENT_INDIVIDUAL || $user->role == Constant::ROLE_STUDENT_ORGANIZATION){
+            if($user->id !== $eventUser->student_id){
+                return redirect('errorPage');
+            }
+
+            $eventUser->student_confirmation_status = Constant::SPONSORSHIP_REQUEST_ACCEPTED;
+            $eventUser->save();
+
+            return redirect()->route('sponsorshipRequestsPage');
+        }
+
         if($user->role == Constant::ROLE_COMPANY){
             if($user->id !== $eventUser->user_id){
                 return redirect('errorPage');
@@ -92,6 +103,17 @@ class EventsController extends Controller
         $user = Auth::user();
         $eventUser = Event_User::find($event_userId);
         $event = Event::find($eventUser->event_id);
+
+        if($user->role == Constant::ROLE_STUDENT_INDIVIDUAL || $user->role == Constant::ROLE_STUDENT_ORGANIZATION){
+            if($user->id !== $eventUser->student_id){
+                return redirect('errorPage');
+            }
+
+            $eventUser->student_confirmation_status = Constant::SPONSORSHIP_REQUEST_REJECTED;
+            $eventUser->save();
+
+            return redirect()->route('sponsorshipRequestsPage');
+        }
 
         if($user->role == Constant::ROLE_COMPANY){
             if($user->id !== $eventUser->user_id){
