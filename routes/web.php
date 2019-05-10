@@ -27,6 +27,7 @@ Route::get('companyDetail/{companyId}', 'PagesController@companyDetailPage')->na
 Route::group(['middleware' => ['auth']], function(){
     Route::get('profile', 'PagesController@profilePage')->name('profilePage');
     Route::get('transactions', 'PagesController@transactionsPage')->name('transactionsPage');
+    Route::get('sponsorshipRequests', 'PagesController@sponsorshipRequestsPage')->name('sponsorshipRequestsPage');
 });
 
 // Student role only Routes
@@ -58,12 +59,3 @@ Route::get('password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm'
 Route::post('password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail');
 Route::get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm');
 Route::post('password/reset', 'Auth\ResetPasswordController@reset');
-
-// Deprecated routes
-// Route::get('/signIn', 'PagesController@signInPage');
-// Route::get('/register/company', 'PagesController@companyRegisterPage');
-// Route::get('/register/student', 'PagesController@studentRegisterPage');
-
-Route::get('/request', function () {
-    return view('pages.profileRequest');
-});

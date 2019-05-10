@@ -25,7 +25,7 @@
         <hr>
 
         <a class="non-disabled" href="#">Events</a>
-        <a class="non-disabled" href="{{url('/request')}}">Sponsorship Requests</a>
+        <a class="non-disabled" href="{{ route('sponsorshipRequestsPage') }}">Sponsorship Requests</a>
         <a class="non-disabled" href="{{ route('transactionsPage') }}">Transactions</a>
         <hr>
 

@@ -158,4 +158,27 @@ class PagesController extends Controller
 
         return redirect('errorPage');
     }
+
+    public function sponsorshipRequestsPage(){
+        $user = Auth::user();
+
+        if($user->role == Constant::ROLE_COMPANY){
+            $userData = $user->company;
+
+            $sponsorshipRequests = Event_User::where([
+                ['company_confirmation_status', '=', Constant::SPONSORSHIP_REQUEST_PENDING],
+                ['user_id', '=', $user->id],
+            ])->paginate(6);
+
+            $events = [];
+
+            foreach($sponsorshipRequests as $i => $sponsorshipRequest){
+                $events[$i] = Event::find($sponsorshipRequest->event_id);
+            }
+
+            return view('pages.sponsorshipRequests')->with(compact('userData', 'sponsorshipRequests', 'events'));
+        }
+
+        return redirect('errorPage');
+    }
 }
