@@ -45,7 +45,7 @@
                             @if (Auth::user()->role == Constant::ROLE_STUDENT_INDIVIDUAL || Auth::user()->role == Constant::ROLE_STUDENT_ORGANIZATION)
                                 <button class="green-button-invert" disabled>Become a Sponsor</button>
                             @else
-                                <a href="#" class="green-button" disabled>Become a Sponsor</a>
+                                <a href="{{ route('companyRequestsSponsorship', $event->id) }}" class="green-button" disabled>Become a Sponsor</a>
                             @endif
                         @endif
                     </div>

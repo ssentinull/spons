@@ -50,7 +50,23 @@ class EventsController extends Controller
             ]);
         }
 
-        return redirect()->route('profilePage');
+        return redirect()->route('transactionsPage');
+    }
+
+    public function companyRequestsSponsorship($eventId){
+        $company = Auth::user();
+        $event = Event::find($eventId);
+        $student = $event->user;
+
+        Event_User::create([
+            'student_confirmation_status' => Constant::SPONSORSHIP_REQUEST_PENDING,
+            'company_confirmation_status' => Constant::SPONSORSHIP_REQUEST_ACCEPTED,
+            'student_id' => $student->id,
+            'user_id' => $company->id,
+            'event_id' => $eventId
+        ]);
+
+        return redirect()->route('transactionsPage');
     }
 
     public function acceptSponsorshipRequest($event_userId){
