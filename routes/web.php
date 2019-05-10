@@ -24,8 +24,10 @@ Route::get('eventDetail/{eventId}', 'PagesController@eventDetailPage')->name('ev
 Route::get('companies', 'PagesController@companiesPage')->name('companiesPage');
 Route::get('companyDetail/{companyId}', 'PagesController@companyDetailPage')->name('companyDetailPage');
 
-Route::get('profile', ['middleware' => 'auth', 'uses' => 'PagesController@profilePage'])->name('profilePage');
-Route::get('transactions', ['middleware' => 'auth', 'uses' => 'PagesController@transactionsPage'])->name('transactionsPage');
+Route::group(['middleware' => ['auth']], function(){
+    Route::get('profile', 'PagesController@profilePage')->name('profilePage');
+    Route::get('transactions', 'PagesController@transactionsPage')->name('transactionsPage');
+});
 
 // Student role only Routes
 Route::group(['middleware' => ['verifyStudent']], function(){
