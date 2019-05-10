@@ -153,7 +153,18 @@ class PagesController extends Controller
         if($user->role == Constant::ROLE_COMPANY){
 
             $userData = $user->company;
-            return view('pages.transactions')->with('userData', $userData);
+
+            $transactions = Event_User::whereIn('company_confirmation_status',
+                [Constant::SPONSORSHIP_REQUEST_ACCEPTED, Constant::SPONSORSHIP_REQUEST_REJECTED])
+                ->paginate(6);
+
+            $events = [];
+
+            foreach($transactions as $i => $transaction){
+                $events[$i] = Event::find($transaction->event_id);
+            }
+
+            return view('pages.transactions')->with(compact('userData', 'transactions', 'events'));
         }
 
         return redirect('errorPage');

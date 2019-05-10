@@ -21,17 +21,13 @@
                 </div>
                 <div class="row justify-content-center">
                     <div class="col-md-8">
-                        @if (Auth::user()->role == Constant::ROLE_STUDENT_INDIVIDUAL || Auth::user()->role == Constant::ROLE_STUDENT_ORGANIZATION)
-                            @foreach ($transactions as $i => $transaction)
-                                @include('components.transactionCard')
-                            @endforeach
-                        @endif
+                        @foreach ($transactions as $i => $transaction)
+                            @include('components.transactionCard')
+                        @endforeach
                     </div>
                 </div>
                 <div class="row justify-content-center">
-                    @if (Auth::user()->role == Constant::ROLE_STUDENT_INDIVIDUAL || Auth::user()->role == Constant::ROLE_STUDENT_ORGANIZATION)
-                        {{ $transactions->links() }}
-                    @endif
+                    {{ $transactions->links() }}
                 </div>
             </div>
         </div>
