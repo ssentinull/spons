@@ -1,0 +1,55 @@
+.purple-button {
+    -moz-border-radius:20px;
+    -webkit-border-radius:20px;
+    background-color:#3F3D56;
+    border:1px solid #3F3D56;
+    cursor:pointer;
+    color:#ffffff;
+    display:inline-block;
+    font-size:16px;
+    padding:10px 20px;
+    text-decoration:none;
+}
+
+a.purple-button a:hover {
+    background-color:#4d4a66;
+    text-decoration: none;
+}
+
+.green-button {
+    -moz-border-radius:20px;
+    -webkit-border-radius:20px;
+    background-color:#3CB371;
+    border:1px solid #3CB371;
+    cursor:pointer;
+    color:#ffffff;
+    display:inline-block;
+    font-size:16px;
+    padding:10px 20px;
+    text-decoration:none;
+}
+
+a.green-button a:hover {
+    background-color:white;
+    color: #3CB371;
+    text-decoration: none;
+}
+
+.red-button {
+    -moz-border-radius:20px;
+    -webkit-border-radius:20px;
+    background-color:#B22222;
+    border:1px solid #B22222;
+    cursor:pointer;
+    color:#ffffff;
+    display:inline-block;
+    font-size:16px;
+    padding:10px 20px;
+    text-decoration:none;
+}
+
+a.red-button a:hover {
+    background-color:white;
+    color: #B22222;
+    text-decoration: none;
+}
