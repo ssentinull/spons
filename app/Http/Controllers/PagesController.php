@@ -139,6 +139,7 @@ class PagesController extends Controller
 
             $transactions = Event_User::whereIn('student_confirmation_status',
                 [Constant::SPONSORSHIP_REQUEST_ACCEPTED, Constant::SPONSORSHIP_REQUEST_REJECTED])
+                ->where('student_id', $user->id)
                 ->paginate(6);
 
             $events = [];
@@ -156,6 +157,7 @@ class PagesController extends Controller
 
             $transactions = Event_User::whereIn('company_confirmation_status',
                 [Constant::SPONSORSHIP_REQUEST_ACCEPTED, Constant::SPONSORSHIP_REQUEST_REJECTED])
+                ->where('user_id', $user->id)
                 ->paginate(6);
 
             $events = [];

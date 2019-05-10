@@ -21,9 +21,13 @@
                 </div>
                 <div class="row justify-content-center">
                     <div class="col-md-8">
-                        @foreach ($transactions as $i => $transaction)
-                            @include('components.transactionCard')
-                        @endforeach
+                        @if (count($transactions) > 0)
+                            @foreach ($transactions as $i => $transaction)
+                                @include('components.transactionCard')
+                            @endforeach
+                        @else
+                            <h2>You haven't made any transactions yet</h2>
+                        @endif
                     </div>
                 </div>
                 <div class="row justify-content-center">
