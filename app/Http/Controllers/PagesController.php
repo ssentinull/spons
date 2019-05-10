@@ -129,36 +129,30 @@ class PagesController extends Controller
     public function transactionsPage(){
         $user = Auth::user();
 
-        if($user->role == Constant::ROLE_STUDENT_INDIVIDUAL || $user->role == Constant::ROLE_STUDENT_ORGANIZATION){
+        if($user){
+            if($user->role == Constant::ROLE_STUDENT_INDIVIDUAL || $user->role == Constant::ROLE_STUDENT_ORGANIZATION){
 
-            if($user->role == Constant::ROLE_STUDENT_INDIVIDUAL){
-                $userData = $user->studentIndividual;
-            } else if($user->role == Constant::ROLE_STUDENT_ORGANIZATION){
-                $userData = $user->studentOrganization;
+                if($user->role == Constant::ROLE_STUDENT_INDIVIDUAL){
+                    $userData = $user->studentIndividual;
+                } else if($user->role == Constant::ROLE_STUDENT_ORGANIZATION){
+                    $userData = $user->studentOrganization;
+                }
+
+                $transactions = Event_User::whereIn('student_confirmation_status',
+                    [Constant::SPONSORSHIP_REQUEST_ACCEPTED, Constant::SPONSORSHIP_REQUEST_REJECTED])
+                    ->where('student_id', $user->id)
+                    ->paginate(6);
             }
 
-            $transactions = Event_User::whereIn('student_confirmation_status',
-                [Constant::SPONSORSHIP_REQUEST_ACCEPTED, Constant::SPONSORSHIP_REQUEST_REJECTED])
-                ->where('student_id', $user->id)
-                ->paginate(6);
+            if($user->role == Constant::ROLE_COMPANY){
 
-            $events = [];
+                $userData = $user->company;
 
-            foreach($transactions as $i => $transaction){
-                $events[$i] = Event::find($transaction->event_id);
+                $transactions = Event_User::whereIn('company_confirmation_status',
+                    [Constant::SPONSORSHIP_REQUEST_ACCEPTED, Constant::SPONSORSHIP_REQUEST_REJECTED])
+                    ->where('user_id', $user->id)
+                    ->paginate(6);
             }
-
-            return view('pages.transactions')->with(compact('userData', 'transactions', 'events'));
-        }
-
-        if($user->role == Constant::ROLE_COMPANY){
-
-            $userData = $user->company;
-
-            $transactions = Event_User::whereIn('company_confirmation_status',
-                [Constant::SPONSORSHIP_REQUEST_ACCEPTED, Constant::SPONSORSHIP_REQUEST_REJECTED])
-                ->where('user_id', $user->id)
-                ->paginate(6);
 
             $events = [];
 
