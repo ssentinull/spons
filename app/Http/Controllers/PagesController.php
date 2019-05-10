@@ -94,11 +94,15 @@ class PagesController extends Controller
 
             $events = $user->studentEvents()->paginate(6);
             return view('pages.profile')->with(compact('userData','events'));
-        } else if($user->role == Constant::ROLE_COMPANY){
+        }
+
+        if($user->role == Constant::ROLE_COMPANY){
 
             $userData = $user->company;
             return view('pages.profile')->with('userData', $userData);
         }
+
+        return redirect('errorPage');
     }
 
     public function createEventPage(){
@@ -144,10 +148,14 @@ class PagesController extends Controller
             }
 
             return view('pages.transactions')->with(compact('userData', 'transactions', 'events'));
-        } else if($user->role == Constant::ROLE_COMPANY){
+        }
+
+        if($user->role == Constant::ROLE_COMPANY){
 
             $userData = $user->company;
             return view('pages.transactions')->with('userData', $userData);
         }
+
+        return redirect('errorPage');
     }
 }
