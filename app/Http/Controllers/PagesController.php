@@ -121,4 +121,33 @@ class PagesController extends Controller
 
         return view('pages.createGrant')->with(compact('userData', 'grantTypes'));
     }
+
+    public function transactionsPage(){
+        $user = Auth::user();
+
+        if($user->role == Constant::ROLE_STUDENT_INDIVIDUAL || $user->role == Constant::ROLE_STUDENT_ORGANIZATION){
+
+            if($user->role == Constant::ROLE_STUDENT_INDIVIDUAL){
+                $userData = $user->studentIndividual;
+            } else if($user->role == Constant::ROLE_STUDENT_ORGANIZATION){
+                $userData = $user->studentOrganization;
+            }
+
+            $transactions = Event_User::whereIn('student_confirmation_status',
+                [Constant::SPONSORSHIP_REQUEST_ACCEPTED, Constant::SPONSORSHIP_REQUEST_DENIED])
+                ->paginate(6);
+
+            $events = [];
+
+            foreach($transactions as $i => $transaction){
+                $events[$i] = Event::find($transaction->event_id);
+            }
+
+            return view('pages.transactions')->with(compact('userData', 'transactions', 'events'));
+        } else if($user->role == Constant::ROLE_COMPANY){
+
+            $userData = $user->company;
+            return view('pages.transactions')->with('userData', $userData);
+        }
+    }
 }

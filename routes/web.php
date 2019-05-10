@@ -17,12 +17,15 @@ Route::get('/welcome', function () {
 
 // General Routes
 Route::get('/', 'PagesController@landingPage')->name('landingPage');
+Route::get('error', 'PagesController@errorPage')->name('errorPage');
+
 Route::get('events', 'PagesController@eventsPage')->name('eventsPage');
 Route::get('eventDetail/{eventId}', 'PagesController@eventDetailPage')->name('eventDetailPage');
 Route::get('companies', 'PagesController@companiesPage')->name('companiesPage');
 Route::get('companyDetail/{companyId}', 'PagesController@companyDetailPage')->name('companyDetailPage');
+
 Route::get('profile', ['middleware' => 'auth', 'uses' => 'PagesController@profilePage'])->name('profilePage');
-Route::get('error', 'PagesController@errorPage')->name('errorPage');
+Route::get('transactions', ['middleware' => 'auth', 'uses' => 'PagesController@transactionsPage'])->name('transactionsPage');
 
 // Student role only Routes
 Route::group(['middleware' => ['verifyStudent']], function(){

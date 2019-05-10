@@ -26,7 +26,7 @@
 
         <a class="non-disabled" href="#">Events</a>
         <a class="non-disabled" href="{{url('/request')}}">Sponsorship Requests</a>
-        <a class="non-disabled" href="#">Transactions</a>
+        <a class="non-disabled" href="{{ route('transactionsPage') }}">Transactions</a>
         <hr>
 
         <button type="button" class="green-button" data-toggle="modal" data-target="#basicExampleModal">Edit Profile</button>
