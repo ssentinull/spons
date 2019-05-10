@@ -22,9 +22,13 @@
                 <div class="row justify-content-center">
                     <div class="col-md-8">
                         @if (Auth::user()->role == Constant::ROLE_COMPANY)
-                            @foreach ($sponsorshipRequests as $i => $sponsorshipRequest)
-                                @include('components.sponsorshipRequestCard')
-                            @endforeach
+                            @if (count($sponsorshipRequests) > 0)
+                                @foreach ($sponsorshipRequests as $i => $sponsorshipRequest)
+                                    @include('components.sponsorshipRequestCard')
+                                @endforeach
+                            @else
+                                <h2>You don't have any new sponsorship request</h2>
+                            @endif
                         @endif
                     </div>
                 </div>
