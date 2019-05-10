@@ -7,15 +7,19 @@
             <div class="col-md-3">
                 @if ($transaction->company_confirmation_status == Constant::SPONSORSHIP_REQUEST_ACCEPTED)
                     Accepted by Company
-                @else
+                @elseif ($transaction->company_confirmation_status == Constant::SPONSORSHIP_REQUEST_REJECTED)
                     Denied by Company
+                @else
+                    Pending Confirmation from Company
                 @endif
             </div>
             <div class="col-md-3">
                 @if ($transaction->student_confirmation_status == Constant::SPONSORSHIP_REQUEST_ACCEPTED)
                     Accepted by Student
-                @else
+                @elseif ($transaction->student_confirmation_status == Constant::SPONSORSHIP_REQUEST_REJECTED)
                     Denied by Student
+                @else
+                    Pending Confirmation from Student
                 @endif
             </div>
             <div class="col-md-3">Event Status</div>
