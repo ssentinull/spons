@@ -14,7 +14,7 @@
                 <a href="{{ route('acceptSponsorshipRequest', $sponsorshipRequest->id) }}" class="green-button">Accept</a>
             </div>
             <div class="col-md-2">
-                <a href="#" class="red-button">Decline</a>
+                <a href="{{ route('rejectSponsorshipRequest', $sponsorshipRequest->id) }}" class="red-button">Reject</a>
             </div>
         </div>
     </div>

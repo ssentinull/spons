@@ -29,6 +29,7 @@ Route::group(['middleware' => ['auth']], function(){
     Route::get('transactions', 'PagesController@transactionsPage')->name('transactionsPage');
     Route::get('sponsorshipRequests', 'PagesController@sponsorshipRequestsPage')->name('sponsorshipRequestsPage');
     Route::get('acceptSponsorshipRequest/{event_userId}', 'EventsController@acceptSponsorshipRequest')->name('acceptSponsorshipRequest');
+    Route::get('rejectSponsorshipRequest/{event_userId}', 'EventsController@rejectSponsorshipRequest')->name('rejectSponsorshipRequest');
 });
 
 // Student role only Routes
