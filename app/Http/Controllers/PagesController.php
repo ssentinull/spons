@@ -138,7 +138,7 @@ class PagesController extends Controller
             }
 
             $transactions = Event_User::whereIn('student_confirmation_status',
-                [Constant::SPONSORSHIP_REQUEST_ACCEPTED, Constant::SPONSORSHIP_REQUEST_DENIED])
+                [Constant::SPONSORSHIP_REQUEST_ACCEPTED, Constant::SPONSORSHIP_REQUEST_REJECTED])
                 ->paginate(6);
 
             $events = [];
