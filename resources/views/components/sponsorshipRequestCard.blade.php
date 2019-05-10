@@ -11,7 +11,7 @@
                 <a href="#" class="purple-button">Download event proposal</a>
             </div>
             <div class="col-md-2">
-                <a href="#" class="green-button">Accept</a>
+                <a href="{{ route('acceptSponsorshipRequest', $sponsorshipRequest->id) }}" class="green-button">Accept</a>
             </div>
             <div class="col-md-2">
                 <a href="#" class="red-button">Decline</a>

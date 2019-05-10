@@ -52,4 +52,23 @@ class EventsController extends Controller
 
         return redirect()->route('profilePage');
     }
+
+    public function acceptSponsorshipRequest($event_userId){
+        $user = Auth::user();
+        $eventUser = Event_User::find($event_userId);
+        $event = Event::find($eventUser->event_id);
+
+        if($user->role == Constant::ROLE_COMPANY){
+            if($user->id !== $eventUser->user_id){
+                return redirect('errorPage');
+            }
+
+            $eventUser->company_confirmation_status = Constant::SPONSORSHIP_REQUEST_ACCEPTED;
+            $eventUser->save();
+
+            return redirect()->route('sponsorshipRequestsPage');
+        }
+
+        return redirect('errorPage');
+    }
 }
