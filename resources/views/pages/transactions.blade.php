@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
 @push('styles')
-    <link rel="stylesheet" href="{{asset('css/sidebar.css')}}">
-    <link rel="stylesheet" href="{{asset('css/transactionCard.css')}}">
+    <link rel="stylesheet" href="{{asset('css/components/sidebar.css')}}">
+    <link rel="stylesheet" href="{{asset('css/components/transactionCard.css')}}">
 @endpush
 
 @section('navbar')

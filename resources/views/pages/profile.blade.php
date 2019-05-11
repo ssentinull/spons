@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @push('styles')
-    <link rel="stylesheet" href="{{asset('css/sidebar.css')}}">
+    <link rel="stylesheet" href="{{asset('css/components/sidebar.css')}}">
     <script src="{{ asset('js/editProfile.js') }}" ></script>
 @endpush
 

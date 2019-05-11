@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
 @push('styles')
-    <link rel="stylesheet" href="{{asset('css/sidebar.css')}}">
-    <link rel="stylesheet" href="{{asset('css/createEvent.css')}}">
+    <link rel="stylesheet" href="{{asset('css/components/sidebar.css')}}">
+    <link rel="stylesheet" href="{{asset('css/pages/createEvent.css')}}">
 @endpush
 
 @section('navbar')
@@ -36,7 +36,7 @@
                     <strong>{{ $errors->first('type') }}</strong>
                     </span>
                     @endif
-                
+
                 <label for="Category" >Category<br></label>
                 <select id="category" type="number" class="form-control" name="category" style="border-color: #0E8C7F;" >
                     <option value="" disabled selected>Select an Event Category</option>
@@ -48,7 +48,7 @@
                     <span class="help-block">
                     <strong>{{ $errors->first('category') }}</strong>
                     </span>
-                    @endif  
+                    @endif
 
                 <label for="date" >Date of Event</label>
                 <input id="date" type="date" class="form-control{{ $errors->has('date') ? ' is-invalid' : '' }}" name="date" value="{{ old('date') }}" required>
@@ -77,5 +77,5 @@
                  <button type="submit" >{{ __('Create Event') }}</button>
         </form>
     </div>
-    
+
 @endsection

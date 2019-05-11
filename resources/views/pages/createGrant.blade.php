@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
 @push('styles')
-    <link rel="stylesheet" href="{{asset('css/sidebar.css')}}">
-    <link rel="stylesheet" href="{{asset('css/createEvent.css')}}">
+    <link rel="stylesheet" href="{{asset('css/components/sidebar.css')}}">
+    <link rel="stylesheet" href="{{asset('css/pages/createEvent.css')}}">
 @endpush
 
 @section('navbar')

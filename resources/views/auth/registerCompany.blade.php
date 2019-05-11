@@ -2,7 +2,7 @@
 
 @push('styles')
     <link rel="stylesheet" type="text/css" media="screen" href="main.css">
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/comreg.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/auth/registerCompany.css') }}">
 @endpush
 
 @section('content')
@@ -53,7 +53,7 @@
         </form>
             <a href="{{ route('registerStudentPage') }}">
             <button  style="background-color:#fff; color:#0E8C7F; border-color: #0E8C7F; margin-left:90px;  font-size:0.7em">Register as Student</button>
-            </a>       
+            </a>
     </div>
 </div>
 @endsection

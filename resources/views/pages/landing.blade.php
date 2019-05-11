@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
 @push('styles')
-    <link rel="stylesheet" href="{{asset('css/landing.css')}}">
-    <link rel="stylesheet" href="{{asset('css/footer.css')}}">
+    <link rel="stylesheet" href="{{asset('css/pages/landing.css')}}">
+    <link rel="stylesheet" href="{{asset('css/components/footer.css')}}">
 @endpush
 
 @section('navbar')
@@ -39,9 +39,9 @@
 </div>
 
 <footer class="footer">
-    <div class="spons"> 
+    <div class="spons">
     <b><h2>Spons</h2></b>
-    </div>  
+    </div>
     <div class="descrip">
     <p> &nbsp; &nbsp; Created by </p>
     </div>
