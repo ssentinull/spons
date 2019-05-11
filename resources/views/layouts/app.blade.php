@@ -26,7 +26,8 @@
         @yield('navbar')
         <main class="py-4" style="padding:0px;">
             @yield('content')
-        </main> 
+        </main>
+        @yield('footer')
     </div>
 </body>
 </html>

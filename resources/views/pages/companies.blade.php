@@ -1,7 +1,6 @@
 @extends('layouts.app')
 
 @push('styles')
-    <link rel="stylesheet" href="{{ asset('css/components/footer.css') }}">
     <link rel="stylesheet" href="{{ asset('css/pages/companiesEvents.css') }}">
 @endpush
 
@@ -32,22 +31,8 @@
         {{ $companies->links() }}
     </div>
 </div>
+@endsection
 
-<footer class="footer">
-    <div class="spons">
-    <b><h2>Spons</h2></b>
-    </div>
-    <div class="descrip">
-    <p> &nbsp; &nbsp; Created by </p>
-    </div>
-    <div class="author">
-        <p> &nbsp; &nbsp; &nbsp; &nbsp; Intan Pratiwi &nbsp; &nbsp; Hilya Tsaniya &nbsp; &nbsp; Ibnu Ahsani</p>
-    </div>
-
-    <div class="png">
-    <img src="../img/tria.png">
-    </div>
-
-</footer>
-
+@section('footer')
+    @include('components.footer')
 @endsection

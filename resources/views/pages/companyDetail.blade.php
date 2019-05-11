@@ -116,3 +116,7 @@
         </div>
     </div>
 @endsection
+
+@section('footer')
+    @include('components.footer')
+@endsection
