@@ -5,7 +5,7 @@
 @endpush
 
 @section('navbar')
-    @include('components.navbar')
+    @include('components.navbar', ['navbar_for_landing' => 'true'])
 @endsection
 
 @section('content')
