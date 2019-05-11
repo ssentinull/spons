@@ -11,7 +11,7 @@
 
 @section('content')
 <div class="container">
-    <div class="row justify-content-center top-buffer">
+    <div class="row justify-content-center top-buffer-extra">
         <h2 style="margin-left:5px;"><span style="color: #0E8C7F; font-size:40px">Companies</span> that are listed in our platform</h2>
     </div>
     <div class="row justify-content-center top-buffer">
@@ -28,7 +28,7 @@
             @endforeach
         </div>
     </div>
-    <div class="row justify-content-center top-buffer">
+    <div class="row justify-content-center top-buffer-extra bottom-buffer-extra">
         {{ $companies->links() }}
     </div>
 </div>
