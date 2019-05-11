@@ -30,13 +30,13 @@
                 <div class="row justify-content-center">
                     <div class="col-md-8">
                         @if (Auth::user()->role == Constant::ROLE_STUDENT_INDIVIDUAL || Auth::user()->role == Constant::ROLE_STUDENT_ORGANIZATION)
-                            @foreach ($events as $event)
+                            @foreach ($events as $i => $event)
                                 @include('components.profileCard')
                             @endforeach
                         @endif
                     </div>
                 </div>
-                <div class="row justify-content-center">
+                <div class="row justify-content-center mb-4 top-buffer-extra">
                     @if (Auth::user()->role == Constant::ROLE_STUDENT_INDIVIDUAL || Auth::user()->role == Constant::ROLE_STUDENT_ORGANIZATION)
                         {{ $events->links() }}
                     @endif
