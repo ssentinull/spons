@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @push('styles')
+    <link rel="stylesheet" href="{{ asset('css/global.css') }}">
     <link rel="stylesheet" href="{{ asset('css/pages/companyEventDetails.css') }}">
 @endpush
 
@@ -70,12 +71,12 @@
     @endforeach
     <div class="vertical-center">
         <div class="container">
-            <div class="row top-buffer">
+            <div class="row top-buffer-extra">
                 <div class="col-md-3">
                     <h2 style="color: #3f3d56">Company Details</h2>
                 </div>
             </div>
-            <div class="row card p-3 top-buffer bottom-buffer-extra">
+            <div class="row card p-3 mb-5 top-buffer">
                 <div class="row justify-content-center top-buffer-extra bottom-buffer-extra">
                     <div class="col-md-12">
                         <h2>{{ $companyUser->name }}</h2>

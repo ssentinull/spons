@@ -1,7 +1,8 @@
 @extends('layouts.app')
 
 @push('styles')
-    <link rel="stylesheet" href="{{asset('css/pages/companiesEvents.css')}}">
+    <link rel="stylesheet" href="{{ asset('css/global.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/pages/companiesEvents.css') }}">
 @endpush
 
 @section('navbar')

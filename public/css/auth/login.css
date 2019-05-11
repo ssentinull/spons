@@ -2,8 +2,6 @@ body{
     /* background:url('/img/bg.png'); */
 }
 
-.top-buffer { margin-top:20px; }
-
 .vertical-center {
 align-items: center;
 display: flex;
