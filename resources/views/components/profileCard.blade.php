@@ -1,4 +1,4 @@
-<div class="card flex-column flex-wrap">
+<div class="card flex-column flex-wrap top-buffer">
     <div class="card-header p-4" align="center">
         <img src="//placehold.it/440x200?text=Spons" alt="">
     </div>
