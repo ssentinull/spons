@@ -1,8 +1,9 @@
 @extends('layouts.app')
 
 @push('styles')
-    <link rel="stylesheet" href="{{asset('css/components/sidebar.css')}}">
-    <link rel="stylesheet" href="{{asset('css/components/transactionCard.css')}}">
+    <link rel="stylesheet" href="{{ asset('css/global.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/components/sidebar.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/components/transactionCard.css') }}">
 @endpush
 
 @section('navbar')
@@ -16,21 +17,25 @@
                 @include('components.sidebar')
             </div>
             <div class="col-md-10">
-                <div class="row">
+                <div class="row top-buffer-extra">
                     <h1>Transactions</h1>
                 </div>
                 <div class="row justify-content-center">
-                    <div class="col-md-8">
-                        @if (count($transactions) > 0)
+                    @if (count($transactions) > 0)
+                        <div class="col-md-8">
                             @foreach ($transactions as $i => $transaction)
                                 @include('components.transactionCard')
                             @endforeach
-                        @else
-                            <h2>You haven't made any transactions yet</h2>
-                        @endif
-                    </div>
+                        </div>
+                    @else
+                        <div class="col-md-8 top-buffer-extra">
+                            <center>
+                                <h2>You haven't made any transactions yet</h2>
+                            </center>
+                        </div>
+                    @endif
                 </div>
-                <div class="row justify-content-center">
+                <div class="row justify-content-center mb-4 top-buffer-extra">
                     {{ $transactions->links() }}
                 </div>
             </div>
