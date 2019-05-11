@@ -1,8 +1,9 @@
 @extends('layouts.app')
 
 @push('styles')
-    <link rel="stylesheet" href="{{asset('css/components/sidebar.css')}}">
-    <link rel="stylesheet" href="{{asset('css/components/sponsorshipRequestCard.css')}}">
+    <link rel="stylesheet" href="{{ asset('css/global.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/components/sidebar.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/components/sponsorshipRequestCard.css') }}">
 @endpush
 
 @section('navbar')
@@ -16,21 +17,25 @@
                 @include('components.sidebar')
             </div>
             <div class="col-md-10">
-                <div class="row">
+                <div class="row top-buffer-extra">
                     <h1>Sponsorship Requests</h1>
                 </div>
                 <div class="row justify-content-center">
-                    <div class="col-md-8">
-                        @if (count($sponsorshipRequests) > 0)
+                    @if (count($sponsorshipRequests) > 0)
+                        <div class="col-md-8">
                             @foreach ($sponsorshipRequests as $i => $sponsorshipRequest)
                                 @include('components.sponsorshipRequestCard')
                             @endforeach
-                        @else
-                            <h2>You don't have any new sponsorship request</h2>
-                        @endif
-                    </div>
+                        </div>
+                    @else
+                        <div class="col-md-8 top-buffer-extra">
+                            <center>
+                                <h2>You don't have any new sponsorship request</h2>
+                            </center>
+                        </div>
+                    @endif
                 </div>
-                <div class="row justify-content-center">
+                <div class="row justify-content-center mb-4 top-buffer-extra">
                     {{ $sponsorshipRequests->links() }}
                 </div>
             </div>

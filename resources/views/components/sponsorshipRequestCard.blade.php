@@ -1,4 +1,8 @@
-<div class="card flex-column flex-wrap">
+@if ($i == 0)
+<div class="card flex-column flex-wrap top-buffer">
+@else
+<div class="card flex-column flex-wrap top-buffer-extra">
+@endif
     <div class="card-header" align="center">
         <h2 class="card-title">{{ $events[$i]->name }}</h2>
     </div>
