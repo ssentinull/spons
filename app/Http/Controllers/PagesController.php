@@ -22,18 +22,6 @@ class PagesController extends Controller
         return view('pages.landing');
     }
 
-    public function signInPage(){
-        return view('pages.signIn');
-    }
-
-    public function studentRegisterPage(){
-        return view('pages.studentRegister');
-    }
-
-    public function companyRegisterPage(){
-        return view('pages.companyRegister');
-    }
-
     public function eventsPage(){
         $events = Event::orderBy('created_at', 'desc')->paginate(6);
         $firstEventIndex = $events->firstItem();

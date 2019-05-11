@@ -29,7 +29,7 @@ class LoginController extends Controller
 
    public function showLoginForm()
    {
-       return view ('pages.signIn');
+       return view ('auth.login');
    }
     public function __construct()
     {
