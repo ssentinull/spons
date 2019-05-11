@@ -45,7 +45,7 @@
                 <br>
 
                 <input type="password"  placeholder="Confirm Password" name="password_confirmation" required>
-                <input type="hidden"  name="role" value={{ Constant::ROLE_STUDENT_ORGANIZATION }}>
+                <input type="hidden"  name="role" value={{ Constant::ROLE_COMPANY }}>
             </div>
             <div class="data">
             <button style="background-color:#0E8C7F;color:#fff; margin-top:-2px; font-size: 0.7em;" type="submit">Sign Up</button>
