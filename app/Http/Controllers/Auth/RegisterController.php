@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use Auth;
 
 use App\Company;
+use App\Constant;
 use App\StudentIndividual;
 use App\StudentOrganization;
 use App\User;
@@ -149,6 +150,7 @@ class Registercontroller extends Controller
             'established_in' => $data['established_in'],
             'address' => $data['address'],
             'description' => $data['description'],
+            'status' => Constant::COMPANY_STATUS_AVAILABLE,
             'user_id' => $id,
         ]);
     }
