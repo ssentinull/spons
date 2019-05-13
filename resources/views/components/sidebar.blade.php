@@ -24,7 +24,12 @@
         @endif
         <hr>
 
-        <a class="non-disabled" href="#">Events</a>
+        @if (Auth::user()->role == Constant::ROLE_COMPANY)
+            <a class="non-disabled" href="{{ route('profilePage') }}">Grants</a>
+        @else
+            <a class="non-disabled" href="{{ route('profilePage') }}">Events</a>
+        @endif
+
         <a class="non-disabled" href="{{ route('sponsorshipRequestsPage') }}">Sponsorship Requests</a>
         <a class="non-disabled" href="{{ route('transactionsPage') }}">Transactions</a>
         <hr>

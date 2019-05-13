@@ -30,15 +30,29 @@
                 <div class="row justify-content-center">
                     <div class="col-md-8">
                         @if (Auth::user()->role == Constant::ROLE_STUDENT_INDIVIDUAL || Auth::user()->role == Constant::ROLE_STUDENT_ORGANIZATION)
-                            @foreach ($events as $i => $event)
-                                @include('components.profileCard')
-                            @endforeach
+                            @if (count($events) > 0)
+                                @foreach ($events as $i => $event)
+                                    @include('components.profileCard')
+                                @endforeach
+                            @else
+                                <h1>You haven't made any events yet</h1>
+                            @endif
+                        @else
+                            @if (count($grants) > 0)
+                                @foreach ($grants as $i => $grant)
+                                    @include('components.profileCard')
+                                @endforeach
+                            @else
+                                <h1>You haven't made any grants yet</h1>
+                            @endif
                         @endif
                     </div>
                 </div>
                 <div class="row justify-content-center mb-4 top-buffer-extra">
                     @if (Auth::user()->role == Constant::ROLE_STUDENT_INDIVIDUAL || Auth::user()->role == Constant::ROLE_STUDENT_ORGANIZATION)
                         {{ $events->links() }}
+                    @else
+                        {{ $grants->links() }}
                     @endif
                 </div>
             </div>

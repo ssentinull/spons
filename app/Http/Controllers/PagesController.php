@@ -85,9 +85,10 @@ class PagesController extends Controller
         }
 
         if($user->role == Constant::ROLE_COMPANY){
-
             $userData = $user->company;
-            return view('pages.profile')->with('userData', $userData);
+            $grants = $user->grants()->paginate(6);
+
+            return view('pages.profile')->with(compact('userData', 'grants'));
         }
 
         return redirect('errorPage');
