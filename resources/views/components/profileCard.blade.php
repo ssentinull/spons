@@ -1,14 +1,16 @@
 @if ($i == 0)
-<div class="card flex-column flex-wrap top-buffer">
+<div class="card flex-column flex-wrap top-buffer custom-card">
 @else
-<div class="card flex-column flex-wrap top-buffer-extra">
+<div class="card flex-column flex-wrap top-buffer-extra custom-card">
 @endif
     @if (isset($events))
         <div class="card-header p-4" align="center">
             <img src="//placehold.it/440x200?text=Spons" alt="">
         </div>
         <div class="card-block p-4" align="center">
-            <h4 class="card-title">{{ $event->name }}</h4>
+            <a href="{{ route('eventDetailPage', $event->id) }}" style="color: black">
+                <h4 class="card-title">{{ $event->name }}</h4>
+            </a>
             <p class="card-text">{{ $event->description }}</p>
         </div>
     @else

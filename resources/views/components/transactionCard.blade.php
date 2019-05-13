@@ -1,12 +1,14 @@
 @if ($i == 0)
-<div class="card flex-column flex-wrap top-buffer">
+<div class="card flex-column flex-wrap top-buffer custom-card">
 @else
-<div class="card flex-column flex-wrap top-buffer-extra">
+<div class="card flex-column flex-wrap top-buffer-extra custom-card">
 @endif
-    <div class="card-header" align="center">
-        <h2 class="card-title">{{ $events[$i]->name }}</h2>
+    <div class="card-header pt-4" align="center">
+        <a href="{{ route('eventDetailPage', $events[$i]->id) }}" style="color:black">
+            <h2 class="card-title">{{ $events[$i]->name }}</h2>
+        </a>
     </div>
-    <div class="card-block" align="center">
+    <div class="card-block p-4" align="center">
         <div class="row">
             <div class="col-md-3">
                 @if ($transaction->company_confirmation_status == Constant::SPONSORSHIP_REQUEST_ACCEPTED)
