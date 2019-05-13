@@ -9,7 +9,7 @@
         </a>
     </div>
     <div class="card-block p-4" align="center">
-        <div class="row">
+        <div class="row vertical-align">
             <div class="col-md-3">
                 @if ($transaction->company_confirmation_status == Constant::SPONSORSHIP_REQUEST_ACCEPTED)
                     Accepted by Company

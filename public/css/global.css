@@ -5,3 +5,15 @@
 .bottom-buffer { margin-bottom:20px; }
 
 .bottom-buffer-extra { margin-bottom:40px; }
+
+.vertical-align {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.outline {
+    background: lightgrey;
+    border: 1px solid grey;
+}
