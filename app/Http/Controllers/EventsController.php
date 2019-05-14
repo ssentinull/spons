@@ -14,7 +14,6 @@ class EventsController extends Controller
     protected $table='events';
 
     protected function create(Request $request){
-        //  dd($data);
 
         if(!Auth::user()){
             return redirect('/');

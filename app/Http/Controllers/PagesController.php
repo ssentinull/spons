@@ -80,7 +80,7 @@ class PagesController extends Controller
                 $userData = $user->studentOrganization;
             }
 
-            $events = $user->studentEvents()->paginate(6);
+            $events = $user->studentEvents()->orderBy('created_at', 'DESC')->paginate(6);
             return view('pages.profile')->with(compact('userData','events'));
         }
 
@@ -130,6 +130,7 @@ class PagesController extends Controller
                 $transactions = Event_User::whereIn('student_confirmation_status',
                     [Constant::SPONSORSHIP_REQUEST_ACCEPTED, Constant::SPONSORSHIP_REQUEST_REJECTED])
                     ->where('student_id', $user->id)
+                    ->orderBy('updated_at', 'DESC')
                     ->paginate(6);
             }
 
@@ -140,6 +141,7 @@ class PagesController extends Controller
                 $transactions = Event_User::whereIn('company_confirmation_status',
                     [Constant::SPONSORSHIP_REQUEST_ACCEPTED, Constant::SPONSORSHIP_REQUEST_REJECTED])
                     ->where('user_id', $user->id)
+                    ->orderBy('updated_at', 'DESC')
                     ->paginate(6);
             }
 
@@ -170,7 +172,9 @@ class PagesController extends Controller
                 $sponsorshipRequests = Event_User::where([
                     ['student_confirmation_status', '=', Constant::SPONSORSHIP_REQUEST_PENDING],
                     ['student_id', '=', $user->id],
-                ])->paginate(6);
+                ])
+                ->orderBy('created_at', 'DESC')
+                ->paginate(6);
             }
 
             if($user->role == Constant::ROLE_COMPANY){
@@ -179,7 +183,9 @@ class PagesController extends Controller
                 $sponsorshipRequests = Event_User::where([
                     ['company_confirmation_status', '=', Constant::SPONSORSHIP_REQUEST_PENDING],
                     ['user_id', '=', $user->id],
-                ])->paginate(6);
+                ])
+                ->orderBy('created_at', 'DESC')
+                ->paginate(6);
             }
 
             $events = [];
