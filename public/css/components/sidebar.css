@@ -56,8 +56,8 @@ color: #9997b5;
 /* Circular image frame */
 .image-cropper {
 margin: 6px 8px 6px 16px;
-width: 100px;
-height: 100px;
+width: 85px;
+height: 85px;
 position: relative;
 overflow: hidden;
 border-radius: 50%;
@@ -79,7 +79,18 @@ width: auto;
     cursor:pointer;
     display:inline-block;
     font-size:16px;
-    padding:10px 31px;
+    text-decoration:none;
+}
+
+.red-button {
+    -moz-border-radius:20px;
+    -webkit-border-radius:20px;
+    background-color:#B22222;
+    border:1px solid #B22222;
+    color:#ffffff;
+    cursor:pointer;
+    display:inline-block;
+    font-size:16px;
     text-decoration:none;
 }
 

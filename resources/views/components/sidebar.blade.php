@@ -7,11 +7,23 @@
         <a class="disabled" href="#">{{Auth::user()->name}}</a>
         @if (Auth::user()-> role == Constant::ROLE_COMPANY)
             <a class="disabled">{{$userData->established_in}}</a>
+
             @if ($userData->status == Constant::COMPANY_STATUS_AVAILABLE)
                 <a class="disabled" style="color: #3CB371">Available for Sponsorship</a>
             @else
                 <a class="disabled" style="color: #B22222">Unavailable for Sponsorship</a>
             @endif
+
+            @if ($userData->status == Constant::COMPANY_STATUS_AVAILABLE)
+                <a href="{{ route('changeStatus', Auth::user()->id) }}">
+                    <button type="button" class="red-button" style="padding: 4px 8px">Change Status to Unavailabe</button>
+                </a>
+            @else
+                <a href="{{ route('changeStatus', Auth::user()->id) }}">
+                    <button type="button" class="green-button" style="padding: 4px 12px">Change Status to Available</button>
+                </a>
+            @endif
+
             <a class="disabled">{{$userData->address}}</a>
         @elseif(Auth::user()-> role == Constant::ROLE_STUDENT_INDIVIDUAL)
             <a class="disabled">{{$userData->major}}</a>
@@ -34,7 +46,7 @@
         <a class="non-disabled" href="{{ route('transactionsPage') }}">Transactions</a>
         <hr>
 
-        <button type="button" class="green-button" data-toggle="modal" data-target="#basicExampleModal">Edit Profile</button>
+        <button type="button" class="green-button" data-toggle="modal" data-target="#basicExampleModal" style="padding: 5px 31px">Edit Profile</button>
         {{-- <button onclick="openForm()">Edit Profile</button> --}}
     </center>
 </div>

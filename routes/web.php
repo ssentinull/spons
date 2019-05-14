@@ -43,6 +43,7 @@ Route::group(['middleware' => ['verifyCompany']], function(){
     Route::get('createGrant', 'PagesController@createGrantPage')->name('createGrantPage');
     Route::post('createGrant', 'GrantsController@create')->name('createGrant');
     Route::get('companyRequestsSponsorship/{eventId}', 'EventsController@companyRequestsSponsorship')->name('companyRequestsSponsorship');
+    Route::get('changeStatus/{companyId}', 'CompaniesController@changeStatus')->name('changeStatus');
 });
 
 // Authentication Routes...
