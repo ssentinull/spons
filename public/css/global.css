@@ -17,3 +17,31 @@
     background: lightgrey;
     border: 1px solid grey;
 }
+
+.green-btn{
+    background-color: #0E8C7F;
+    border-color: #0E8C7F;
+    border-radius: 20px;
+    color: white;
+}
+
+.green-btn:hover{
+    background-color: white;
+    border-color: #0E8C7F;
+    border-radius: 20px;
+    color: #0E8C7F;
+}
+
+.purple-invert-btn{
+    background-color: white;
+    border-color: #3F3D56;
+    border-radius: 20px;
+    color: #3F3D56;
+}
+
+.purple-invert-btn:hover{
+    background-color: #3F3D56;
+    border-color: #3F3D56;
+    border-radius: 20px;
+    color: white;
+}
