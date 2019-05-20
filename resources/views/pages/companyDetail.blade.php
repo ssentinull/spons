@@ -101,14 +101,14 @@
                     <div class="col-4">
                         @if ($companyData->status == Constant::COMPANY_STATUS_AVAILABLE)
                             @if (Auth::user() !== null && (Auth::user()->role == Constant::ROLE_STUDENT_INDIVIDUAL || Auth::user()->role == Constant::ROLE_STUDENT_ORGANIZATION))
-                                <button type="button" class="green-button" data-toggle="modal" data-target="#basicExampleModal">Apply</button>
+                                <button class="btn green-btn" style="font-size:16px; padding:10px 31px;" type="button" data-toggle="modal" data-target="#basicExampleModal">Apply</button>
                             @elseif(Auth::user() !== null && Auth::user()->role == Constant::ROLE_COMPANY)
-                                <a class="green-button-invert" disabled>Apply</a>
+                                <a class="btn green-invert-btn" style="font-size:16px; padding:10px 31px;" disabled>Apply</a>
                             @else
-                                <a href="{{ route('loginPage') }}" class="green-button">Apply</a>
+                                <a class="btn green-btn" style="font-size:16px; padding:10px 31px;" href="{{ route('loginPage') }}">Apply</a>
                             @endif
                         @else
-                            <a class="green-button-invert" disabled>Apply</a>
+                            <a class="btn green-invert-btn" style="font-size:16px; padding:10px 31px; pointer-events:none" href="#">Apply</a>
                         @endif
                     </div>
                 </div>
