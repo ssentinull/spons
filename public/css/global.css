@@ -19,6 +19,8 @@
 }
 
 .green-btn{
+    -moz-border-radius:20px;
+    -webkit-border-radius:20px;
     background-color: #0E8C7F;
     border-color: #0E8C7F;
     border-radius: 20px;
@@ -32,7 +34,25 @@
     color: #0E8C7F;
 }
 
+.purple-btn{
+    -moz-border-radius:20px;
+    -webkit-border-radius:20px;
+    background-color: #3F3D56;
+    border-color: #3F3D56;
+    border-radius: 20px;
+    color: white;
+}
+
+.purple-btn:hover{
+    background-color: white;
+    border-color: #3F3D56;
+    border-radius: 20px;
+    color: #3F3D56;
+}
+
 .purple-invert-btn{
+    -moz-border-radius:20px;
+    -webkit-border-radius:20px;
     background-color: white;
     border-color: #3F3D56;
     border-radius: 20px;
