@@ -34,6 +34,22 @@
     color: #0E8C7F;
 }
 
+.green-invert-btn{
+    -moz-border-radius:20px;
+    -webkit-border-radius:20px;
+    background-color: white;
+    border-color: #0E8C7F;
+    border-radius: 20px;
+    color: #0E8C7F;
+}
+
+.green-invert-btn:hover{
+    background-color: #0E8C7F;
+    border-color: #0E8C7F;
+    border-radius: 20px;
+    color: white;
+}
+
 .purple-btn{
     -moz-border-radius:20px;
     -webkit-border-radius:20px;
