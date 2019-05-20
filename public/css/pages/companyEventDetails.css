@@ -3,53 +3,11 @@ body {
   text-align: center;
 }
 
-h1{
-  text-align: left;
-}
-
 .card{
     background-color:#fff;
     border-radius: 20px;
     box-shadow: 0 8px 19px rgba(109, 109, 109, 0.075), 0 4px 6px rgba(148, 148, 148, 0.3);
     flex: 1;
-}
-
-.green-button {
-    -moz-border-radius:20px;
-    -webkit-border-radius:20px;
-    background-color:#0E8C7F;
-    border:1px solid #0E8C7F;
-    color:#ffffff;
-    cursor:pointer;
-    display:inline-block;
-    font-size:16px;
-    padding:10px 31px;
-    text-decoration:none;
-}
-
-.green-button-invert {
-    -moz-border-radius:20px;
-    -webkit-border-radius:20px;
-    background-color:white;
-    border:1px solid #0E8C7F;
-    color:#0E8C7F;
-    cursor:pointer;
-    display:inline-block;
-    font-size:16px;
-    padding:10px 31px;
-    text-decoration:none;
-}
-
-.purple-button-invert {
-    -moz-border-radius:20px;
-    -webkit-border-radius:20px;
-    background-color:white;
-    border:1px solid #3f3d56;
-    color:#3f3d56;
-    display:inline-block;
-    font-size:16px;
-    padding:10px 31px;
-    text-decoration:none;
 }
 
 .available-status {

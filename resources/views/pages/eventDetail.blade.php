@@ -34,18 +34,18 @@
                 <div class="row ml-5 top-buffer-extra">
                     <h5>Contact: {{ $userDataEmail }}</h5>
                 </div>
-                <div class="row justify-content-between top-buffer">
+                <div class="row justify-content-between top-buffer bottom-buffer">
                     <div class="col-6">
-                        <a href="#" class="purple-button-invert">Get Proposal</a>
+                        <a class="btn purple-invert-btn" style="font-size:16px; padding:10px 31px;" href="#">Get Proposal</a>
                     </div>
                     <div class="col-6">
                         @if (!Auth::user())
-                            <a href="{{ route('loginPage') }}" class="green-button">Become a Sponsor</a>
+                            <a class="btn green-btn" style="font-size:16px; padding:10px 31px;" href="{{ route('loginPage') }}">Become a Sponsor</a>
                         @else
                             @if (Auth::user()->role == Constant::ROLE_STUDENT_INDIVIDUAL || Auth::user()->role == Constant::ROLE_STUDENT_ORGANIZATION)
-                                <button class="green-button-invert" disabled>Become a Sponsor</button>
+                                <button class="btn green-invert-btn" disabled>Become a Sponsor</button>
                             @else
-                                <a href="{{ route('companyRequestsSponsorship', $event->id) }}" class="green-button" disabled>Become a Sponsor</a>
+                                <a class="btn green-btn" href="{{ route('companyRequestsSponsorship', $event->id) }}" disabled>Become a Sponsor</a>
                             @endif
                         @endif
                     </div>
