@@ -14,11 +14,11 @@
                 <!-- Left side of the card -->
                 <div class="col-md-6 p-5">
                     <div class="row justify-content-between">
-                        <div class="col-md-4">
+                        <div class="col-md-1">
                             <h2>Spons</h2>
                         </div>
-                        <div class="col-md-4">
-                            <a class="btn dark-grey-btn" href={{ route('landingPage') }}>Go back to <br> landing page</a>
+                        <div class="col-md-4 mr-4">
+                            <a class="btn dark-grey-btn" href={{ route('landingPage') }}>Go back to landing page</a>
                         </div>
                     </div>
                     <div class="row top-buffer pl-4">

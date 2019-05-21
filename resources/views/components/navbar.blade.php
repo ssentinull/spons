@@ -26,10 +26,10 @@
                 <!-- Authentication Links -->
                 @guest
                     <li class="nav-item">
-                        <a class="btn green-btn" role="button" href="{{ route('loginPage') }}">{{ __('Login') }}</a>
+                        <a class="btn green-btn" style="margin: 4px" role="button" href="{{ route('loginPage') }}">{{ __('Login') }}</a>
                     </li> &nbsp; &nbsp;
                     <li class="nav-item" >
-                        <a class="btn purple-invert-btn" role="button" href="{{ route('registerStudentPage') }}" >{{ __('Register') }}</a>
+                        <a class="btn purple-invert-btn" style="margin: 4px" role="button" href="{{ route('registerStudentPage') }}" >{{ __('Register') }}</a>
                     </li>
                 @else
                     <li class="nav-item dropdown">
@@ -48,9 +48,7 @@
 
                             <a class="dropdown-item" href="{{ route('profilePage') }}">{{ __('Profile') }}</a>
 
-                            <a class="dropdown-item" href="{{ route('logout') }}"
-                                onclick="event.preventDefault();
-                                            document.getElementById('logout-form').submit();">
+                            <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                 {{ __('Logout') }}
                             </a>
 
