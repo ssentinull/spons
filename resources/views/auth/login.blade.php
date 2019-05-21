@@ -1,6 +1,6 @@
 @extends('layouts.app')
+
 @push('styles')
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/global.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/auth/login.css') }}">
 @endpush
 
@@ -12,22 +12,22 @@
         <div class="container login-card">
             <div class="row">
                 <!-- Left side of the card -->
-                <div class="col-md-6 p-4">
-                    <div class="row">
-                        <div class="col-md-6">
+                <div class="col-md-6 p-5">
+                    <div class="row justify-content-between">
+                        <div class="col-md-4">
                             <h2>Spons</h2>
                         </div>
-                        <div class="col-md-6">
-                            <a class="btn btn-dark" style="border-radius: 30px !important; height: 55px; width: 110px; margin-left: 100px;" href={{ route('landingPage') }}>Go back to <br> landing page</a>
+                        <div class="col-md-4">
+                            <a class="btn dark-grey-btn" href={{ route('landingPage') }}>Go back to <br> landing page</a>
                         </div>
                     </div>
                     <div class="row top-buffer pl-4">
-                        <p>Welcome Back!<br>We miss you :)</p>
+                        <h4>Welcome Back!<br>We miss you :)</h4>
                     </div>
                     <form  role="form" method="POST" action="{{ url('/login') }}">
                         <div class="form-group top-buffer">
                             @csrf
-                            <div class="row o">
+                            <div class="row">
                                 <div class="col-md-8">
                                     <input class="form-control" type="text" placeholder="Email" name="email" style="border-color:#0E8C7F; border-radius:5px; border-width: 1.5px; ">
                                 </div>
@@ -37,14 +37,12 @@
                                     <input class="form-control" type="password" placeholder="Password" name="password" style="border-color:#0E8C7F; border-radius:5px; border-width: 1.5px; ">
                                 </div>
                             </div>
-                            <div class="row justify-content-around top-buffer">
-                                <div class="col-md-2">
-                                    <button class="btn btn-success" type="submit" style="border-radius:35px !important; background-color:#0E8C7F; margin-left: 100px; width: 75px;" onmouseover="this.style.backgroundColor='#fff', this.style.color='#0E8C7F'" onmouseout="this.style.backgroundColor='#0E8C7F' , this.style.color='#fff'">Login</button>
+                            <div class="row top-buffer">
+                                <div class="col-md-5 align-self-end">
+                                    <button class="btn green-btn" style="font-size:16px; padding:10px 20px;" type="submit">Login</button>
                                 </div>
-                                <div class="col-md-2">
-                                    <a class="btn btn-outline-success" href="{{ route('registerStudentPage') }}" style="border-radius:35px; color: #0E8C7F;">
-                                        Register
-                                    </a>
+                                <div class="col-md-5 align-self-end">
+                                    <a class="btn purple-invert-btn" style="font-size:16px; padding:10px 20px;" href="{{ route('registerStudentPage') }}">Register</a>
                                 </div>
                             </div>
 
