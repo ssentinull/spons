@@ -81,3 +81,19 @@
     border-radius: 20px;
     color: white;
 }
+
+.dark-grey-btn{
+    -moz-border-radius:20px;
+    -webkit-border-radius:20px;
+    background-color: #343A3F;
+    border-color: #343A3F;
+    border-radius: 20px;
+    color: white;
+}
+
+.dark-grey-btn:hover{
+    background-color: white;
+    border-color: #343A3F;
+    border-radius: 20px;
+    color: #343A3F;
+}
