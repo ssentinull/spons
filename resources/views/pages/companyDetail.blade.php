@@ -14,7 +14,7 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Select Events</h5>
+                    <h3 class="modal-title" id="exampleModalLabel">Select Events</h3>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -54,9 +54,9 @@
                     <div class="modal-footer">
                         @isset($events)
                             @if (count($events) > 0)
-                                <button type="submit" class="green-button">Apply for Sponsorship</button>
+                                <button class="btn green-btn" style="padding: 12px" type="submit" >Apply for Sponsorship</button>
                             @else
-                                <button type="submit" class="green-button-invert" disabled>Apply for Sponsorship</button>
+                                <button class="btn green-invert-btn" style="padding: 12px" type="submit" disabled>Apply for Sponsorship</button>
                             @endif
                         @endisset
                     </div>
