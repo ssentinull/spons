@@ -26,10 +26,10 @@
                 <!-- Authentication Links -->
                 @guest
                     <li class="nav-item">
-                        <a class="btn green-btn" style="margin: 4px" role="button" href="{{ route('loginPage') }}">{{ __('Login') }}</a>
+                        <a class="btn green-btn" style="margin: 4px 0px 4px 10px" role="button" href="{{ route('loginPage') }}">{{ __('Login') }}</a>
                     </li> &nbsp; &nbsp;
                     <li class="nav-item" >
-                        <a class="btn purple-invert-btn" style="margin: 4px" role="button" href="{{ route('registerStudentPage') }}" >{{ __('Register') }}</a>
+                        <a class="btn purple-invert-btn" style="margin: 4px 4px" role="button" href="{{ route('registerStudentPage') }}" >{{ __('Register') }}</a>
                     </li>
                 @else
                     <li class="nav-item dropdown">
