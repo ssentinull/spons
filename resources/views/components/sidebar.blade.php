@@ -1,11 +1,10 @@
 <div class="sidenav">
     <center>
-        <div class="image-cropper" href="https://placeholder.com">
-            <img src="https://via.placeholder.com/360">
+        <div class="image-cropper">
+            <img src="{{ asset('storage/pictures/'.Auth::user()->studentIndividual->picture) }}">
         </div>
-
         <a class="disabled" href="#">{{Auth::user()->name}}</a>
-        @if (Auth::user()-> role == Constant::ROLE_COMPANY)
+        @if (Auth::user()->role == Constant::ROLE_COMPANY)
             <a class="disabled">{{$userData->established_in}}</a>
 
             @if ($userData->status == Constant::COMPANY_STATUS_AVAILABLE)
