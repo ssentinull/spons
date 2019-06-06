@@ -8,14 +8,14 @@ class StudentIndividual extends Model
 {
 
     /**
-     * 
+     *
      * The attributes that are mass assignable.
      *
      * @var array
      */
-    protected $table='student_individuals';
+    protected $table = 'student_individuals';
     protected $fillable = [
-        'dob', 'city', 'major', 'faculty', 'university', 'user_id'
+        'dob', 'city', 'major', 'faculty', 'university', 'picture', 'user_id'
     ];
 
     public function user(){

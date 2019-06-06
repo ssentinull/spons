@@ -20,6 +20,7 @@ class CreateStudentIndividualsTable extends Migration
             $table->string('major');
             $table->string('faculty');
             $table->string('university');
+            $table->string('picture')->nullable();
             $table->integer('user_id')->unsigned();
             $table->timestamps();
         });
