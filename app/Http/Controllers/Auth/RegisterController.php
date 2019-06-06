@@ -122,12 +122,19 @@ class Registercontroller extends Controller
 
     protected function createStudentIndividual(array $data, $id)
     {
+        $hash = sha1(time());
+        $fileExtension = $data['picture']->guessExtension();
+        $fileName = $hash.'.'.$fileExtension;
+
+        $data['picture']->storeAs('public/picture', $fileName);
+
         return StudentIndividual::create([
             'dob' => $data['dob'],
             'city' => $data['city'],
             'major' => $data['major'],
             'faculty' => $data['faculty'],
             'university' => $data['university'],
+            'picture' => $fileName,
             'user_id' => $id,
         ]);
     }

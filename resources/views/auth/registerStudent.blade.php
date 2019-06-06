@@ -11,7 +11,6 @@
 @endpush
 
 @section('content')
-<div >
 <div class="cardawal">
     <div class="awal">
         <h2>Spons</h2>
@@ -35,7 +34,7 @@
                             </center>
                             <div class="tab-content pt-5 pb-5">
                                 <div class="tab-pane active" id="studentIndividual">
-                                    <form id="studentIndividual" class="tabcontent" method="POST" action="{{ route('registerStudentIndividual') }}">
+                                    <form id="studentIndividual" class="tabcontent" method="POST" action="{{ route('registerStudentIndividual') }}" enctype="multipart/form-data">
                                         @csrf
                                         <div class="regisc">
                                             <label for="name">Name </label>
@@ -58,6 +57,8 @@
 
                                             <label for="password" >Confirm Password</label> <br>
                                             <input type="password" placeholder="Confirm Password" name="password_confirmation" required> <br><br>
+
+                                            <input type="file" name="picture">
 
                                             <label for="dob">Date of Birth</label>
                                             <label for="city" style="margin-left:60px;">City</label> <br>
@@ -128,6 +129,5 @@
             </div>
         </div>
     </div>
-</div>
 </div>
 @endsection
