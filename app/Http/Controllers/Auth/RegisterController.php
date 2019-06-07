@@ -151,12 +151,15 @@ class Registercontroller extends Controller
 
     protected function createStudentOrganization(array $data, $id)
     {
+        $fileName = $this->saveProfilePicture($data['picture']);
+
         return StudentOrganization::create([
             'established_in' => $data['dob'],
             'address' => $data['Address'],
-            'description' => $data['desc'],
             'major' => $data['major'],
             'university' => $data['university'],
+            'description' => $data['desc'],
+            'picture' => $fileName,
             'user_id' => $id,
         ]);
     }

@@ -80,7 +80,7 @@
                                     </div>
                                 </div>
                                 <div class="tab-pane" id="studentOrganization">
-                                    <form id="studentOrganization" class="tabcontent" method="POST" action="{{ route('registerStudentOrganization') }}">
+                                    <form id="studentOrganization" class="tabcontent" method="POST" action="{{ route('registerStudentOrganization') }}" enctype="multipart/form-data">
                                         @csrf
                                         <div class="regisc">
                                             <label for="name">Name </label>
@@ -90,10 +90,10 @@
                                             <input style="margin-left:117px;" type="text" placeholder="University" name="university" required> <br> <br>
 
                                             <label for="email">Email</label>
-                                            <label style=" margin-left:365px;"  for="major">Majority<br></label><br>
+                                            <label style=" margin-left:365px;" for="major">Major<br></label><br>
 
                                             <input type="text" placeholder="Email" name="email" required>
-                                            <input style="margin-left:113px;" type="text" placeholder="Majority" name="major" required><br><br>
+                                            <input style="margin-left:113px;" type="text" placeholder="Major" name="major" required><br><br>
 
                                             <label for="password" >Password</label>
                                             <label for="description" style=" margin-left:335px;" >Description</label><br><br>

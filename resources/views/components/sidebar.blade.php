@@ -1,8 +1,15 @@
 <div class="sidenav">
     <center>
         <div class="image-cropper">
-            <img src="{{ asset('storage/pictures/'.Auth::user()->studentIndividual->picture) }}">
+            @if (Auth::user()->role == Constant::ROLE_STUDENT_INDIVIDUAL)
+                <img src="{{ asset('storage/pictures/'.Auth::user()->studentIndividual->picture) }}">
+            @elseif (Auth::user()->role == Constant::ROLE_STUDENT_ORGANIZATION)
+                <img src="{{ asset('storage/pictures/'.Auth::user()->studentOrganization->picture) }}">
+            @else
+                <img src="{{ asset('storage/pictures/'.Auth::user()->company->picture) }}">
+            @endif
         </div>
+
         <a class="disabled" href="#">{{Auth::user()->name}}</a>
         @if (Auth::user()->role == Constant::ROLE_COMPANY)
             <a class="disabled">{{$userData->established_in}}</a>
