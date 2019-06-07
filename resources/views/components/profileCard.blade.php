@@ -5,7 +5,7 @@
 @endif
     @if (isset($events))
         <div class="card-header p-4" align="center">
-            <img src="{{ asset('img/images/image.svg') }}" style="margin: 1em; width: 280px;" >
+            <img src="{{ asset('img/images/activities.svg') }}" style="margin: 1em; width: 280px;" >
         </div>
         <div class="card-block p-4" align="center">
             <a href="{{ route('eventDetailPage', $event->id) }}" style="color: black">

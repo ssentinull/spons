@@ -2,7 +2,12 @@
     <div class="productwrapper" >
         <center>
             <div style="padding: auto;">
-                <img src="{{ asset('img/images/image.svg') }}" style="margin: 4em 2em; width: 240px;" >
+                @isset($event)
+                    <img src="{{ asset('img/images/activities.svg') }}" style="margin: 4em 2em; width: 240px;" >
+                @endisset
+                @isset($company)
+                    <img src="{{ asset('img/images/business.svg') }}" style="margin: 4em 2em; width: 240px;" >
+                @endisset
             </div>
         </center>
         <div class="productdata">
