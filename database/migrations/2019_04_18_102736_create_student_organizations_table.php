@@ -20,6 +20,7 @@ class CreateStudentOrganizationsTable extends Migration
             $table->string('major');
             $table->string('university');
             $table->longText('description');
+            $table->char('picture', 20)->nullable();
             $table->integer('user_id')->unsigned();
             $table->timestamps();
         });

@@ -12,7 +12,7 @@ class StudentOrganization extends Model
      * @var array
      */
     protected $fillable = [
-        'established_in', 'address', 'major', 'university', 'description', 'user_id'
+        'established_in', 'address', 'major', 'university', 'description', 'picture', 'user_id'
     ];
 
     public function user(){
