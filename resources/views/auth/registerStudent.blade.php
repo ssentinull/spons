@@ -58,6 +58,7 @@
                                             <label for="password" >Confirm Password</label> <br>
                                             <input type="password" placeholder="Confirm Password" name="password_confirmation" required> <br><br>
 
+                                            <label for="picture">Profile Picture</label>
                                             <input type="file" name="picture">
 
                                             <label for="dob">Date of Birth</label>
@@ -103,6 +104,9 @@
                                             <input type="password"  placeholder="Confirm Password" name="password_confirmation" required>
                                             <textarea type="text" style=" margin-left:110px; margin-top:-80px;" placeholder="Description" name="desc" required></textarea>
                                             <br><br>
+
+                                            <label for="picture">Profile Picture</label>
+                                            <input type="file" name="picture">
 
                                             <label for="dob">Established in</label>
                                             <label for="city" style="margin-left:60px;">Address</label> <br>

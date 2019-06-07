@@ -123,13 +123,20 @@ class Registercontroller extends Controller
         ]);
     }
 
-    protected function createStudentIndividual(array $data, $id)
+    protected function saveProfilePicture($picture)
     {
         $hash = substr(sha1(time()), 0, 8);
-        $fileExtension = $data['picture']->guessExtension();
+        $fileExtension = $picture->guessExtension();
         $fileName = $hash.'.'.$fileExtension;
 
-        $data['picture']->storeAs('public/pictures', $fileName);
+        $picture->storeAs('public/pictures', $fileName);
+
+        return $fileName;
+    }
+
+    protected function createStudentIndividual(array $data, $id)
+    {
+        $fileName = $this->saveProfilePicture($data['picture']);
 
         return StudentIndividual::create([
             'dob' => $data['dob'],
