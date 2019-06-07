@@ -19,6 +19,7 @@ class CreateCompaniesTable extends Migration
             $table->string('address');
             $table->longText('description');
             $table->boolean('status');
+            $table->char('picture', 20)->nullable();
             $table->integer('user_id')->unsigned();
             $table->timestamps();
         });

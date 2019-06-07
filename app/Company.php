@@ -11,10 +11,10 @@ class Company extends Model
      *
      * @var array
      */
-    protected $table='companies';
+    protected $table = 'companies';
 
     protected $fillable = [
-        'established_in', 'address', 'description', 'status', 'user_id'
+        'established_in', 'address', 'description', 'status', 'picture', 'user_id'
     ];
 
     public function user(){
