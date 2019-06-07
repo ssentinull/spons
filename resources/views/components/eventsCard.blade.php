@@ -2,7 +2,7 @@
     <div class="productwrapper" >
         <center>
             <div style="padding: auto;">
-                <img src="//placehold.it/280x200?text=Spons" style="margin: 4em 2em; width: auto;" >
+                <img src="{{ asset('img/images/image.svg') }}" style="margin: 4em 2em; width: 240px;" >
             </div>
         </center>
         <div class="productdata">
