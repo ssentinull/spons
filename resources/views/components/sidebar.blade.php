@@ -2,11 +2,11 @@
     <center>
         <div class="image-cropper">
             @if (Auth::user()->role == Constant::ROLE_STUDENT_INDIVIDUAL)
-                <img src="{{ asset('storage/pictures/'.Auth::user()->studentIndividual->picture) }}">
+                <img src="{{ asset('storage/pictures/'.Auth::user()->studentIndividual->picture) }}" onerror="this.src='../img/images/profile.svg'">
             @elseif (Auth::user()->role == Constant::ROLE_STUDENT_ORGANIZATION)
-                <img src="{{ asset('storage/pictures/'.Auth::user()->studentOrganization->picture) }}">
+                <img src="{{ asset('storage/pictures/'.Auth::user()->studentOrganization->picture) }}" onerror="this.src='../img/images/profile.svg'">
             @else
-                <img src="{{ asset('storage/pictures/'.Auth::user()->company->picture) }}">
+                <img src="{{ asset('storage/pictures/'.Auth::user()->company->picture) }}" onerror="this.src='../img/images/profile.svg'">
             @endif
         </div>
 
