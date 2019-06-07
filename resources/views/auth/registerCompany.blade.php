@@ -14,7 +14,7 @@
             </a>
         </h2>
         <p>Welcome to the party!</p>
-        <form  role="form" method="POST" action="{{ route('registerCompany') }}">
+        <form  role="form" method="POST" action="{{ route('registerCompany') }}" enctype="multipart/form-data">
             @csrf
             <div class="regisc">
                 <label for="name">Name </label>
@@ -45,6 +45,11 @@
                 <br>
 
                 <input type="password"  placeholder="Confirm Password" name="password_confirmation" required>
+                <br>
+
+                <label for="picture">Profile Picture</label>
+                <input type="file" name="picture">
+
                 <input type="hidden"  name="role" value={{ Constant::ROLE_COMPANY }}>
             </div>
             <div class="data">

@@ -166,11 +166,14 @@ class Registercontroller extends Controller
 
     protected function createCompany(array $data, $id)
     {
+        $fileName = $this->saveProfilePicture($data['picture']);
+
         return Company::create([
             'established_in' => $data['established_in'],
             'address' => $data['address'],
             'description' => $data['description'],
             'status' => Constant::COMPANY_STATUS_AVAILABLE,
+            'picture' => $fileName,
             'user_id' => $id,
         ]);
     }
