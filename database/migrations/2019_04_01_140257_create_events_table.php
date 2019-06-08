@@ -26,8 +26,8 @@ class CreateEventsTable extends Migration
             // Ex; Technology, Environment, Social
             $table->integer('category');
 
+            $table->char('proposal', 20)->nullable();
             $table->integer('user_id')->unsigned();
-            $table->integer('document_id')->unsigned()->nullable();
             $table->timestamps();
         });
     }
