@@ -42,13 +42,47 @@
                     </div>
                 </div>
                 <hr style="height:2px; color:#0e8c7f; background-color:#0e8c7f; width:90%; text-align:center; margin: 0 auto;">
-                <div class="row justify-content-center pl-5 pr-5 top-buffer-extra">
-                    <div class="col-md-12">
-                        <h5>{{ $event->description }}</h5>
+                <div class="row pl-5 pr-5 top-buffer-extra">
+                    <div class="col-md-4">
+                        <div class="row justify-content-center">
+                            <h4>Details</h4>
+                        </div>
+                        <br>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <h5>Location:</h5>
+                            </div>
+                            <div class="col-md-8">
+                                <h5>{{ $event->location }}</h5>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="row">
+                            <div class="col-md-3">
+                                <h5>Date:</h5>
+                            </div>
+                            <div class="col-md-9">
+                                <h5>{{ $event->date }}</h5>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="row">
+                            <div class="col-md-5">
+                                <h5>Organizers:</h5>
+                            </div>
+                            <div class="col-md-7">
+                                <h5>{{ $event->name }}</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-8">
+                        <h4>Description</h4>
+                        <br>
+                        <p>{{ $event->description }}</p>
                     </div>
                 </div>
                 <div class="row ml-5 top-buffer-extra">
-                    <h5>Contact: {{ $userDataEmail }}</h5>
+                    <h5>Contact: {{ $organizer->email }}</h5>
                 </div>
                 <div class="row justify-content-between top-buffer bottom-buffer">
                     <div class="col-6">
