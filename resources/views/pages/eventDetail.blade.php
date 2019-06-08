@@ -86,7 +86,7 @@
                 </div>
                 <div class="row justify-content-between top-buffer bottom-buffer">
                     <div class="col-6">
-                        @if (!Auth::user() || Auth::user()->role != Constant::ROLE_COMPANY)
+                        @if (!Auth::user() || Auth::user()->role != Constant::ROLE_COMPANY || $event->proposal == "")
                             <a class="btn purple-invert-btn" style="font-size:16px; padding:10px 31px;" data-toggle="modal" data-target="#exampleModalCenter">Get Proposal</a>
                         @else
                             <a class="btn purple-invert-btn" href="{{ route('downloadProposal', $event->proposal) }}" style="font-size:16px; padding:10px 31px;">Get Proposal</a>
