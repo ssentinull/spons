@@ -8,28 +8,40 @@
             <h2 class="card-title">{{ $events[$i]->name }}</h2>
         </a>
     </div>
-    <div class="card-block p-4" align="center">
-        <div class="row vertical-align">
-            <div class="col-md-3">
-                @if ($transaction->company_confirmation_status == Constant::SPONSORSHIP_REQUEST_ACCEPTED)
-                    Accepted by Company
-                @elseif ($transaction->company_confirmation_status == Constant::SPONSORSHIP_REQUEST_REJECTED)
-                    Denied by Company
-                @else
-                    Pending Confirmation from Company
-                @endif
-            </div>
-            <div class="col-md-3">
-                @if ($transaction->student_confirmation_status == Constant::SPONSORSHIP_REQUEST_ACCEPTED)
-                    Accepted by Student
-                @elseif ($transaction->student_confirmation_status == Constant::SPONSORSHIP_REQUEST_REJECTED)
-                    Denied by Student
-                @else
-                    Pending Confirmation from Student
-                @endif
-            </div>
-            <div class="col-md-3">Event Status</div>
-            <div class="col-md-3">LPJ</div>
-        </div>
+    <div class="card-block pt-4" align="center">
+        <table class="table table-borderless" style="text-align:center">
+            <thead>
+                <tr>
+                    <th>Confirmation from Company</th>
+                    <th>Confirmation from Student</th>
+                    <th>LPJ</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        @if ($transaction->company_confirmation_status == Constant::SPONSORSHIP_REQUEST_ACCEPTED)
+                            <font style="color: #0e8c7f; font-size: 16px">Accepted</font>
+                        @elseif ($transaction->company_confirmation_status == Constant::SPONSORSHIP_REQUEST_REJECTED)
+                            <font style="color: #b22222; font-size: 16px">Denied</font>
+                        @else
+                            <font style="color: #3f3d56; font-size: 16px">Pending Confirmation</font>
+                        @endif
+                    </td>
+                    <td>
+                        @if ($transaction->student_confirmation_status == Constant::SPONSORSHIP_REQUEST_ACCEPTED)
+                            <font style="color: #0e8c7f; font-size: 16px">Accepted</font>
+                        @elseif ($transaction->student_confirmation_status == Constant::SPONSORSHIP_REQUEST_REJECTED)
+                            <font style="color: #b22222; font-size: 16px">Denied</font>
+                        @else
+                            <font style="color: #3f3d56; font-size: 16px">Pending Confirmation</font>
+                        @endif
+                    </td>
+                    <td>
+                        <a class="btn green-btn" style="margin: 4px 0px 4px 10px" role="button" href="{{ route('loginPage') }}">{{ __('Download') }}</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 </div>
