@@ -83,22 +83,44 @@
                 </div>
                 <hr style="height:2px; color:#0e8c7f; background-color:#0e8c7f; width:90%; text-align:center; margin: 0 auto;">
                 <div class="row justify-content-center pl-5 pr-5 top-buffer-extra">
-                    <div class="col-md-12">
+                    <div class="col-md-4">
+                        <div class="row justify-content-center">
+                            <h4>Details</h4>
+                        </div>
+                        <br>
+                        <div class="row">
+                            <div class="col-md-3">
+                                <h5>Status:</h5>
+                            </div>
+                            <div class="col-md-9">
+                                @if ($companyData->status == Constant::COMPANY_STATUS_AVAILABLE)
+                                    <h5 style="color: #0e8c7f">Available</h5>
+                                @else
+                                    <h5 style="color: #b22222">Unvailable</h5>
+                                @endif
+                            </div>
+                        </div>
+                        <br>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <h5>Address:</h5>
+                            </div>
+                            <div class="col-md-8">
+                                <h5>{{ $companyData->address }}</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-8">
+                        <h4>Description</h4>
+                        <br>
                         <h5>{{ $companyData->description }}</h5>
                     </div>
                 </div>
-                <div class="row ml-5 top-buffer-extra">
-                    <h5>Contact: {{ $companyUser->email }}</h5>
-                </div>
-                <div class="row justify-content-between top-buffer bottom-buffer">
-                    <div class="col-4">
-                        @if ($companyData->status == Constant::COMPANY_STATUS_AVAILABLE)
-                            <div class="available-status">Available</div>
-                        @else
-                            <div class="unavailable-status">Unvailable</div>
-                        @endif
+                <div class="row justify-content-between top-buffer-extra">
+                    <div class="col-md-4">
+                        <h5>Contact: {{ $companyUser->email }}</h5>
                     </div>
-                    <div class="col-4">
+                    <div class="col-md-8">
                         @if ($companyData->status == Constant::COMPANY_STATUS_AVAILABLE)
                             @if (Auth::user() !== null && (Auth::user()->role == Constant::ROLE_STUDENT_INDIVIDUAL || Auth::user()->role == Constant::ROLE_STUDENT_ORGANIZATION))
                                 <button class="btn green-btn" style="font-size:16px; padding:10px 31px;" type="button" data-toggle="modal" data-target="#basicExampleModal">Apply</button>
