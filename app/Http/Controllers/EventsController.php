@@ -38,6 +38,12 @@ class EventsController extends Controller
         return redirect()->route('profilePage');
     }
 
+    public function downloadProposal($proposalName){
+        $proposalLink = storage_path('app/public/proposals/'.$proposalName);
+
+        return response()->download($proposalLink);
+    }
+
     public function studentRequestsSponsorship(Request $request){
 
         foreach($request->events_picked_ids as $events_picked_id){

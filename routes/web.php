@@ -27,6 +27,7 @@ Route::get('companyDetail/{companyId}', 'PagesController@companyDetailPage')->na
 Route::group(['middleware' => ['auth']], function(){
     Route::get('profile', 'PagesController@profilePage')->name('profilePage');
     Route::get('transactions', 'PagesController@transactionsPage')->name('transactionsPage');
+    Route::get('proposal/{proposalName}', 'EventsController@downloadProposal')->name('downloadProposal');
     Route::get('sponsorshipRequests', 'PagesController@sponsorshipRequestsPage')->name('sponsorshipRequestsPage');
     Route::get('acceptSponsorshipRequest/{event_userId}', 'EventsController@acceptSponsorshipRequest')->name('acceptSponsorshipRequest');
     Route::get('rejectSponsorshipRequest/{event_userId}', 'EventsController@rejectSponsorshipRequest')->name('rejectSponsorshipRequest');

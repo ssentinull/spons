@@ -9,6 +9,22 @@
 @endsection
 
 @section('content')
+
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <h2>Sorry, but you do not have permission to download the proposal</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+
     @foreach ($errors->all() as $error)
         <li>{{$error}}</li>
     @endforeach
@@ -36,7 +52,11 @@
                 </div>
                 <div class="row justify-content-between top-buffer bottom-buffer">
                     <div class="col-6">
-                        <a class="btn purple-invert-btn" style="font-size:16px; padding:10px 31px;" href="#">Get Proposal</a>
+                        @if (!Auth::user() || Auth::user()->role != Constant::ROLE_COMPANY)
+                            <a class="btn purple-invert-btn" style="font-size:16px; padding:10px 31px;" data-toggle="modal" data-target="#exampleModalCenter">Get Proposal</a>
+                        @else
+                            <a class="btn purple-invert-btn" href="{{ route('downloadProposal', $event->proposal) }}" style="font-size:16px; padding:10px 31px;">Get Proposal</a>
+                        @endif
                     </div>
                     <div class="col-6">
                         @if (!Auth::user())
