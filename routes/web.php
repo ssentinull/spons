@@ -37,6 +37,7 @@ Route::group(['middleware' => ['auth']], function(){
 Route::group(['middleware' => ['verifyStudent']], function(){
     Route::get('createEvent', 'PagesController@createEventPage')->name('createEventPage');
     Route::post('createEvent', 'EventsController@create')->name('createEvent');
+    Route::post('uploadLpj', 'EventsController@uploadLpj')->name('uploadLpj');
     Route::post('studentRequestsSponsorship', 'EventsController@studentRequestsSponsorship')->name('studentRequestsSponsorship');
 });
 

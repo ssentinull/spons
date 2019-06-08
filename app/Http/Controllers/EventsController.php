@@ -44,6 +44,21 @@ class EventsController extends Controller
         return response()->download($proposalLink);
     }
 
+    public function uploadLpj(Request $request){
+        $hash = substr(sha1(time()), 0, 8);
+        $fileExtension = $request->file('lpj')->getClientOriginalExtension();
+        $fileName = $hash.'.'.$fileExtension;
+
+        $request->file('lpj')->storeAs('public/lpjs', $fileName);
+
+        $transaction = Event_User::find($request->event_userId);
+
+        $transaction->lpj = $fileName;
+        $transaction->save();
+
+        return redirect()->route('profilePage');
+    }
+
     public function studentRequestsSponsorship(Request $request){
 
         foreach($request->events_picked_ids as $events_picked_id){
