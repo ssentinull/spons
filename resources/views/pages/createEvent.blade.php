@@ -18,7 +18,7 @@
             <div class="col-md-10 top-buffer-extra bottom-buffer-extra" style="margin-left: 280px">
                 <div class="cardawal">
                     <p>Create an Event</p> <hr>
-                    <form  role="form" method="POST" action="{{ route('createEvent') }}">
+                    <form  role="form" method="POST" action="{{ route('createEvent') }}" enctype="multipart/form-data">
                         @csrf
                         <div class="regisc">
                             <label for="name">Name Event </label>
@@ -33,6 +33,7 @@
                             <label for="type" >Event Type</label>
                             <select id="type" type="number" class="form-control" name="type" style="border-color: #0E8C7F;" >
                                 <option value="" disabled selected>Select an Event Type</option>
+
                                 @foreach ($eventTypes as $eventType)
                                     <option value="{{ $eventType->id }}">{{ $eventType->name }}</option>
                                 @endforeach
@@ -84,6 +85,9 @@
                                     <strong>{{ $errors->first('description') }}</strong>
                                 </span>
                             @endif
+
+                            <label for="uploaded-proposal">Proposal</label>
+                            <input type="file" name="uploaded-proposal">
                         </div>
                         <div class="data">
                              <button class="btn green-btn" style="font-size:12px;" type="submit">Create Event</button>

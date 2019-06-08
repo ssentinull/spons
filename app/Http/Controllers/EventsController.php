@@ -19,6 +19,14 @@ class EventsController extends Controller
             return redirect('/');
         }
 
+        $hash = substr(sha1(time()), 0, 8);
+
+        $fileExtension = $request->file('uploaded-proposal')->getClientOriginalExtension();
+        $fileName = $hash.'.'.$fileExtension;
+
+        $request->file('uploaded-proposal')->storeAs('public/proposals', $fileName);
+
+        $request['proposal'] = $fileName;
         $request['user_id'] = Auth::user()->id;
 
         $event = Event::create($request->all());

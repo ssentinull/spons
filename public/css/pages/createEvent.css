@@ -10,7 +10,7 @@ padding: 0px 10px;
 
 .cardawal{
     width:550px;
-    height: 700px;
+    height: 720px;
     border-radius: 2%;
     background-color:#fff;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
@@ -56,6 +56,5 @@ padding: 0px 10px;
 .data button{
     width: 100px;
     height: 40px;
-    margin-top: 20px;
     margin-left: 350px;
 }
