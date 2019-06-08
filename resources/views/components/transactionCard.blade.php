@@ -40,16 +40,16 @@
                     <td>
                         @if (Auth::user()->role == Constant::ROLE_COMPANY)
                             @if ($transaction->lpj != '')
-                                <a class="btn green-btn" style="margin: 4px 0px 4px 10px" role="button" href="#">{{ __('Download') }}</a>
+                                <a class="btn green-btn" style="margin: 4px 0px 4px 10px" role="button" href="{{ route('downloadLpj', $transaction->lpj) }}">{{ __('Download') }}</a>
                             @elseif ($transaction->lpj == '')
                                 <a class="btn green-invert-btn" style="margin: 4px 0px 4px 10px; pointer-events: none" role="button" href="#">{{ __('Download') }}</a>
                             @endif
                         @elseif (Auth::user()->role == Constant::ROLE_STUDENT_INDIVIDUAL || Auth::user()->role == Constant::ROLE_STUDENT_ORGANIZATION)
-                        <form method="POST" action="{{ route('uploadLpj') }}" enctype="multipart/form-data">
-                            @csrf
-                            <input type="hidden" name="event_userId" value="{{ $transaction->id }}">
-                            <input type="file" name="lpj" style="color:transparent; width:120px" onchange="form.submit()" />
-                        </form>
+                            <form method="POST" action="{{ route('uploadLpj') }}" enctype="multipart/form-data">
+                                @csrf
+                                <input type="hidden" name="event_userId" value="{{ $transaction->id }}">
+                                <input type="file" name="lpj" style="color:transparent; width:120px" onchange="form.submit()" />
+                            </form>
                         @endif
                     </td>
                 </tr>

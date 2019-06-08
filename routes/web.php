@@ -27,6 +27,7 @@ Route::get('companyDetail/{companyId}', 'PagesController@companyDetailPage')->na
 Route::group(['middleware' => ['auth']], function(){
     Route::get('profile', 'PagesController@profilePage')->name('profilePage');
     Route::get('transactions', 'PagesController@transactionsPage')->name('transactionsPage');
+    Route::get('lpj/{lpjName}', 'EventsController@downloadLpj')->name('downloadLpj');
     Route::get('proposal/{proposalName}', 'EventsController@downloadProposal')->name('downloadProposal');
     Route::get('sponsorshipRequests', 'PagesController@sponsorshipRequestsPage')->name('sponsorshipRequestsPage');
     Route::get('acceptSponsorshipRequest/{event_userId}', 'EventsController@acceptSponsorshipRequest')->name('acceptSponsorshipRequest');
@@ -37,7 +38,7 @@ Route::group(['middleware' => ['auth']], function(){
 Route::group(['middleware' => ['verifyStudent']], function(){
     Route::get('createEvent', 'PagesController@createEventPage')->name('createEventPage');
     Route::post('createEvent', 'EventsController@create')->name('createEvent');
-    Route::post('uploadLpj', 'EventsController@uploadLpj')->name('uploadLpj');
+    Route::post('lpj', 'EventsController@uploadLpj')->name('uploadLpj');
     Route::post('studentRequestsSponsorship', 'EventsController@studentRequestsSponsorship')->name('studentRequestsSponsorship');
 });
 

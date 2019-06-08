@@ -44,6 +44,12 @@ class EventsController extends Controller
         return response()->download($proposalLink);
     }
 
+    public function downloadLpj($lpjName){
+        $lpjLink = storage_path('app/public/lpjs/'.$lpjName);
+
+        return response()->download($lpjLink);
+    }
+
     public function uploadLpj(Request $request){
         $hash = substr(sha1(time()), 0, 8);
         $fileExtension = $request->file('lpj')->getClientOriginalExtension();
