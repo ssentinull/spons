@@ -37,7 +37,11 @@ class PagesController extends Controller
     }
 
     public function companiesPage(){
-        $companies = User::where('role', Constant::ROLE_COMPANY)->with(['company'])->paginate(6);
+        $companies = User::where('role', Constant::ROLE_COMPANY)
+            ->orderBy('name', 'ASC')
+            ->with(['company'])
+            ->paginate(6);
+
         $firstCompanyIndex = $companies->firstItem();
 
         return view('pages.companies')->with(compact('companies', 'firstCompanyIndex'));
