@@ -13,7 +13,11 @@
                     <a class="btn purple-btn" href="{{ route('eventDetailPage', $events[$i]->id) }}">Look at Event Detail</a>
                 </div>
                 <div class="col-md-4">
-                    <a class="btn purple-btn" href="#">Download Proposal</a>
+                    @if ($events[$i]->proposal != "")
+                        <a class="btn purple-btn" href="{{ route('downloadProposal', $events[$i]->proposal) }}">Download Proposal</a>
+                    @else
+                        <a class="btn purple-invert-btn" href="#">Download Proposal</a>
+                    @endif
                 </div>
                 <div class="col-md-2">
                     <a class="btn green-btn" href="{{ route('acceptSponsorshipRequest', $sponsorshipRequest->id) }}">Accept</a>
