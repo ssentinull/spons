@@ -97,3 +97,19 @@
     border-radius: 20px;
     color: #343A3F;
 }
+
+.red-btn{
+    -moz-border-radius:20px;
+    -webkit-border-radius:20px;
+    background-color: #b22222;
+    border-color: #b22222;
+    border-radius: 20px;
+    color: white;
+}
+
+.red-btn:hover{
+    background-color: white;
+    border-color: #b22222;
+    border-radius: 20px;
+    color: #b22222;
+}
