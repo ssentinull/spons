@@ -15,8 +15,8 @@ class CreateGrantsTable extends Migration
     {
         Schema::create('grants', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('nominal_amount')->nullable();
-            $table->longText('descriptive_amount')->nullable();
+            $table->integer('nominal_amount')->unsigned()->nullable();
+            $table->string('descriptive_amount')->nullable();
             $table->integer('grant_types_id')->unsigned();
             $table->integer('user_id')->unsigned();
             $table->timestamps();

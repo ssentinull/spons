@@ -15,10 +15,10 @@ class CreateDocumentsTable extends Migration
     {
         Schema::create('documents', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('name');
-            
+            $table->string('name', 20);
+
             // Ex; Proposal, LPJ
-            $table->integer('type');
+            $table->tinyInteger('type');
             $table->timestamps();
         });
     }

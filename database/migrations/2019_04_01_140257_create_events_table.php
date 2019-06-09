@@ -21,12 +21,12 @@ class CreateEventsTable extends Migration
             $table->longText('description')->nullable();
 
             // Ex; Seminar, Conference, Concert, etc.
-            $table->integer('type');
+            $table->tinyInteger('type');
 
             // Ex; Technology, Environment, Social
-            $table->integer('category');
+            $table->tinyInteger('category');
 
-            $table->char('proposal', 20)->nullable();
+            $table->string('proposal', 20)->nullable();
             $table->integer('user_id')->unsigned();
             $table->timestamps();
         });

@@ -15,7 +15,7 @@ class CreateGrantTypesTable extends Migration
     {
         Schema::create('grant_types', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('name');
+            $table->string('name', 150);
             $table->longText('description');
             $table->timestamps();
         });

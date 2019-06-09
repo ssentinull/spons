@@ -17,10 +17,10 @@ class CreateStudentOrganizationsTable extends Migration
             $table->bigIncrements('id');
             $table->date('established_in');
             $table->string('address');
-            $table->string('major');
-            $table->string('university');
+            $table->string('major', 100);
+            $table->string('university', 100);
             $table->longText('description');
-            $table->char('picture', 20)->nullable();
+            $table->string('picture', 20)->nullable();
             $table->integer('user_id')->unsigned();
             $table->timestamps();
         });
