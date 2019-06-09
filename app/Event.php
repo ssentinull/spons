@@ -19,10 +19,6 @@ class Event extends Model
         return $this->belongsTo('App\User');
     }
 
-    public function document(){
-        return $this->belongsTo('App\Document');
-    }
-
     public function users(){
         return $this->belongsToMany('App\User');
     }

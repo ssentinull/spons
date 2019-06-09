@@ -16,8 +16,4 @@ class Event_User extends Model
     protected $fillable = [
         'student_confirmation_status', 'company_confirmation_status', 'lpj', 'event_id', 'student_id', 'user_id'
     ];
-
-    public function document(){
-        return $this->belongsTo('App\Document');
-    }
 }
