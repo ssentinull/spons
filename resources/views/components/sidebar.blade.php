@@ -22,11 +22,11 @@
 
             @if ($userData->status == Constant::COMPANY_STATUS_AVAILABLE)
                 <a href="{{ route('changeStatus', Auth::user()->id) }}">
-                    <button type="button" class="red-button" style="padding: 4px 8px">Change Status to Unavailabe</button>
+                    <button class="btn red-btn" type="button" style="padding: 4px 8px">Change Status to Unavailabe</button>
                 </a>
             @else
                 <a href="{{ route('changeStatus', Auth::user()->id) }}">
-                    <button type="button" class="green-button" style="padding: 4px 12px">Change Status to Available</button>
+                    <button class="btn green-btn" type="button" style="padding: 4px 12px">Change Status to Available</button>
                 </a>
             @endif
 
