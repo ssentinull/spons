@@ -6,30 +6,30 @@
     <div class="card-header pt-4" align="center">
         <h2 class="card-title">{{ $events[$i]->name }}</h2>
     </div>
-    <div class="card-block pt-4" align="center">
+    <div class="card-block p-4" align="center">
         <div class="row">
             @if (Auth::user()->role == Constant::ROLE_COMPANY)
                 <div class="col-md-4">
-                    <a href="{{ route('eventDetailPage', $events[$i]->id) }}" class="purple-button">Look at Event Detail</a>
+                    <a class="btn purple-btn" href="{{ route('eventDetailPage', $events[$i]->id) }}">Look at Event Detail</a>
                 </div>
                 <div class="col-md-4">
-                    <a href="#" class="purple-button">Download event proposal</a>
+                    <a class="btn purple-btn" href="#">Download Proposal</a>
                 </div>
                 <div class="col-md-2">
-                    <a href="{{ route('acceptSponsorshipRequest', $sponsorshipRequest->id) }}" class="green-button">Accept</a>
+                    <a class="btn green-btn" href="{{ route('acceptSponsorshipRequest', $sponsorshipRequest->id) }}">Accept</a>
                 </div>
                 <div class="col-md-2">
-                    <a href="{{ route('rejectSponsorshipRequest', $sponsorshipRequest->id) }}" class="red-button">Reject</a>
+                    <a class="btn red-btn" href="{{ route('rejectSponsorshipRequest', $sponsorshipRequest->id) }}">Reject</a>
                 </div>
             @else
-                <div class="col-md-6">
-                    <a href="{{ route('companyDetailPage', $sponsorshipRequest->user_id) }}" class="purple-button">Look at Company Detail</a>
+                <div class="col-md-8">
+                    <a class="btn purple-btn" href="{{ route('companyDetailPage', $sponsorshipRequest->user_id) }}">Look at Company Detail</a>
                 </div>
                 <div class="col-md-2">
-                    <a href="{{ route('acceptSponsorshipRequest', $sponsorshipRequest->id) }}" class="green-button">Accept</a>
+                    <a class="btn green-btn" href="{{ route('acceptSponsorshipRequest', $sponsorshipRequest->id) }}">Accept</a>
                 </div>
                 <div class="col-md-2">
-                    <a href="{{ route('rejectSponsorshipRequest', $sponsorshipRequest->id) }}" class="red-button">Reject</a>
+                    <a class="btn red-btn" href="{{ route('rejectSponsorshipRequest', $sponsorshipRequest->id) }}">Reject</a>
                 </div>
             @endif
         </div>
