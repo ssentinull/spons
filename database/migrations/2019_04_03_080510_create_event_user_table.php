@@ -15,8 +15,8 @@ class CreateEventUserTable extends Migration
     {
         Schema::create('event_user', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->boolean('student_confirmation_status');
-            $table->boolean('company_confirmation_status');
+            $table->tinyInteger('student_confirmation_status');
+            $table->tinyInteger('company_confirmation_status');
             $table->string('lpj', 25)->nullable();
             $table->integer('student_id')->unsigned();
             $table->integer('user_id')->unsigned();
