@@ -71,7 +71,7 @@
                                 <h5>Organizers:</h5>
                             </div>
                             <div class="col-md-7">
-                                <h5>{{ $event->name }}</h5>
+                                <h5>{{ $organizer->name }}</h5>
                             </div>
                         </div>
                     </div>
