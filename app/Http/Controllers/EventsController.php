@@ -8,16 +8,31 @@ use App\Constant;
 use App\Event;
 use App\Event_User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class EventsController extends Controller
 {
-    protected $table='events';
+    protected $table = 'events';
+
+    protected function eventValidator(array $data)
+    {
+        return Validator::make($data, [
+            'name' => ['required', 'string', 'max:255'],
+            'date' => ['required', 'date'],
+            'location' => ['required', 'string', 'max:255'],
+            'type' => ['required', 'integer'],
+            'category' => ['required', 'integer'],
+            'uploaded-proposal' => ['required', 'max:512']
+        ]);
+    }
 
     protected function create(Request $request){
 
         if(!Auth::user()){
             return redirect('/');
         }
+
+        $this->eventValidator($request->all())->validate();
 
         $hash = substr(sha1(time()), 0, 8);
 
@@ -50,7 +65,16 @@ class EventsController extends Controller
         return response()->download($lpjLink);
     }
 
+    protected function lpjValidator(array $data)
+    {
+        return Validator::make($data, [
+            'lpj' => ['required', 'max:512']
+        ]);
+    }
+
     public function uploadLpj(Request $request){
+        $this->lpjValidator($request->all())->validate();
+
         $hash = substr(sha1(time()), 0, 8);
         $fileExtension = $request->file('lpj')->getClientOriginalExtension();
         $fileName = $hash.'.'.$fileExtension;
