@@ -15,7 +15,15 @@
         </div>
     @else
         <div class="card-block p-4" align="center">
-            <h4 class="card-title">{{ $grant->grant_types_id }}</h4>
+            @if ($grant->grant_types_id == 1)
+                <h4 class="card-title">Monetary Grant</h4>
+            @elseif ($grant->grant_types_id == 2)
+                <h4 class="card-title">Food and Beverages Grant</h4>
+            @elseif ($grant->grant_types_id == 3)
+                <h4 class="card-title">Technical Support Grant</h4>
+            @elseif ($grant->grant_types_id == 4)
+                <h4 class="card-title">Venue Grant</h4>
+            @endif
             <p class="card-text">
                 @if ($grant->nominal_amount != null)
                     Nominal Amount: {{ $grant->nominal_amount }} <br>
