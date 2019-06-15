@@ -17,7 +17,11 @@
             </div>
             <div class="col-md-10 top-buffer-extra bottom-buffer-extra" style="margin-left: 280px">
                 <div class="cardawal">
-                    <p>Create an Event</p> <hr>
+                    <p>Create an Event</p>
+                    @foreach ($errors->all() as $error)
+                        <li>{{$error}}</li>
+                    @endforeach
+                    <hr>
                     <form  role="form" method="POST" action="{{ route('createEvent') }}" enctype="multipart/form-data">
                         @csrf
                         <div class="regisc">
