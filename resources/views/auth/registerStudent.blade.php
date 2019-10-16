@@ -34,7 +34,7 @@
                             </center>
                             <div class="tab-content pt-5 pb-5">
                                 <div class="tab-pane active" id="studentIndividual">
-                                    <form id="studentIndividual" class="tabcontent" method="POST" action="{{ route('registerStudentIndividual') }}" enctype="multipart/form-data">
+                                    <form id="studentIndividual" class="tabcontent" method="POST" action="{{ url('api/auth/register/student/individual') }}" enctype="multipart/form-data">
                                         @csrf
                                         <div class="regisc">
                                             <label for="name">Name </label>
@@ -80,7 +80,7 @@
                                     </div>
                                 </div>
                                 <div class="tab-pane" id="studentOrganization">
-                                    <form id="studentOrganization" class="tabcontent" method="POST" action="{{ route('registerStudentOrganization') }}" enctype="multipart/form-data">
+                                    <form id="studentOrganization" class="tabcontent" method="POST" action="{{ url('api/auth/register/student/organization') }}" enctype="multipart/form-data">
                                         @csrf
                                         <div class="regisc">
                                             <label for="name">Name </label>
@@ -108,11 +108,11 @@
                                             <label for="picture">Profile Picture</label>
                                             <input type="file" name="picture">
 
-                                            <label for="dob">Established in</label>
+                                            <label for="established_in">Established in</label>
                                             <label for="city" style="margin-left:60px;">Address</label> <br>
 
-                                            <input style="width: 130px;" type="date" placeholder="Established in" name="dob" required>
-                                            <input style="width: 130px;" type="text" placeholder="Address" name="Address" required>
+                                            <input style="width: 130px;" type="date" placeholder="Established in" name="established_in" required>
+                                            <input style="width: 130px;" type="text" placeholder="Address" name="address" required>
 
                                             <input type="hidden"  name="role" value={{ Constant::ROLE_STUDENT_ORGANIZATION }}>
                                         </div>

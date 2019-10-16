@@ -39,8 +39,6 @@ class Registercontroller extends Controller
 
     public function registerStudentIndividual(Request $request)
     {
-        $this->validator($request->all())->validate();
-
         $users = new User;
         $users->name =  $request->name;
         $users->email =  $request->email;
@@ -49,14 +47,13 @@ class Registercontroller extends Controller
         $users->save();
 
         event(new Registered($user = $this->createStudentIndividual($request->all(), $users->id)));
+
         return $this->registered($request, $user)
                         ?: redirect($this->redirectPath);
     }
 
     public function registerStudentOrganization(Request $request)
     {
-        $this->validator($request->all())->validate();
-
         $users = new User;
         $users->name =  $request->name;
         $users->email =  $request->email;
@@ -76,8 +73,6 @@ class Registercontroller extends Controller
 
     public function registerCompany(Request $request)
     {
-        $this->validator($request->all())->validate();
-
         $users = new User;
         $users->name =  $request->name;
         $users->email =  $request->email;
@@ -154,8 +149,8 @@ class Registercontroller extends Controller
         $fileName = $this->saveProfilePicture($data['picture']);
 
         return StudentOrganization::create([
-            'established_in' => $data['dob'],
-            'address' => $data['Address'],
+            'established_in' => $data['established_in'],
+            'address' => $data['address'],
             'major' => $data['major'],
             'university' => $data['university'],
             'description' => $data['desc'],

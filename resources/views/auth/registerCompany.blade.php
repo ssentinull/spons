@@ -14,7 +14,7 @@
             </a>
         </h2>
         <p>Welcome to the party!</p>
-        <form  role="form" method="POST" action="{{ route('registerCompany') }}" enctype="multipart/form-data">
+        <form  role="form" method="POST" action="{{ url('api/auth/register/company') }}" enctype="multipart/form-data">
             @csrf
             <div class="regisc">
                 <label for="name">Name </label>
