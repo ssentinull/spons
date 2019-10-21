@@ -34,7 +34,7 @@
                             </center>
                             <div class="tab-content pt-5 pb-5">
                                 <div class="tab-pane active" id="studentIndividual">
-                                    <form id="studentIndividual" class="tabcontent" method="POST" action="{{ url('api/auth/register/student/individual') }}" enctype="multipart/form-data">
+                                    <form id="studentIndividual" class="tabcontent" method="POST" action="{{ route('registerStudentIndividual') }}" enctype="multipart/form-data">
                                         @csrf
                                         <div class="regisc">
                                             <label for="name">Name </label>
@@ -80,7 +80,7 @@
                                     </div>
                                 </div>
                                 <div class="tab-pane" id="studentOrganization">
-                                    <form id="studentOrganization" class="tabcontent" method="POST" action="{{ url('api/auth/register/student/organization') }}" enctype="multipart/form-data">
+                                    <form id="studentOrganization" class="tabcontent" method="POST" action="{{ route('registerStudentOrganization') }}" enctype="multipart/form-data">
                                         @csrf
                                         <div class="regisc">
                                             <label for="name">Name </label>

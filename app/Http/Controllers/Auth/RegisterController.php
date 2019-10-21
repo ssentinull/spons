@@ -15,6 +15,8 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Http\Request;
 use Illuminate\Auth\Events\Registered;
+use Illuminate\Database\QueryException;
+use GuzzleHttp\Client;
 
 class Registercontroller extends Controller
 {
@@ -39,14 +41,7 @@ class Registercontroller extends Controller
 
     public function registerStudentIndividual(Request $request)
     {
-        $users = new User;
-        $users->name =  $request->name;
-        $users->email =  $request->email;
-        $users->role =  $request->role;
-        $users->password = Hash::make($request->password);
-        $users->save();
-
-        event(new Registered($user = $this->createStudentIndividual($request->all(), $users->id)));
+        list($users, $user) = $this->createStudentIndividualApi($request);
 
         return $this->registered($request, $user)
                         ?: redirect($this->redirectPath);
@@ -54,14 +49,8 @@ class Registercontroller extends Controller
 
     public function registerStudentOrganization(Request $request)
     {
-        $users = new User;
-        $users->name =  $request->name;
-        $users->email =  $request->email;
-        $users->role =  $request->role;
-        $users->password = Hash::make($request->password);
-        $users->save();
+        list($users, $user) = $this->createStudentOrganizationApi($request);
 
-        event(new Registered($user = $this->createStudentOrganization($request->all(), $users->id)));
         return $this->registered($request, $user)
                         ?: redirect($this->redirectPath);
     }
@@ -73,14 +62,8 @@ class Registercontroller extends Controller
 
     public function registerCompany(Request $request)
     {
-        $users = new User;
-        $users->name =  $request->name;
-        $users->email =  $request->email;
-        $users->role =  $request->role;
-        $users->password = Hash::make($request->password);
-        $users->save();
+        list($users, $user) = $this->createCompanyApi($request);
 
-        event(new Registered($user = $this->createCompany($request->all(), $users->id)));
         return $this->registered($request, $user)
                         ?: redirect($this->redirectPath);
     }
@@ -129,47 +112,122 @@ class Registercontroller extends Controller
         return $fileName;
     }
 
-    protected function createStudentIndividual(array $data, $id)
+    protected function createStudentIndividualApi(Request $request)
     {
-        $fileName = $this->saveProfilePicture($data['picture']);
+        try{
+            $users = new User;
+            $users->name =  $request->name;
+            $users->email =  $request->email;
+            $users->role =  $request->role;
+            $users->password = Hash::make($request->password);
+            $users->save();
 
-        return StudentIndividual::create([
-            'dob' => $data['dob'],
-            'city' => $data['city'],
-            'major' => $data['major'],
-            'faculty' => $data['faculty'],
-            'university' => $data['university'],
-            'picture' => $fileName,
-            'user_id' => $id,
-        ]);
+            $fileName = $this->saveProfilePicture($request->picture);
+
+            $user = StudentIndividual::create([
+                'dob' => $request->dob,
+                'city' => $request->city,
+                'major' => $request->major,
+                'faculty' => $request->faculty,
+                'university' => $request->university,
+                'picture' => $fileName,
+                'user_id' => $users->id,
+            ]);
+
+            $returnObj = (object) [
+                'code' => 200,
+                'message' => 'success',
+                'payload' => $user
+            ];
+
+            return json_encode($returnObj);
+        }catch(QueryException $e){
+            $returnObj = (object) [
+                'code' => 400,
+                'message' => $e->getMessage(),
+                'payload' => []
+            ];
+
+            return json_encode($returnObj);
+        }
     }
 
-    protected function createStudentOrganization(array $data, $id)
+    protected function createStudentOrganizationApi(Request $request)
     {
-        $fileName = $this->saveProfilePicture($data['picture']);
+        try{
+            $users = new User;
+            $users->name =  $request->name;
+            $users->email =  $request->email;
+            $users->role =  $request->role;
+            $users->password = Hash::make($request->password);
+            $users->save();
 
-        return StudentOrganization::create([
-            'established_in' => $data['established_in'],
-            'address' => $data['address'],
-            'major' => $data['major'],
-            'university' => $data['university'],
-            'description' => $data['desc'],
-            'picture' => $fileName,
-            'user_id' => $id,
-        ]);
+            $fileName = $this->saveProfilePicture($request->picture);
+
+            $user =  StudentOrganization::create([
+                'established_in' => $request->established_in,
+                'address' => $request->address,
+                'major' => $request->major,
+                'university' => $request->university,
+                'description' => $request->desc,
+                'picture' => $fileName,
+                'user_id' => $users->id,
+            ]);
+
+            $returnObj = (object) [
+                'code' => 200,
+                'message' => 'success',
+                'payload' => $user
+            ];
+
+            return json_encode($returnObj);
+        }catch(QueryException $e){
+            $returnObj = (object) [
+                'code' => 400,
+                'message' => $e->getMessage(),
+                'payload' => []
+            ];
+
+            return json_encode($returnObj);
+        }
     }
 
-    protected function createCompany(array $data, $id)
+    protected function createCompanyApi(Request $request)
     {
-        $fileName = $this->saveProfilePicture($data['picture']);
+        try{
+            $users = new User;
+            $users->name =  $request->name;
+            $users->email =  $request->email;
+            $users->role =  $request->role;
+            $users->password = Hash::make($request->password);
+            $users->save();
 
-        return Company::create([
-            'established_in' => $data['established_in'],
-            'address' => $data['address'],
-            'description' => $data['description'],
-            'status' => Constant::COMPANY_STATUS_AVAILABLE,
-            'picture' => $fileName,
-            'user_id' => $id,
-        ]);
+            $fileName = $this->saveProfilePicture($request->picture);
+
+            $user = Company::create([
+                'established_in' => $request->established_in,
+                'address' => $request->address,
+                'description' => $request->description,
+                'status' => Constant::COMPANY_STATUS_AVAILABLE,
+                'picture' => $fileName,
+                'user_id' => $users->id,
+            ]);
+
+            $returnObj = (object) [
+                'code' => 200,
+                'message' => 'success',
+                'payload' => $user
+            ];
+
+            return json_encode($returnObj);
+        }catch(QueryException $e){
+            $returnObj = (object) [
+                'code' => 400,
+                'message' => $e->getMessage(),
+                'payload' => []
+            ];
+
+            return json_encode($returnObj);
+        }
     }
 }
