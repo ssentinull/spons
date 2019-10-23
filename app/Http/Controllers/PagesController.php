@@ -15,11 +15,35 @@ use App\StudentIndividual;
 use App\StudentOrganization;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Database\QueryException;
+use GuzzleHttp\Client;
 
 class PagesController extends Controller
 {
     public function landingPage(){
         return view('pages.landing');
+    }
+
+    public function getEventsApi(){
+        try{
+            $events = Event::orderBy('created_at', 'desc')->paginate(6);
+
+            $returnObj = (object) [
+                'code' => 200,
+                'message' => 'success',
+                'payload' => $events
+            ];
+
+            return json_encode($returnObj);
+        }catch(QueryException $e){
+            $returnObj = (object) [
+                'code' => 400,
+                'message' => $e->getMessage(),
+                'payload' => []
+            ];
+
+            return json_encode($returnObj);
+        }
     }
 
     public function eventsPage(){
@@ -29,11 +53,58 @@ class PagesController extends Controller
         return view('pages.events')->with(compact('events', 'firstEventIndex'));
     }
 
+    public function getEventApi($eventId){
+        try{
+            $event = Event::find($eventId);
+
+            $returnObj = (object) [
+                'code' => 200,
+                'message' => 'success',
+                'payload' => $event
+            ];
+
+            return json_encode($returnObj);
+        }catch(QueryException $e){
+            $returnObj = (object) [
+                'code' => 400,
+                'message' => $e->getMessage(),
+                'payload' => []
+            ];
+
+            return json_encode($returnObj);
+        }
+    }
+
     public function eventDetailPage($eventId){
         $event = Event::find($eventId);
         $organizer = $event->user;
 
         return view('pages.eventDetail')->with(compact('event', 'organizer'));
+    }
+
+    public function getCompaniesApi(){
+        try{
+            $companies = User::where('role', Constant::ROLE_COMPANY)
+                ->orderBy('name', 'ASC')
+                ->with(['company'])
+                ->paginate(6);
+
+            $returnObj = (object) [
+                'code' => 200,
+                'message' => 'success',
+                'payload' => $companies
+            ];
+
+            return json_encode($returnObj);
+        }catch(QueryException $e){
+            $returnObj = (object) [
+                'code' => 400,
+                'message' => $e->getMessage(),
+                'payload' => []
+            ];
+
+            return json_encode($returnObj);
+        }
     }
 
     public function companiesPage(){
@@ -45,6 +116,29 @@ class PagesController extends Controller
         $firstCompanyIndex = $companies->firstItem();
 
         return view('pages.companies')->with(compact('companies', 'firstCompanyIndex'));
+    }
+
+    public function getCompanyApi($companyId){
+        try{
+            $companyUser = User::find($companyId);
+            $companyData = $companyUser->company;
+
+            $returnObj = (object) [
+                'code' => 200,
+                'message' => 'success',
+                'payload' => $companyUser
+            ];
+
+            return json_encode($returnObj);
+        }catch(QueryException $e){
+            $returnObj = (object) [
+                'code' => 400,
+                'message' => $e->getMessage(),
+                'payload' => []
+            ];
+
+            return json_encode($returnObj);
+        }
     }
 
     public function companyDetailPage($companyId){
