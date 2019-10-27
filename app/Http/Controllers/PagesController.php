@@ -20,6 +20,21 @@ use GuzzleHttp\Client;
 
 class PagesController extends Controller
 {
+    public $globalCategories = [
+        Constant::EVENT_CATEGORY_TECHNOLOGY,
+        Constant::EVENT_CATEGORY_BUSINESS,
+        Constant::EVENT_CATEGORY_ART,
+        Constant::EVENT_CATEGORY_SCIENCE,
+        Constant::EVENT_CATEGORY_SOCIAL,
+    ];
+
+    public $globalTypes = [
+        Constant::EVENT_TYPE_SEMINAR,
+        Constant::EVENT_TYPE_FESTIVAL,
+        Constant::EVENT_TYPE_CONFERENCE,
+        Constant::EVENT_TYPE_WORKSHOP,
+    ];
+
     public function landingPage(){
         return view('pages.landing');
     }
@@ -48,9 +63,36 @@ class PagesController extends Controller
 
     public function eventsPage(){
         $events = Event::orderBy('created_at', 'desc')->paginate(6);
-        $firstEventIndex = $events->firstItem();
+        $types = $this->globalTypes;
+        $categories = $this->globalCategories;
 
-        return view('pages.events')->with(compact('events', 'firstEventIndex'));
+        return view('pages.events')->with(compact('events', 'types', 'categories'));
+    }
+
+    public function eventsFilteredPage(Request $request){
+        $query = Event::whereNotNull('created_at');
+
+        if($request->eventTypeFilter){
+            $query->where('type', $request->eventTypeFilter);
+        }
+
+        if($request->eventCategoryFilter){
+            $query->where('category', $request->eventCategoryFilter);
+        }
+
+        if($request->orderByFilter){
+            if($request->orderByFilter == 'asc'){
+                $query->orderBy('created_at', 'asc');
+            } else {
+                $query->orderBy('created_at', 'desc');
+            }
+        }
+
+        $events = $query->paginate(6);
+        $types = $this->globalTypes;
+        $categories = $this->globalCategories;
+
+        return view('pages.events')->with(compact('events', 'categories', 'types'));
     }
 
     public function getEventApi($eventId){

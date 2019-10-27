@@ -20,6 +20,7 @@ Route::get('/', 'PagesController@landingPage')->name('landingPage');
 Route::get('error', 'PagesController@errorPage')->name('errorPage');
 
 Route::get('events', 'PagesController@eventsPage')->name('eventsPage');
+Route::get('eventsFiltered', 'PagesController@eventsFilteredPage')->name('eventsFilteredPage');
 Route::get('eventDetail/{eventId}', 'PagesController@eventDetailPage')->name('eventDetailPage');
 Route::get('companies', 'PagesController@companiesPage')->name('companiesPage');
 Route::get('companyDetail/{companyId}', 'PagesController@companyDetailPage')->name('companyDetailPage');
