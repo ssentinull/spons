@@ -70,8 +70,44 @@
                             <div class="col-md-5">
                                 <h5>Organizers:</h5>
                             </div>
-                            <div class="col-md-7">
+                            <div class="col-md-6">
                                 <h5>{{ $organizer->name }}</h5>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h5>Event Category:</h5>
+                            </div>
+                            <div class="col-md-5">
+                                @if ($event->category == Constant::EVENT_CATEGORY_TECHNOLOGY)
+                                    <h5>Technology</h5>
+                                @elseif ($event->category == Constant::EVENT_CATEGORY_BUSINESS)
+                                    <h5>Business</h5>
+                                @elseif ($event->category == Constant::EVENT_CATEGORY_ART)
+                                    <h5>Art</h5>
+                                @elseif ($event->category == Constant::EVENT_CATEGORY_SOCIAL)
+                                    <h5>Social</h5>
+                                @elseif ($event->category == Constant::EVENT_CATEGORY_SCIENCE)
+                                    <h5>Science</h5>
+                                @endif
+                            </div>
+                        </div>
+                        <br>
+                        <div class="row">
+                            <div class="col-md-5">
+                                <h5>Event Type:</h5>
+                            </div>
+                            <div class="col-md-5">
+                                @if ($event->type == Constant::EVENT_TYPE_SEMINAR)
+                                    <h5>Seminar</h5>
+                                @elseif ($event->type == Constant::EVENT_TYPE_FESTIVAL)
+                                    <h5>Festival</h5>
+                                @elseif ($event->type == Constant::EVENT_TYPE_CONFERENCE)
+                                    <h5>Conference</h5>
+                                @elseif ($event->type == Constant::EVENT_TYPE_WORKSHOP)
+                                    <h5>Workshop</h5>
+                                @endif
                             </div>
                         </div>
                     </div>
