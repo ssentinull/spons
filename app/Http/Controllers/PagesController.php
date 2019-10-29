@@ -155,9 +155,7 @@ class PagesController extends Controller
             ->with(['company'])
             ->paginate(6);
 
-        $firstCompanyIndex = $companies->firstItem();
-
-        return view('pages.companies')->with(compact('companies', 'firstCompanyIndex'));
+        return view('pages.companies')->with(compact('companies'));
     }
 
     public function getCompanyApi($companyId){

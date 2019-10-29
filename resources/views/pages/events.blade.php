@@ -15,7 +15,8 @@
     </div>
     <form action="{{ route('eventsFilteredPage') }}">
         <div class="row justify-content-center top-buffer-extra">
-            <div class="col-md-2 col-3">
+            <div class="col-1"></div>
+            <div class="col-3">
                 <select name="eventCategoryFilter" id="eventCategoryFilter" class="form-control">
                     <option value="" disabled selected>Event Category</option>
                     @foreach($categories as $category )
@@ -35,7 +36,7 @@
                     @endforeach
                 </select>
             </div>
-            <div class="col-md-2 col-3">
+            <div class="col-3">
                 <select name="eventTypeFilter" id="eventTypeFilter" class="form-control">
                     <option value="" disabled selected>Event Type</option>
                     @foreach($types as $type )
@@ -53,14 +54,14 @@
                     @endforeach
                 </select>
             </div>
-            <div class="col-md-2 col-3">
+            <div class="col-3">
                 <select name="orderByFilter" id="orderByFilter" class="form-control">
                     <option value="" disabled selected>Order By</option>
                     <option value="asc">Ascending</option>
                     <option value="desc">Descending</option>
                 </select>
             </div>
-            <div class="col-md-2 col-3">
+            <div class="col-2">
                 <button type="submit" class="w-50 btn green-btn">Filter</button>
             </div>
         </div>

@@ -15,10 +15,10 @@
     </div>
     <div class="row justify-content-center top-buffer">
         <div class="col-md-1"></div>
-        <div class="col-md-5">
-            <h4 style="color: #0E8C7F;">Showing {{$firstCompanyIndex + 5}} out of {{$companies->total()}}</h4>
+        <div class="col-md-7">
+            <h4 style="color: #0E8C7F;">There are {{$companies->total()}} amazing Companies waiting to be sponsors!</h4>
         </div>
-        <div class="col-md-6"></div>
+        <div class="col-md-4"></div>
     </div>
     <div class="row">
         <div class="prodictrow">
