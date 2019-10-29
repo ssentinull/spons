@@ -69,6 +69,46 @@ class PagesController extends Controller
         return view('pages.events')->with(compact('events', 'types', 'categories'));
     }
 
+    public function getEventsFilteredApi(Request $request){
+        try{
+            $query = Event::whereNotNull('created_at');
+
+            if($request->eventTypeFilter){
+                $query->where('type', $request->eventTypeFilter);
+            }
+
+            if($request->eventCategoryFilter){
+                $query->where('category', $request->eventCategoryFilter);
+            }
+
+            if($request->orderByFilter){
+                if($request->orderByFilter == 'asc'){
+                    $query->orderBy('created_at', 'asc');
+                } else {
+                    $query->orderBy('created_at', 'desc');
+                }
+            }
+
+            $events = $query->paginate(6);
+
+            $returnObj = (object) [
+                'code' => 200,
+                'message' => 'success',
+                'payload' => $events
+            ];
+
+            return json_encode($returnObj);
+        }catch(QueryException $e){
+            $returnObj = (object) [
+                'code' => 400,
+                'message' => $e->getMessage(),
+                'payload' => []
+            ];
+
+            return json_encode($returnObj);
+        }
+    }
+
     public function eventsFilteredPage(Request $request){
         $query = Event::whereNotNull('created_at');
 

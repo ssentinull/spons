@@ -28,3 +28,4 @@ Route::get('companies/{companyId}', 'PagesController@getCompanyApi');
 
 Route::get('events', 'PagesController@getEventsApi');
 Route::get('events/{eventId}', 'PagesController@getEventApi');
+Route::post('eventsFiltered', 'PagesController@getEventsFilteredApi');
