@@ -69,15 +69,25 @@
     <div class="row top-buffer-extra">
         <div class="col-md-1"></div>
         <div class="col-md-7">
-            <h4 style="color: #0E8C7F;">There are {{$events->total()}} awesome Events waiting to be sponsored!</h4>
+            @if (count($events) > 0)
+                <h4 style="color: #0E8C7F;">There are {{$events->total()}} awesome Events waiting to be sponsored!</h4>
+            @else
+                <h4 style="color: #0E8C7F;">We're sorry, but there are no Events that fit those requirements..</h4>
+            @endif
         </div>
         <div class="col-md-4"></div>
     </div>
     <div class="row">
         <div class="prodictrow" >
-            @foreach($events as $event)
-                @include('components.eventsCard')
-            @endforeach
+            @if (count($events) > 0)
+                @foreach($events as $event)
+                    @include('components.eventsCard')
+                @endforeach
+            @else
+                <div class="col-md-6">
+                    <img src="../img/images/empty.svg" class="img-responsive" style="height:400px; width:400px;">
+                </div>
+            @endif
         </div>
     </div>
     <div class="row justify-content-center top-buffer-extra bottom-buffer-extra" >
